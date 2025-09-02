@@ -1,0 +1,39 @@
+{
+  "id": "15282051-1de5-4024-9ae3-8e1a3b29aab8",
+  "name": ".vscode",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [ {
+     "id": "cbd327b3-5ca7-47ba-8da8-b1645ceb6012",
+  "name": "customervisitlog",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0"
+
+  }
+],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "10.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
