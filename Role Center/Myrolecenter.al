@@ -27,7 +27,7 @@ layout
                 action(salesOrders)
                 {
                     Caption = 'sales orders';
-                    RunObject = page "Sales Order";
+                    RunObject = page "Sales Order List";
                     ApplicationArea = All;
 
                 }
@@ -40,13 +40,37 @@ layout
                 action(salesInvoices)
                 {
                     Caption = 'sales invoices';
-                    RunObject = page "Sales Invoice";
+                    RunObject = page "Sales Invoice List";
                     ApplicationArea = All;
                 
                 
                 }
             }
-           
+           group(AssetManagement)
+            {
+                caption = 'AssetManagement';
+                action(EmployeeAssetList)
+                {
+                    Caption = 'EmployeeAssetList';
+                    RunObject = page "Employee Asset List";
+                    ApplicationArea = All;
+
+                }
+                action(AssetList)
+                {
+                    Caption = 'AssetList';
+                    RunObject = page "Asset List";
+                    ApplicationArea = All;
+                }
+                action(AssetType)
+                {
+                    Caption = 'AssetType';
+                    RunObject = page "Asset type List";
+                    ApplicationArea = All;
+                
+                
+                }
+            }
         }
         area(Embedding)
         {
