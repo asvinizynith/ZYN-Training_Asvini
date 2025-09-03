@@ -13,6 +13,7 @@ layout
             ApplicationArea = All;
             Caption = 'My Cue';
             //SubPageLink = "Customer Number" = field("Customer Number");
+            
         }
     }
 }
@@ -28,6 +29,7 @@ layout
                     Caption = 'sales orders';
                     RunObject = page "Sales Order";
                     ApplicationArea = All;
+
                 }
                 action(salesQuotes)
                 {

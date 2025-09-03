@@ -16,15 +16,15 @@ page 50128 MyCue
 
                 {
                     ApplicationArea = All;
-                    Style = Attention;
+                    Style = Ambiguous;
                     Caption = 'Visit Log';
 
                     trigger OnDrillDown()
                     var
                         CustomerList: Page "Customer List";
-                                          Visit: Record "Customer Visit Log";
-                                          Customer: Record Customer;
-                                          TempCustomer: Record Customer temporary;
+                        Visit: Record "Customer Visit Log";
+                        Customer: Record Customer;
+                        TempCustomer: Record Customer temporary;
                     begin
                         Visit.Reset();
                         Visit.SetRange("Date", WorkDate());
