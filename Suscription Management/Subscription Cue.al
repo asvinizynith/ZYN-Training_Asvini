@@ -77,13 +77,12 @@ page 50130 "Subscription Cues"
         InvoiceRec.SetRange(Subscription, true);
         InvoiceRec.SetRange("Document Date", DMY2Date(1, workmonth, workyear), DMY2Date(31, workmonth, workyear));
 
-        if InvoiceRec.FindSet() then begin
 
+        if InvoiceRec.FindSet() then
             repeat
-                InvoiceRec.CalcFields(Amount);
-                TotalAmount += InvoiceRec.Amount;
+                InvoiceRec.CalcFields("Amount");
+                TotalAmount += InvoiceRec."Amount";
             until InvoiceRec.Next() = 0;
-        end;
 
     end;
 }
