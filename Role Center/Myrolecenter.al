@@ -12,7 +12,13 @@ layout
         {
             ApplicationArea = All;
             Caption = 'My Cue';
-            //SubPageLink = "Customer Number" = field("Customer Number");
+           
+            
+        }
+        part("Subscription Cues"; 50130)
+        {
+            ApplicationArea = All;
+            Caption = 'Subscription Cues';
             
         }
     }
@@ -21,56 +27,95 @@ layout
     {
         area(Sections)
         {
-            group(Sales)
+         group(AssetManagement)
             {
-                caption = 'Sales';
-                action(salesOrders)
-                {
-                    Caption = 'sales orders';
-                    RunObject = page "Sales Order List";
-                    ApplicationArea = All;
-
-                }
-                action(salesQuotes)
-                {
-                    Caption = 'sales qutoes';
-                    RunObject = page "Sales Quote";
-                    ApplicationArea = All;
-                }
-                action(salesInvoices)
-                {
-                    Caption = 'sales invoices';
-                    RunObject = page "Sales Invoice List";
-                    ApplicationArea = All;
-                
-                
-                }
-            }
-           group(AssetManagement)
-            {
-                caption = 'AssetManagement';
+                caption = 'Asset Management';
                 action(EmployeeAssetList)
                 {
-                    Caption = 'EmployeeAssetList';
+                    Caption = 'Employee Asset List';
                     RunObject = page "Employee Asset List";
                     ApplicationArea = All;
 
                 }
                 action(AssetList)
                 {
-                    Caption = 'AssetList';
+                    Caption = 'Asset List';
                     RunObject = page "Asset List";
                     ApplicationArea = All;
                 }
                 action(AssetType)
                 {
-                    Caption = 'AssetType';
+                    Caption = 'Asset Type';
                     RunObject = page "Asset type List";
                     ApplicationArea = All;
                 
-                
                 }
             }
+            group(ExpenseVSBudgetManagement)
+            {
+                caption = 'Expense VS Budget Management';
+                action(ExpenseCategory)
+                {
+                    Caption = 'Expense Category List';
+                    RunObject = page "Expense Category List ";
+                    ApplicationArea = All;
+
+                }
+                action(ExpenseList)
+                {
+                    Caption = 'Expense List';
+                    RunObject = page "Expense List";
+                    ApplicationArea = All;
+                }
+                action(RecurringExpense)
+                {
+                    Caption = 'Recurring Expense list';
+                    RunObject = page "Recurring Expense List";
+                    ApplicationArea = All;
+                }
+                action(Budget)
+                {
+                    Caption = 'Budget list';
+                    RunObject = page "Budget List";
+                    ApplicationArea = All;
+                }
+                 action(IncomeCategory)
+                {
+                    Caption = 'Income Category list';
+                    RunObject = page "Income Category List ";
+                    ApplicationArea = All;
+                }
+                action(Income)
+                {
+                    Caption = 'Income list';
+                    RunObject = page "Income List";
+                    ApplicationArea = All;
+                }
+            }
+            group(LeaveManagement)
+            {
+                caption = 'Leave Management';
+                action(Employee)
+                {
+                    Caption = 'Employee List';
+                    RunObject = page "Employee Entry List";
+                    ApplicationArea = All;
+
+                }
+                action(LeaveCategory)
+                {
+                    Caption = 'Leave Category List';
+                    RunObject = page "Leave Category List";
+                    ApplicationArea = All;
+                }
+                action(LeaveRequest)
+                {
+                    Caption = 'Leave Request list';
+                    RunObject = page "Leave Request List";
+                    ApplicationArea = All;
+                }
+                
+                }
         }
         area(Embedding)
         {

@@ -23,7 +23,19 @@ page 50119 "Employee Asset Card"
                 }
                 field("Serial No"; Rec."Serial No")
                 {
-
+trigger OnValidate()
+    var
+        EmpAssetRec: Record "Employee Asset Table";
+    begin
+        // If the asset is already assigned, check if it's assigned to this employee
+        EmpAssetRec.Reset();
+        EmpAssetRec.SetRange("Serial No", Rec."Serial No");
+        if EmpAssetRec.FindFirst() then begin
+            if (EmpAssetRec.Status = EmpAssetRec.Status::Assigned) and
+               (EmpAssetRec."Employee ID" <> Rec."Employee ID") then
+                Error('This asset is already assigned to another employee.');
+        end;
+    end;
                 }
                 field("Asset Name"; Rec."Asset Name")
                 {
@@ -32,26 +44,28 @@ page 50119 "Employee Asset Card"
 
                 field(Status; Rec.Status)
                 {
-
+                    trigger OnValidate()
+                    begin
+                        CurrPage.Update(); // refresh UI
+                        SetEditableFlags();
+                    end;
                 }
                 field("Assigned Date"; rec."Assigned Date")
                 {
                     ApplicationArea = All;
-                    Editable = IsAssignedEditable;
+                    Editable = AssignedDateEditable;
                 }
 
                 field("Returned Date"; rec."Returned Date")
                 {
                     ApplicationArea = All;
-                    Editable = IsReturnedEditable;
-
+                    Editable = ReturnedDateEditable;
                 }
 
                 field("Lost Date"; rec."Lost Date")
                 {
                     ApplicationArea = All;
-                    Editable = IsLostEditable;
-
+                    Editable = LostDateEditable;
                 }
             }
 
@@ -59,42 +73,47 @@ page 50119 "Employee Asset Card"
         }
     }
     var
-        IsAssignedEditable: Boolean;
-        IsReturnedEditable: Boolean;
-        IsLostEditable: Boolean;
-
-    trigger OnAfterGetCurrRecord()
-    begin
-        UpdateFieldEditability();
-    end;
+        AssignedDateEditable: Boolean;
+        ReturnedDateEditable: Boolean;
+        LostDateEditable: Boolean;
 
     trigger OnAfterGetRecord()
     begin
-        UpdateFieldEditability();
+        SetEditableFlags();
     end;
 
-    local procedure UpdateFieldEditability()
+    local procedure SetEditableFlags()
     begin
-        // Reset all
-        IsAssignedEditable := false;
-        IsReturnedEditable := false;
-        IsLostEditable := false;
-
-        case rec.Status of
-            rec.Status::Assigned:
+        case Rec.Status of
+            Rec.Status::Assigned:
                 begin
-                    IsAssignedEditable := true;   // Only Assigned Date editable
+                    // User enters Assigned Date manually
+                    AssignedDateEditable := true;
+                    ReturnedDateEditable := false;
+                    LostDateEditable := false;
                 end;
 
-            rec.Status::Returned:
+            Rec.Status::Returned:
                 begin
-                    IsReturnedEditable := true;   // Only Returned Date editable
+                    // Assigned Date is auto-filled from HandleStatusChange()
+                    AssignedDateEditable := false;
+                    ReturnedDateEditable := true;   // only Returned Date editable
+                    LostDateEditable := false;
                 end;
 
-            rec.Status::Lost:
+            Rec.Status::Lost:
                 begin
-                    IsLostEditable := true;       // Only Lost Date editable
+                    // Assigned Date is auto-filled from HandleStatusChange()
+                    AssignedDateEditable := false;
+                    ReturnedDateEditable := false;
+                    LostDateEditable := true;       // only Lost Date editable
                 end;
+
+            else begin
+                AssignedDateEditable := true;
+                ReturnedDateEditable := true;
+                LostDateEditable := true;
+            end;
         end;
     end;
 }

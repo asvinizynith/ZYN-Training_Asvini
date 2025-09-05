@@ -9,6 +9,23 @@ page 50100 "Customer Sales FactBox"
     {
         area(content)
         {
+            cuegroup(Subscriptions)
+            {
+                field("Active Subscriptions"; ActiveSubscriptions)
+                {
+                    ApplicationArea = All;
+                    DrillDown = true;
+                    trigger OnDrillDown()
+                    var
+                        SubscriptionRec: Record "Subscription Table";
+                        SubscriptionList: Page "Subscription List";
+                    begin
+                        SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
+                        SubscriptionList.SetTableView(SubscriptionRec);
+                        SubscriptionList.Run();
+                    end;
+                }
+            }
             group("Contact Info")
             {
                 Visible = ContentVisible;
@@ -90,6 +107,7 @@ page 50100 "Customer Sales FactBox"
         OpenSalesOrdersCount: Integer;
         OpenSalesInvoicesCount: Integer;
         ContentVisible: Boolean;
+        ActiveSubscriptions: Integer;
 
 
 
@@ -98,8 +116,13 @@ page 50100 "Customer Sales FactBox"
         SalesHeader: Record "Sales Header";
         SalesInvHeader: Record "Sales Invoice Header";
         ContactRec: Record Contact;
+        SubscriptionRec: Record "Subscription Table";
 
     begin
+        // Count active subscriptions dynamically
+        SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
+        ActiveSubscriptions := SubscriptionRec.Count;
+
         // Find Contact linked to Customer
         Clear(ContactNo);
         Clear(ContactName);

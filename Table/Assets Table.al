@@ -42,23 +42,55 @@ table 50112 "Asset Table"
             Clustered = true;
         }
     }
-    //     trigger OnInsert()
-    // begin
-    //     UpdateAvailable();
-    // end;
+    trigger OnModify()
+    begin
+        UpdateAvailable();
+    end;
 
-    // trigger OnModify()
-    // begin
-    //     UpdateAvailable();
-    // end;
+    trigger OnInsert()
+    begin
+        UpdateAvailable();
+    end;
 
-    // procedure UpdateAvailable()
-    // begin
-    //     if ("Procured Date" <> 0D) and (CalcDate('<+5Y>', "Procured Date") >= WorkDate()) then
-    //         Available := true
-    //     else
-    //         Available := false;
-    // end;
+    procedure UpdateAvailable()
+    var
+        EmpAsset: Record "Employee Asset Table";
+        ExpiryDate: Date;
+    begin
+        if "Procured Date" <> 0D then
+            ExpiryDate := CalcDate('<+5Y>', "Procured Date");
+
+        // Default to false
+        "Available" := false;
+
+        // Find the latest Employee Asset entry for this Asset
+        EmpAsset.Reset();
+        EmpAsset.SetRange("Serial No", "Serial No");
+        if EmpAsset.FindLast() then begin
+            case EmpAsset.Status of
+                EmpAsset.Status::Returned:
+                    if (WorkDate() <= ExpiryDate) then
+                        "Available" := true
+                    else
+                        "Available" := false;
+
+                EmpAsset.Status::Lost:
+                    "Available" := false;
+
+                EmpAsset.Status::Assigned:
+                    if (WorkDate() <= ExpiryDate) then
+                        "Available" := true;
+                else
+                    Available := false;
+            end;
+        end else begin
+            // No employee record → asset is free if not expired
+            if (Today <= ExpiryDate) then
+                "Available" := true
+            else
+                "Available" := false;
+        end;
+    end;
 
 
 }

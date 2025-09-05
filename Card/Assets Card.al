@@ -45,6 +45,4 @@ page 50117 "Asset Card"
     }
 
 
-
-
 }

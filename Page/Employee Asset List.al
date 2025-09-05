@@ -14,13 +14,10 @@ page 50120 "Employee Asset List"
             repeater(AssetDetails)
             {
                 Editable = false;
-                field("Entry No"; Rec."Entry No")
-                {
 
-                }
                 field("Employee ID"; Rec."Employee ID")
                 {
-
+                    TableRelation = "Employee Table"."Employee Name";
                 }
                 field("Serial No"; Rec."Serial No")
                 {
@@ -52,4 +49,5 @@ page 50120 "Employee Asset List"
 
         }
     }
+
 }

@@ -19,30 +19,7 @@ table 50114 "Employee Asset Table"
         field(3; "Serial No"; Code[30])
         {
             Caption = 'Serial No';
-
-            trigger OnLookup()
-            var
-                Asset: Record "Asset Table";
-            begin
-                Asset.Reset();
-                Asset.SetRange("Serial No", Rec."Serial No");
-                Asset.SetRange(Available, true); // only available assets
-                if Page.RunModal(Page::"Asset List", Asset) = Action::LookupOK then begin
-                    "Serial No" := Asset."Serial No";
-                end;
-            end;
-
-
-            trigger OnValidate()
-            var
-                Asset: Record "Asset Table";
-            begin
-                if Asset.Get("Serial No") then begin
-                    if not Asset.Available then
-                        Error('The selected asset (%1) is not available.', "Serial No");
-                end;
-            end;
-
+            TableRelation = "Asset Table"."Serial No" WHERE(Available = CONST(true));
         }
         field(4; "Asset Name"; Text[50])
         {
@@ -54,6 +31,23 @@ table 50114 "Employee Asset Table"
         field(5; Status; Enum "Asset Status")
         {
             Caption = 'Status';
+            trigger OnValidate()
+            var
+                AssetRec: Record "Employee Asset Table";
+            begin
+                // If asset is being Returned or Lost
+                if (Status = Status::Returned) or (Status = Status::Lost) then begin
+                    // Find the original assigned record for the same asset
+                    AssetRec.Reset();
+                    AssetRec.SetRange("Serial No", Rec."Serial No");
+                    AssetRec.SetRange(Status, AssetRec.Status::Assigned);
+
+                    if AssetRec.FindFirst() then begin
+                        Rec."Assigned Date" := AssetRec."Assigned Date";
+                    end;
+                end;
+            end;
+
         }
         field(6; "Assigned Date"; Date)
         {
@@ -76,5 +70,4 @@ table 50114 "Employee Asset Table"
             Clustered = true;
         }
     }
-
 }

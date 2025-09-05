@@ -57,14 +57,10 @@ page 50118 "Asset List"
         
     }
    trigger OnAfterGetRecord()
+   
    begin
-    begin
-        if (Rec."Procured Date" <> 0D) and (CalcDate('<+5y>', rec."Procured Date") >= WorkDate())
-        then
-            rec.Available := true
-        else
-           rec. Available := false;
-    end;
+   rec.UpdateAvailable();
+   Rec.Modify();
    end;
 }
     
