@@ -14,10 +14,7 @@ page 50129 "Subscription List"
             repeater(Subscription)
             {
                 Editable = false;
-                field("Subscription ID"; Rec."Subscription ID")
-                {
 
-                }
                 field("Customer ID"; Rec."Customer ID")
                 {
 
@@ -43,6 +40,14 @@ page 50129 "Subscription List"
 
                 }
                 field(status; Rec.status)
+                {
+
+                }
+                field("Next Renewal Date"; Rec."Next Renewal Date")
+                {
+
+                }
+                field("Remainder Sent"; Rec."Remainder Sent")
                 {
 
                 }

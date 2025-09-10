@@ -45,6 +45,14 @@ page 50127 "Subscription Card"
                 {
 
                 }
+                field("Next Renewal Date";Rec."Next Renewal Date")
+                {
+
+                }
+                field("Remainder Sent";Rec."Remainder Sent")
+                {
+                    
+                }
             }
         }
 

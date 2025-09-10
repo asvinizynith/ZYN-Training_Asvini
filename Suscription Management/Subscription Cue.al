@@ -33,16 +33,16 @@ page 50130 "Subscription Cues"
                     trigger OnDrillDown()
                     var
                         InvoiceRec: Record "Sales Header";
+                        StartDate: Date;
+                        EndDate: Date;
 
-                        workmonth: Integer;
-                        workyear: Integer;
                     begin
                         // Calculate first and last day of the current month
-                        workmonth := Date2DMY(WorkDate(), 2);
-                        workyear := Date2DMY(WORKDATE(), 3);
+                        StartDate := CALCDATE('<-CM>', WORKDATE);
+                        EndDate := CALCDATE('<CM>', WORKDATE);
                         InvoiceRec.SetRange(Subscription, true);
                         InvoiceRec.SetFilter("No.", '*SUB*');
-                        InvoiceRec.SetRange("Document Date", DMY2Date(1, workmonth, workyear), DMY2Date(31, workmonth, workyear));
+                        InvoiceRec.SetRange("Document Date", StartDate, EndDate);
                         PAGE.Run(PAGE::"Sales Invoice List", InvoiceRec);
                     end;
                 }
@@ -53,6 +53,8 @@ page 50130 "Subscription Cues"
         ActiveSubscriptions: Integer;
         RevenueGenerated: Decimal;
         TotalAmount: Decimal;
+        StartDate: Date;
+        EndDate: Date;
 
     trigger OnAfterGetRecord()
     var
@@ -60,6 +62,7 @@ page 50130 "Subscription Cues"
         InvoiceRec: Record "Sales Header";
         workmonth: Integer;
         workyear: Integer;
+
     begin
         // Count active subscriptions dynamically
         SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
@@ -71,11 +74,12 @@ page 50130 "Subscription Cues"
         workmonth := Date2DMY(WorkDate(), 2);
         workyear := Date2DMY(WORKDATE(), 3);
 
-
+        StartDate := CALCDATE('<-CM>', WORKDATE);
+        EndDate := CALCDATE('<CM>', WORKDATE);
         // Sum revenue for subscription invoices for current month
         InvoiceRec.reset();
         InvoiceRec.SetRange(Subscription, true);
-        InvoiceRec.SetRange("Document Date", DMY2Date(1, workmonth, workyear), DMY2Date(31, workmonth, workyear));
+        InvoiceRec.SetRange("Document Date", StartDate, EndDate);
 
 
         if InvoiceRec.FindSet() then
@@ -84,5 +88,13 @@ page 50130 "Subscription Cues"
                 TotalAmount += InvoiceRec."Amount";
             until InvoiceRec.Next() = 0;
 
+    end;
+
+    var
+        RenewalNotification: Codeunit "Subscript Renewal Notification";
+
+    trigger OnOpenPage()
+    begin
+        RenewalNotification.SubscriptionRenewalNotification();
     end;
 }
