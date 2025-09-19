@@ -13,7 +13,6 @@ pageextension 50121 Modifylogext extends "Customer Card"
                 begin
                     PAGE.Run(PAGE::"Modify Log List");
                 end;
-
             }
         }
     }

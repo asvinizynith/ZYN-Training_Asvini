@@ -8,7 +8,6 @@ table 50102 "Recurring Expense Table"
         {
             DataClassification = SystemMetadata;
             AutoIncrement = true;
-
         }
         field(2; Category; Code[50])
         {
@@ -21,9 +20,7 @@ table 50102 "Recurring Expense Table"
         }
         field(4; "Cycle Type"; Enum "Expense Cycle")
         {
-
             Caption = 'Cycle';
-
         }
         field(5; "Start Date"; Date)
         {
@@ -32,7 +29,6 @@ table 50102 "Recurring Expense Table"
             begin
                 UpdateNextCycleDate();
             end;
-
         }
         field(6; "Next Cycle Date"; Date)
         {
@@ -41,7 +37,6 @@ table 50102 "Recurring Expense Table"
             begin
                 UpdateNextCycleDate();
             end;
-
         }
         field(7; "Description"; Text[100])
         {
@@ -70,8 +65,5 @@ table 50102 "Recurring Expense Table"
             "Cycle Type"::Yearly:
                 "Next Cycle Date" := CalcDate('<+1Y>', "Start Date");
         end;
-
-
     end;
-
 }

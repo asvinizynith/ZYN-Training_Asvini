@@ -7,7 +7,6 @@ page 50109 "Leave Category List"
     UsageCategory=Administration;
     CardPageId="Leave Category Card";
    
-
     layout
     {
         area(Content)
@@ -26,12 +25,9 @@ page 50109 "Leave Category List"
                 field("No. Of Days Allowed";Rec."No. Of Days Allowed")
                 {
 
-                }
-                
-            }
-           
+                }   
+            }  
         }
-        
         }
     }
 

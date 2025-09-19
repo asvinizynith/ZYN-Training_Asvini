@@ -14,7 +14,6 @@ page 50129 "Subscription List"
             repeater(Subscription)
             {
                 Editable = false;
-
                 field("Customer ID"; Rec."Customer ID")
                 {
 
@@ -51,10 +50,7 @@ page 50129 "Subscription List"
                 {
 
                 }
-
             }
-
         }
-
     }
 }

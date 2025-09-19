@@ -1,17 +1,14 @@
-codeunit 50100 "Recurring Expense"
+codeunit 50100 "Recurring Expense Manager"
 {
     Subtype = Normal;   // This makes it available for Job Queue
-
     trigger OnRun()
     var
         RecurringExpense: Record "Recurring Expense Table";
         ExpenseList: Record "Expense table";
     begin
-
         // Loop through Recurring Expense table
         RecurringExpense.Reset();
         RecurringExpense.SetRange("Next Cycle Date", WorkDate());
-
         // Filter for today's date or next cycle date
         if RecurringExpense.FindSet() then
             repeat
@@ -22,8 +19,6 @@ codeunit 50100 "Recurring Expense"
                 ExpenseList."Category" := RecurringExpense."Category";
                 ExpenseList."Description" := RecurringExpense."Description";
                 ExpenseList."Amount" := RecurringExpense."Amount";
-
-
                 ExpenseList.Insert();
                 UpdateNextDate(RecurringExpense);
             until RecurringExpense.Next() = 0;
@@ -45,7 +40,4 @@ codeunit 50100 "Recurring Expense"
         end;
         RecurringExpense.Modify(true);
     end;
-
-
-
 }

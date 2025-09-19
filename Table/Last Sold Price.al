@@ -33,5 +33,4 @@ table 50165 "Last Sold Price Finder"
             Clustered = true;
         }
     }
-
 }

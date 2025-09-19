@@ -24,7 +24,6 @@ page 50175 "Category Expense FactBox"
                         StartDate := CALCDATE('<-CY>', WORKDATE);
                         EndDate := CALCDATE('<CY>', WORKDATE);
                         Expense.SetRange("Date", StartDate, EndDate);
-
                         PAGE.Run(PAGE::"Expense List", Expense);
                     end;
                 }
@@ -63,7 +62,6 @@ page 50175 "Category Expense FactBox"
                         end;
                         Expense.SetRange("Date", StartDate, EndDate);
                         PAGE.Run(PAGE::"Expense List", Expense);
-
                     end;
                 }
                 field("Current Quarter"; CurrentQuarter)
@@ -99,9 +97,7 @@ page 50175 "Category Expense FactBox"
         Month := DATE2DMY(WorkDate(), 2);
         Year := DATE2DMY(WorkDate(), 3);
 
-        // -------------------
         // Current Year
-        // -------------------
         Expense.Reset();
         Expense.SetRange("Category", Rec."Category Name");
         StartDate := CALCDATE('<-CY>', WORKDATE);
@@ -110,9 +106,7 @@ page 50175 "Category Expense FactBox"
         Expense.CalcSums(Amount);
         CurrentYear := Expense.Amount;
 
-        // -------------------
         // Current Month
-        // -------------------
         Expense.Reset();
         Expense.SetRange("Category", Rec."Category Name");
         StartDate := CALCDATE('<-CM>', WORKDATE);
@@ -121,12 +115,9 @@ page 50175 "Category Expense FactBox"
         Expense.CalcSums(Amount);
         CurrentMonth := Expense.Amount;
 
-        // -------------------
         // Current Half-Year
-        // -------------------
         Expense.Reset();
         Expense.SetRange("Category", Rec."Category Name");
-
         if Date2DMY(WORKDATE, 2) <= 6 then begin
             StartDate := CALCDATE('<-CY>', WORKDATE);        // Jan 1 of current year
             EndDate := CALCDATE('<-CY>+6M-1D', WORKDATE);    // Jun 30 of current year
@@ -134,33 +125,22 @@ page 50175 "Category Expense FactBox"
             StartDate := CALCDATE('<-CY>+6M', WORKDATE);     // Jul 1 of current year
             EndDate := CALCDATE('<CY>', WORKDATE);   // Dec 31 of current year
         end;
-
         Expense.SetRange("Date", StartDate, EndDate);
         Expense.CalcSums(Amount);
         CurrentHalfYear := Expense.Amount;
 
-        // -------------------
         // Current Quarter
-        // -------------------
         Expense.Reset();
         Expense.SetRange("Category", Rec."Category Name");
-
         StartDate := CALCDATE('<-CQ>', WORKDATE);
         EndDate := CALCDATE('<CQ>', WORKDATE);
-
         Expense.SetRange("Date", StartDate, EndDate);
         Expense.CalcSums(Amount);
         CurrentQuarter := Expense.Amount;
 
-        // --- Your existing calculations for CurrentYear, CurrentMonth, etc. ---
-
         // Get Remaining Budget for this category
         RemainingBudget := RemainingBudgetMgt.GetRemainingBudget(Rec."Category Name");
     end;
-
-
-
-
 
     var
         CurrentYear: Decimal;
@@ -171,6 +151,6 @@ page 50175 "Category Expense FactBox"
         EndDate: Date;
         Month: Integer;
         Year: Integer;
-        RemainingBudgetMgt: Codeunit "Remaining Budget";
+        RemainingBudgetMgt: Codeunit "Remaining Budget Manager";
         RemainingBudget: Decimal;
 }

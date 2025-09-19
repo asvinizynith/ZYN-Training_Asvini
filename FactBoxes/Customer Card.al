@@ -31,11 +31,9 @@ page 50100 "Customer Sales FactBox"
                 Visible = ContentVisible;
                 field("Contact ID"; ContactNo)
                 {
-
                     ApplicationArea = All;
                     Caption = 'ID';
                     DrillDown = true;
-                    // Visible = false; // 
                     trigger OnDrillDown()
                     var
                         ContactRec: Record Contact;
@@ -43,9 +41,7 @@ page 50100 "Customer Sales FactBox"
                         if ContactNo <> '' then
                             if ContactRec.Get(ContactNo) then
                                 PAGE.Run(PAGE::"Contact Card", ContactRec);
-
                     end;
-
                 }
                 field("Contact Name"; ContactName)
                 {
@@ -59,7 +55,6 @@ page 50100 "Customer Sales FactBox"
                         if ContactNo <> '' then
                             if ContactRec.Get(ContactNo) then
                                 PAGE.Run(PAGE::"Contact Card", ContactRec);
-
                     end;
                 }
             }
@@ -95,8 +90,6 @@ page 50100 "Customer Sales FactBox"
                         PAGE.Run(PAGE::"Sales Order List", SalesHeader);
                     end;
                 }
-
-
             }
         }
     }
@@ -109,20 +102,16 @@ page 50100 "Customer Sales FactBox"
         ContentVisible: Boolean;
         ActiveSubscriptions: Integer;
 
-
-
     trigger OnAfterGetRecord()
     var
         SalesHeader: Record "Sales Header";
         SalesInvHeader: Record "Sales Invoice Header";
         ContactRec: Record Contact;
         SubscriptionRec: Record "Subscription Table";
-
     begin
         // Count active subscriptions dynamically
         SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
         ActiveSubscriptions := SubscriptionRec.Count;
-
         // Find Contact linked to Customer
         Clear(ContactNo);
         Clear(ContactName);

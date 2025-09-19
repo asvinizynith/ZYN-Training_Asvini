@@ -26,16 +26,9 @@ codeunit 50118 "Leave Approval Notification"
     end;
 }
  
- 
 pageextension 50101 MyNotification extends "My Accounts"
 {
-    layout
-    {
-        
-       
-    }
-    actions
-    {}
+  
     var
     LeaveNotification: Codeunit "Leave Approval Notification";
     trigger OnOpenPage()

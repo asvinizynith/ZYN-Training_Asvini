@@ -13,12 +13,10 @@ page 50128 MyCue
             {
                 Caption = 'Visit Log';
                 field("CustomerCue"; Count)
-
                 {
                     ApplicationArea = All;
                     Style = Ambiguous;
                     Caption = 'Visit Log';
-
                     trigger OnDrillDown()
                     var
                         CustomerList: Page "Customer List";
@@ -28,7 +26,6 @@ page 50128 MyCue
                     begin
                         Visit.Reset();
                         Visit.SetRange("Date", WorkDate());
-
                         if Visit.FindSet() then begin
                             repeat
                                 if Customer.Get(Visit."Customer Number") then begin
@@ -42,19 +39,13 @@ page 50128 MyCue
                         Page.RunModal(Page::"Customer List", TempCustomer);
                     end;
                 }
-
             }
-
-
         }
-
-
     }
     var
         Count: Integer;
 
     trigger OnOpenPage()
-
     begin
         Count := GetCustomerCount();
     end;
@@ -69,17 +60,8 @@ page 50128 MyCue
 
         Visit.SetRange("Date", Today);
         Count := Visit.Count();
-        // if Visit.FindSet() then begin
-        //     repeat
-        //         Count += 1;
-        //     until Visit.Next() = 0;
-        // end;
-
         exit(Count);
-
     end;
-
-
 }
 
 

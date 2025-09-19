@@ -4,6 +4,7 @@ page 50132 "Technician List"
     ApplicationArea = All;
     SourceTable = "Technician Table";
     CardPageId = "Technician Card";
+
     layout
     {
         area(Content)
@@ -12,29 +13,24 @@ page 50132 "Technician List"
             {
                 field(ID; Rec.ID)
                 {
-
                     ApplicationArea = All;
                 }
                 field(Name; Rec.Name)
                 {
-
                     ApplicationArea = All;
                 }
                 field("Ph.No"; Rec."Ph.No")
                 {
-
                     ApplicationArea = All;
                 }
                 field(Department; Rec.Department)
                 {
-
                     ApplicationArea = All;
                 }
                 field("No Of Problems"; Rec."No Of Problems")
                 {
                     ApplicationArea = All;
                 }
-
             }
             part("Problem List"; "Problem List Part")
             {
@@ -42,6 +38,5 @@ page 50132 "Technician List"
                 SubPageLink = "Technician Name" = field(Name);
             }
         }
-
     }
 }

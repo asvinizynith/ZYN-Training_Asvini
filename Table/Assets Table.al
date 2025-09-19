@@ -6,13 +6,11 @@ table 50112 "Asset Table"
     {
         field(1; "Asset No"; Integer)
         {
-
             AutoIncrement = true;
             Caption = 'No';
         }
         field(2; "Asset Name"; Text[50])
         {
-
             Caption = 'Asset Name';
             TableRelation = "Asset Type"."Asset Name";
         }
@@ -31,7 +29,6 @@ table 50112 "Asset Table"
         field(6; Available; Boolean)
         {
             Caption = 'Available';
-
         }
     }
 
@@ -91,6 +88,4 @@ table 50112 "Asset Table"
                 "Available" := false;
         end;
     end;
-
-
 }

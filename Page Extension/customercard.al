@@ -19,15 +19,6 @@ pageextension 50124 "Customer Card Extension" extends "Customer Card"
                 ApplicationArea = All;
                 Caption = 'sales Year Fliter';
             }
-
-            /*   field("Sales Amount"; Rec."Sales Amount")
-               {
-                   ApplicationArea = All;
-                   Caption = 'Sales Amount';
-               }*/
         }
     }
-
-
-
 }

@@ -12,10 +12,6 @@ page 50102 "Customer Visit Log List"
         {
             repeater(Group)
             {
-                //  field("Entry Number"; Rec."Entry Number")
-                // {
-                //   ApplicationArea = All;
-                // }
                 field("Customer Number"; Rec."Customer Number")
                 {
                     ApplicationArea = All;
@@ -32,7 +28,6 @@ page 50102 "Customer Visit Log List"
                 {
                     ApplicationArea = All;
                 }
-
             }
         }
     }

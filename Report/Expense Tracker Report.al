@@ -9,7 +9,6 @@ report 50103 "Expense Tracker Report"
         dataitem(Expense_Tracker; "Expense Table")
         {
             DataItemTableView = sorting("Category");
-
             trigger OnAfterGetRecord()
             begin
                 if (Expense_Tracker.Date >= StartDate) and (Expense_Tracker.Date <= EndDate) then begin

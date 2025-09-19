@@ -9,10 +9,6 @@ page 50103 "Customer Visit Log Card"
         {
             group(General)
             {
-                //field("Entry Number"; Rec."Entry Number")
-                //{
-                //    ApplicationArea = All;
-                // }
                 field("Customer Number"; Rec."Customer Number")
                 {
                     ApplicationArea = All;
@@ -29,7 +25,6 @@ page 50103 "Customer Visit Log Card"
                 {
                     ApplicationArea = All;
                 }
-
             }
         }
     }

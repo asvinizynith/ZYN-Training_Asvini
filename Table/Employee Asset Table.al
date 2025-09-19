@@ -6,13 +6,11 @@ table 50114 "Employee Asset Table"
     {
         field(1; "Entry No"; Integer)
         {
-
             AutoIncrement = true;
             Caption = 'Entry No';
         }
         field(2; "Employee ID"; Code[30])
         {
-
             Caption = 'Employee ID';
             TableRelation = "Employee Table"."Employee ID";
         }
@@ -47,7 +45,6 @@ table 50114 "Employee Asset Table"
                     end;
                 end;
             end;
-
         }
         field(6; "Assigned Date"; Date)
         {

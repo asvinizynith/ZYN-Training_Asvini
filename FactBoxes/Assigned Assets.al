@@ -25,10 +25,7 @@ page 50121 "Assigned Assets FactBox"
                         PAGE.Run(PAGE::"Employee Asset List", EmployeeAsset);
                     end;
                 }
-
             }
-
-
         }
     }
     trigger OnAfterGetRecord()
@@ -39,7 +36,6 @@ page 50121 "Assigned Assets FactBox"
         EmployeeAsset.SetRange(Status, Rec.Status::Assigned);
         AssignedAssets := EmployeeAsset.Count();
     end;
-
 
     var
         AssignedAssets: Integer;

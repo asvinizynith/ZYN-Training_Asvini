@@ -7,9 +7,6 @@ tableextension 50116 "Customerloyality" extends "Customer"
             Caption = 'Loyality Points';
 
             DataClassification = CustomerContent;
-
-
         }
     }
-
 }

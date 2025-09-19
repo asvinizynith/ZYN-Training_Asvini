@@ -2,7 +2,6 @@ pageextension 50120 CopyCustomerToOtherCompany extends "Customer Card"
 {
     var
         IsNewCustomer: Boolean;
-
     trigger OnOpenPage()
     begin
         if Rec."No." = '' then
@@ -15,7 +14,6 @@ pageextension 50120 CopyCustomerToOtherCompany extends "Customer Card"
             Message('Please enter a customer name before closing the page.');
             exit(false); // prevent closing
         end;
-
         exit(true); // allow closing
     end;
 

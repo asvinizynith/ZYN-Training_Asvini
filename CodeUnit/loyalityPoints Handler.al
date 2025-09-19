@@ -6,21 +6,16 @@ codeunit 50102 "Loyalty Points Handler"
      InvtPickPutaway: Boolean; var CustLedgerEntry: Record "Cust. Ledger Entry"; WhseShip: Boolean; WhseReceiv: Boolean; PreviewMode: Boolean)
     var
         Customer: Record Customer;
-
     begin
         if (SalesHeader."Document Type" <> SalesHeader."Document Type"::Invoice) or
         (SalesHeader."Document Type" <> SalesHeader."Document Type"::Order) then begin
 
-
             if Customer.Get(SalesHeader."Sell-to Customer No.") then begin
                 Customer."Loyality Points" := Customer."Loyality Points" + 10;
                 Customer.Modify();
-
-
             end;
         end;
     end;
-
 }
 codeunit 50126 "Loyality Points Checker"
 {
@@ -29,12 +24,9 @@ codeunit 50126 "Loyality Points Checker"
      var HideProgressWindow: Boolean; var IsHandled: Boolean; var CalledBy: Integer)
     var
         Customer: Record Customer;
-
     begin
         if (SalesHeader."Document Type" <> SalesHeader."Document Type"::Invoice) or
         (SalesHeader."Document Type" <> SalesHeader."Document Type"::Order) then begin
-
-
 
             if Customer.Get(SalesHeader."Sell-to Customer No.") then begin
                 if Customer."Loyality Points" >= 100000 then
@@ -42,6 +34,4 @@ codeunit 50126 "Loyality Points Checker"
             end;
         end;
     end;
-
-
 }

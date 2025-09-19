@@ -14,6 +14,5 @@ tableextension 50147 textlineext extends "Extended Text Line"
         {
             DataClassification = ToBeClassified;
         }
-
     }
 }

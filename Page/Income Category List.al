@@ -19,8 +19,7 @@ page 50183 "Income Category List "
                 {
                     ApplicationArea = All;
                 }
-            }
-           
+            }  
         }
         area(FactBoxes)
         {

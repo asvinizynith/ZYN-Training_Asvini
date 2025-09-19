@@ -1,7 +1,6 @@
 enum 50135 "Issue List"
 {
     Extensible = true;
-
     value(0; "Wireless Router")
     {
         Caption = 'Wireless Router';
@@ -14,7 +13,6 @@ enum 50135 "Issue List"
     {
         Caption = 'RO';
     }
-
     value(3; "Electrical")
     {
         Caption = 'Electrical';

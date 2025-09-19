@@ -1,4 +1,4 @@
-codeunit 50101 "Remaining Leave"
+codeunit 50101 "Remaining Leave Calculator"
 {
     procedure CalculateRemainingLeave(EmployeeID: Code[30]; LeaveCategory: Code[50]): Integer
     var
@@ -11,7 +11,6 @@ codeunit 50101 "Remaining Leave"
             LeaveReq.SetRange("Employee ID", EmployeeID);
             LeaveReq.SetRange("Leave Category", LeaveCategory);
             LeaveReq.SetRange(Status, LeaveReq.Status::Approved);
-
             TotalTaken := 0;
             if LeaveReq.FindSet() then
                 repeat
@@ -20,7 +19,6 @@ codeunit 50101 "Remaining Leave"
 
             exit(LeaveCat."No. Of Days Allowed" - TotalTaken);
         end;
-
         exit(0); // if no category found
     end;
 }

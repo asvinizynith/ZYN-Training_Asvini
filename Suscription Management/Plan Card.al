@@ -12,7 +12,6 @@ page 50124 "Plan Card"
             group(General)
             {
                 Caption = 'General';
-
                 field("Plan ID"; Rec."Plan ID")
                 {
 
@@ -33,13 +32,7 @@ page 50124 "Plan Card"
                 {
 
                 }
-
-
             }
         }
-
-
     }
-
-
 }

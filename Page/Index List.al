@@ -7,15 +7,25 @@ page 50170 "Index List"
     UsageCategory = Administration;
     CardPageId = "Index Card"; // Ensures standard 'New' works too
     Editable = false;
+
     layout
     {
         area(Content)
         {
             repeater(General)
             {
-                field("Code"; Rec."Code") { }
-                field(Description; Rec.Description) { }
-                field("Percentage Increase"; Rec."Percentage Increase") { }
+                field("Code"; Rec."Code")
+                {
+
+                }
+                field(Description; Rec.Description)
+                {
+
+                }
+                field("Percentage Increase"; Rec."Percentage Increase")
+                {
+
+                }
             }
         }
     }

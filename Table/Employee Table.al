@@ -8,7 +8,6 @@ table 50104 "Employee Table"
         field(1; "Employee ID"; Code[30])
         {
             Caption = 'Employee ID';
-
             DataClassification = ToBeClassified;
         }
         field(2; "Employee Name"; Text[100])
@@ -23,8 +22,6 @@ table 50104 "Employee Table"
         {
             Caption = 'Department';
         }
-
-
     }
 
     keys
@@ -33,7 +30,6 @@ table 50104 "Employee Table"
         {
             Clustered = true;
         }
-
     }
     trigger OnInsert()
     var
@@ -41,5 +37,4 @@ table 50104 "Employee Table"
     begin
         PopulateLeaveCU.Run();
     end;
-
 }

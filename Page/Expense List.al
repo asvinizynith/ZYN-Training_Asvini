@@ -13,13 +13,21 @@ page 50173 "Expense List"
         {
             repeater(General)
             {
-                field(Description; Rec.Description) { }
-                field(Amount; Rec.Amount) { }
-                field("Date"; Rec."Date") { }
+                field(Description; Rec.Description) 
+                { 
+
+                }
+                field(Amount; Rec.Amount) 
+                { 
+
+                }
+                field("Date"; Rec."Date") 
+                {
+
+                 }
                 field("Category"; Rec."Category")
                 {
                     ApplicationArea = All;
-
                 }
             }
         }
@@ -28,11 +36,9 @@ page 50173 "Expense List"
                 part(BudgetFactbox; "Budget FactBox")
                 {
                     ApplicationArea = All;
-                } 
-           
+                }    
     }
-    }
-    
+    }   
     actions
     {
         area(Processing)
@@ -43,7 +49,6 @@ page 50173 "Expense List"
                 Caption = 'Category List';
                 Image = List;
                 RunObject = page "Expense Category List ";
-
             }
             action(ExpenseTracker)
             {
@@ -59,10 +64,8 @@ page 50173 "Expense List"
                 Image = Report;
                 RunObject = report "Budget Vs Expense Report";
             }
+        }    
         }
-         
-    }
-     
         }
     
 

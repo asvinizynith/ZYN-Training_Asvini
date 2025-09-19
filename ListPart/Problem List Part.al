@@ -10,10 +10,6 @@ page 50136 "Problem List Part"
         {
             repeater(control)
             {
-                /*  field("Entry No"; Rec."Entry No")
-                  {
-                      ApplicationArea = All;
-                  }*/
                 field("Customer ID"; Rec."Customer ID")
                 {
                     ApplicationArea = All;
@@ -35,7 +31,6 @@ page 50136 "Problem List Part"
                     ApplicationArea = All;
                 }
                 field(Date; Rec.Date)
-
                 {
                     ApplicationArea = All;
                 }

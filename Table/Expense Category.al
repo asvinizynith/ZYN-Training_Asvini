@@ -30,7 +30,6 @@ table 50103 "Expense & Budget Category"
         fieldgroup(DropDown; "Category Name")
         {
             Caption = 'Category Name';
-
         }
     }
 }

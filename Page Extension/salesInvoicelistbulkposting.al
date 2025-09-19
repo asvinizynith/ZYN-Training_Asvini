@@ -1,6 +1,5 @@
 pageextension 50161 salesinvoicebulkposting extends "Sales Invoice List"
 {
-
     actions
     {
         addlast(processing)
@@ -15,10 +14,7 @@ pageextension 50161 salesinvoicebulkposting extends "Sales Invoice List"
                 begin
                     Report.Run(Report::BulkPosting);
                 end;
-
             }
         }
     }
-
-
 }

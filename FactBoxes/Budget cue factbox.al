@@ -24,7 +24,6 @@ page 50190 "Budget Cue FactBox"
                         StartDate := CALCDATE('<-CY>', WORKDATE);
                         EndDate := CALCDATE('<CY>', WORKDATE);
                         Budget.SetRange("From Date", StartDate, EndDate);
-
                         PAGE.Run(PAGE::"Budget List", Budget);
                     end;
                 }
@@ -63,7 +62,6 @@ page 50190 "Budget Cue FactBox"
                         end;
                         Budget.SetRange("From Date", StartDate, EndDate);
                         PAGE.Run(PAGE::"Budget List", Budget);
-
                     end;
                 }
                 field("Current Quarter"; CurrentQuarter)
@@ -83,7 +81,6 @@ page 50190 "Budget Cue FactBox"
                     end;
                 }
             }
-
         }
     }
 
@@ -94,9 +91,7 @@ page 50190 "Budget Cue FactBox"
         Month := DATE2DMY(WorkDate(), 2);
         Year := DATE2DMY(WorkDate(), 3);
 
-        // -------------------
         // Current Year
-        // -------------------
         Budget.Reset();
         Budget.SetRange("Category", Rec."Category Name");
         StartDate := CALCDATE('<-CY>', WORKDATE);
@@ -105,9 +100,7 @@ page 50190 "Budget Cue FactBox"
         Budget.CalcSums(Amount);
         CurrentYear := Budget.Amount;
 
-        // -------------------
         // Current Month
-        // -------------------
         Budget.Reset();
         Budget.SetRange("Category", Rec."Category Name");
         StartDate := CALCDATE('<-CM>', WORKDATE);
@@ -116,12 +109,9 @@ page 50190 "Budget Cue FactBox"
         Budget.CalcSums(Amount);
         CurrentMonth := Budget.Amount;
 
-        // -------------------
         // Current Half-Year
-        // -------------------
         Budget.Reset();
         Budget.SetRange("Category", Rec."Category Name");
-
         if Date2DMY(WORKDATE, 2) <= 6 then begin
             StartDate := CALCDATE('<-CY>', WORKDATE);        // Jan 1 of current year
             EndDate := CALCDATE('<-CY>+6M-1D', WORKDATE);    // Jun 30 of current year
@@ -129,29 +119,19 @@ page 50190 "Budget Cue FactBox"
             StartDate := CALCDATE('<-CY>+6M', WORKDATE);     // Jul 1 of current year
             EndDate := CALCDATE('<CY>', WORKDATE);   // Dec 31 of current year
         end;
-
         Budget.SetRange("From Date", StartDate, EndDate);
         Budget.CalcSums(Amount);
         CurrentHalfYear := Budget.Amount;
 
-        // -------------------
         // Current Quarter
-        // -------------------
         Budget.Reset();
         Budget.SetRange("Category", Rec."Category Name");
-
         StartDate := CALCDATE('<-CQ>', WORKDATE);
         EndDate := CALCDATE('<CQ>', WORKDATE);
-
         Budget.SetRange("From Date", StartDate, EndDate);
         Budget.CalcSums(Amount);
         CurrentQuarter := Budget.Amount;
-
     end;
-
-
-
-
 
     var
         CurrentYear: Decimal;
@@ -162,5 +142,4 @@ page 50190 "Budget Cue FactBox"
         EndDate: Date;
         Month: Integer;
         Year: Integer;
-
 }

@@ -8,20 +8,16 @@ table 50105 "Leave Category Table"
         field(1; "Description"; Text[30])
         {
             Caption = 'Description';
-
             DataClassification = ToBeClassified;
         }
         field(2; "Leave Category"; Code[50])
         {
             Caption = 'Leave Category';
-
         }
-
         field(3; "No. Of Days Allowed"; Integer)
         {
             Caption = 'No. Of Days Allowed';
         }
-
     }
 
     keys
@@ -30,7 +26,6 @@ table 50105 "Leave Category Table"
         {
             Clustered = true;
         }
-
     }
 
     trigger OnInsert()
@@ -39,5 +34,4 @@ table 50105 "Leave Category Table"
     begin
         PopulateLeaveCU.Run();
     end;
-
 }

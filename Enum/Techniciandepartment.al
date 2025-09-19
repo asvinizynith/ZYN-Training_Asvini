@@ -1,7 +1,6 @@
 enum 50131 "Technician Department"
 {
     Extensible = true;
-    
     value(0; "IT")
     {
         Caption = 'IT';

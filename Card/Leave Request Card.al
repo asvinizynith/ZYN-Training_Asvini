@@ -14,7 +14,6 @@ page 50112 "Leave Request Card"
                 field("Employee ID"; Rec."Employee ID")
                 {
                     ApplicationArea = All;
-
                     trigger OnValidate()
                     begin
                         UpdateRemainingLeave();
@@ -24,7 +23,6 @@ page 50112 "Leave Request Card"
                 field("Leave Category"; Rec."Leave Category")
                 {
                     ApplicationArea = All;
-
                     trigger OnValidate()
                     begin
                         UpdateRemainingLeave();
@@ -40,7 +38,6 @@ page 50112 "Leave Request Card"
                 field("Start Date"; Rec."Start Date")
                 {
                     ApplicationArea = All;
-
                     trigger OnValidate()
                     begin
                         CalcLeaveDays();
@@ -50,7 +47,6 @@ page 50112 "Leave Request Card"
                 field("End Date"; Rec."End Date")
                 {
                     ApplicationArea = All;
-
                     trigger OnValidate()
                     begin
                         CalcLeaveDays();
@@ -67,7 +63,6 @@ page 50112 "Leave Request Card"
                 {
                     ApplicationArea = All;
                     Editable = false;
-
                 }
             }
         }
@@ -79,7 +74,7 @@ page 50112 "Leave Request Card"
     end;
 
     var
-        RemainingLeaveCU: Codeunit "Remaining Leave";
+        RemainingLeaveCU: Codeunit "Remaining Leave Calculator";
 
     local procedure UpdateRemainingLeave()
     begin
@@ -93,9 +88,4 @@ page 50112 "Leave Request Card"
         if (Rec."Start Date" <> 0D) and (Rec."End Date" <> 0D) then
             Rec."No. of Leave days" := Rec."End Date" - Rec."Start Date" + 1;
     end;
-
-    // trigger OnNewRecord(BelowxRec: Boolean)
-    // begin
-    //     Rec.Status := Rec.Status::Pending;   // ✅ Default status when new record is created
-    // end;
 }

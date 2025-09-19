@@ -15,14 +15,12 @@ report 50100 "Orders By Post Date"
                 Salesorder."Posting Date" := "Selected Date";
                 Salesorder.Modify();
                 "Order Count" := "Order Count" + 1;
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
             area(Content)
@@ -37,8 +35,6 @@ report 50100 "Orders By Post Date"
                 }
             }
         }
-
-        
     }
 
     var

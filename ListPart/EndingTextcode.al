@@ -18,10 +18,7 @@ page 50144 "Ending Text Code"
                 {
                     ApplicationArea = All;
                 }
-
-
             }
-
         }
     }
 }

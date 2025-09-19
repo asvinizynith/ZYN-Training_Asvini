@@ -1,13 +1,11 @@
 codeunit 50105 "Populate Employee Leave Table"
 {
-
-
     trigger OnRun()
     var
         Employee: Record "Employee Table";
         LeaveCategory: Record "Leave Category Table";
         EmpLeave: Record "Employee Leave Table";
-        RemainingLeaveCU: Codeunit "Remaining Leave";
+        RemainingLeaveCU: Codeunit "Remaining Leave Calculator";
     begin
         Employee.Reset();
         if Employee.FindSet() then
@@ -26,7 +24,6 @@ codeunit 50105 "Populate Employee Leave Table"
                                 RemainingLeaveCU.CalculateRemainingLeave(
                                     Employee."Employee ID",
                                     LeaveCategory."Leave Category");
-
                             EmpLeave.Insert();
                         end else begin
                             // Update existing record
@@ -38,7 +35,6 @@ codeunit 50105 "Populate Employee Leave Table"
                         end;
                     until LeaveCategory.Next() = 0;
             until Employee.Next() = 0;
-
         Message('Employee Leave Table updated successfully.');
     end;
 }

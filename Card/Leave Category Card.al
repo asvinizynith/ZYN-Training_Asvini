@@ -12,26 +12,13 @@ page 50108 "Leave Category Card"
             group(General)
             {
                 Caption = 'General';
-
                 field(Description; Rec.Description)
-                {
-
-                }
+                { }
                 field("Leave Category"; Rec."Leave Category")
-                {
-
-                }
+                { }
                 field("No. Of Days Allowed"; Rec."No. Of Days Allowed")
-                {
-
-                }
-
+                { }
             }
         }
-
-
     }
-
-
-
 }

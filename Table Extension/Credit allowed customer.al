@@ -13,7 +13,6 @@ tableextension 50123 "Customer Card Extension" extends "Customer"
             FieldClass = FlowField;
             CalcFormula = Sum("Sales Line"."Amount" where("Sell-to Customer No." = field("No.")));
             Editable = false;
-
         }
     }
 }

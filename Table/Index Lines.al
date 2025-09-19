@@ -31,6 +31,4 @@ table 50171 "Index Lines"
             Clustered = true;
         }
     }
-
-
 }

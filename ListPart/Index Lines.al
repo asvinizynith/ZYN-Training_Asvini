@@ -1,5 +1,4 @@
 page 50171 "Index Lines List Part"
-
 {
     PageType = listpart;
     ApplicationArea = All;
@@ -22,7 +21,6 @@ page 50171 "Index Lines List Part"
                 }
             }
         }
-
     }
 }
     

@@ -19,7 +19,6 @@ tableextension 50114 salesheadertextcode extends "Sales Header"
                 Beginning.SetRange(Selection, Beginning.Selection::BeginningText);
                 Beginning.DeleteAll();
 
-
                 if Customer.Get(Rec."Sell-to Customer No.") then begin
                     extended.SetRange("No.", Rec."Beginning Text Code");
                     extended.SetRange("Language Code", Customer."Language Code");
@@ -38,16 +37,11 @@ tableextension 50114 salesheadertextcode extends "Sales Header"
                             Beginning.Insert(true);
                             LineNo += 0;
 
-
                         until extended.Next() = 0;
                     end;
                 end;
-
-
             end;
-
         }
-
         field(50112; "Ending Text Code"; Text[50])
         {
             DataClassification = ToBeClassified;
@@ -64,7 +58,6 @@ tableextension 50114 salesheadertextcode extends "Sales Header"
                 Beginning.SetRange("Customer No", Rec."Sell-to Customer No.");
                 Beginning.SetRange(Selection, Beginning.Selection::EndingText);
                 Beginning.DeleteAll();
-
 
                 if Customer.Get(Rec."Sell-to Customer No.") then begin
                     extended.SetRange("No.", Rec."Ending Text Code");
@@ -84,16 +77,10 @@ tableextension 50114 salesheadertextcode extends "Sales Header"
                             Beginning.Insert(true);
                             LineNo += 0;
 
-
                         until extended.Next() = 0;
                     end;
                 end;
-
-
             end;
         }
-        
     }
-
-
 }

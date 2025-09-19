@@ -6,16 +6,13 @@ table 50116 "Subscription Table"
     {
         field(1; "Subscription ID"; Integer)
         {
-
             AutoIncrement = true;
             Caption = 'Subscription ID';
         }
         field(2; "Customer ID"; Code[50])
         {
-
             Caption = 'Customer ID';
             TableRelation = Customer."No.";
-
         }
         field(3; "Plan ID"; Integer)
         {
@@ -29,9 +26,7 @@ table 50116 "Subscription Table"
             begin
                 CalcEndDate();
                 CalcNextBillingDate();
-
             end;
-
         }
         field(5; Duration; Integer)
         {
@@ -39,7 +34,6 @@ table 50116 "Subscription Table"
             trigger OnValidate()
             begin
                 CalcEndDate();
-
             end;
         }
         field(6; "End Date"; Date)
@@ -63,14 +57,17 @@ table 50116 "Subscription Table"
         {
             Caption = 'Next Renewal Date';
             Editable = false;
+            trigger OnValidate()
+            begin
+                if "Next Renewal Date" < "End Date" then
+                    Error('Next Renewal Date must be after End Date');
+            end;
         }
         field(10; "Remainder Sent"; Boolean)
         {
             Caption = 'Remainder Sent';
             Editable = false;
         }
-
-
     }
 
     keys
@@ -125,8 +122,4 @@ table 50116 "Subscription Table"
     //     end else
     //         "Next Renewal Date" := 0D;
     // end;
-
-
-
-
 }

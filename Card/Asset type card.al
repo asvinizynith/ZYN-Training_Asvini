@@ -4,7 +4,7 @@ page 50115 "Asset Type Card"
     Caption = 'Asset Type Card';
     PageType = Card;
     SourceTable = "Asset Type";
-
+    
     layout
     {
         area(Content)
@@ -12,24 +12,19 @@ page 50115 "Asset Type Card"
             group(General)
             {
                 Caption = 'General';
-
                 field(No; Rec.No)
-                {
+                { 
 
                 }
                 field("Asset Category"; Rec."Asset Category")
-                {
+                { 
 
                 }
                 field("Asset Name"; Rec."Asset Name")
                 {
-
-                }
-
+                    
+                 }
             }
         }
-
-
     }
-
 }

@@ -24,12 +24,9 @@ table 50178 "Income Table"
         }
         field(5; "Income Category"; code[50])
         {
-
             TableRelation = "Income Category"."Income Category Name";
             Caption = 'Income Category';
-
         }
-
     }
     keys
     {
@@ -38,7 +35,8 @@ table 50178 "Income Table"
             Clustered = true;
         }
         key(categorykey; "Income Category")
-        { }
-    }
+        {
 
+        }
+    }
 }

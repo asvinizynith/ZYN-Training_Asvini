@@ -1,4 +1,4 @@
-codeunit 50189 "Remaining Budget"
+codeunit 50189 "Remaining Budget Manager"
 {
     procedure GetRemainingBudget(Category: Code[50]): Decimal
     var
@@ -12,7 +12,6 @@ codeunit 50189 "Remaining Budget"
         // Get current month range
         StartDate := CalcDate('<-CM>', WorkDate()); // first day of current month
         EndDate := CalcDate('<CM>', WorkDate());    // last day of current month
-
         // Find budget for this category in this month
         BudgetRec.Reset();
         BudgetRec.SetRange("Category", Category);
@@ -25,14 +24,12 @@ codeunit 50189 "Remaining Budget"
             ExpenseRec.SetRange("Category", Category);
             ExpenseRec.SetRange("Date", StartDate, EndDate);
             ExpenseRec.CalcSums(Amount);
-
             ExpenseAmount := ExpenseRec.Amount;
             RemainingBudget := BudgetRec.Amount - ExpenseAmount;
         end else begin
             ExpenseAmount := 0;
             RemainingBudget := 0;
         end;
-
         exit(RemainingBudget);
     end;
 }

@@ -7,7 +7,5 @@ enum 50111 "Textcode Selection"
     value(2; EndingText)
     {
         Caption = 'EndingText';
-    }
-   
-    
+    }    
 }

@@ -12,26 +12,14 @@ page 50181 "income Card"
             group(General)
             {
                 Caption = 'General';
-
                 field("Income Description"; Rec."Income Description")
-                {
-
-                }
+                { }
                 field("Income Amount"; Rec."Income Amount")
-                {
-
-                }
+                { }
                 field("Income Date"; Rec."Income Date")
-                {
-
-                }
-
+                { }
                 field("Income Category"; Rec."Income Category")
-                {
-
-                }
-
-
+                { }
             }
         }
     }

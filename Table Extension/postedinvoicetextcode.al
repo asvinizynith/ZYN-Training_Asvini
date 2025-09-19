@@ -2,7 +2,6 @@ tableextension 50128 salesinvoiceheadertextcodeext extends "Sales Invoice Header
 {
     fields
     {
-
         field(50146; "Beginning Code"; Text[30])
         {
             Caption = 'Beginning Code';
@@ -14,10 +13,7 @@ tableextension 50128 salesinvoiceheadertextcodeext extends "Sales Invoice Header
             Caption = 'Ending Code';
             DataClassification = CustomerContent;
             TableRelation = "Standard Text".Code;
-
         }
-
-
     }
 }
 

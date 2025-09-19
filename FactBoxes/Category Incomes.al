@@ -24,7 +24,6 @@ page 50186 "Category Income FactBox"
                         StartDate := CALCDATE('<-CY>', WORKDATE);
                         EndDate := CALCDATE('<CY>', WORKDATE);
                         Income.SetRange("Income Date", StartDate, EndDate);
-
                         PAGE.Run(PAGE::"Income List", Income);
                     end;
                 }
@@ -63,7 +62,6 @@ page 50186 "Category Income FactBox"
                         end;
                         Income.SetRange("Income Date", StartDate, EndDate);
                         PAGE.Run(PAGE::"Income List", Income);
-
                     end;
                 }
                 field("Current Quarter"; CurrentQuarter)
@@ -93,9 +91,7 @@ page 50186 "Category Income FactBox"
         Month := DATE2DMY(WorkDate(), 2);
         Year := DATE2DMY(WorkDate(), 3);
 
-        // -------------------
         // Current Year
-        // -------------------
         "Income Rec".Reset();
         "Income Rec".SetRange("Income Category", Rec."Income Category Name");
         StartDate := CALCDATE('<-CY>', WORKDATE);
@@ -104,9 +100,7 @@ page 50186 "Category Income FactBox"
         "Income Rec".CalcSums("Income Amount");
         CurrentYear := "Income Rec"."Income Amount";
 
-        // -------------------
-        // Current Month
-        // -------------------
+     // Current Month
         "Income Rec".Reset();
         "Income Rec".SetRange("Income Category", Rec."Income Category Name");
         StartDate := CALCDATE('<-CM>', WORKDATE);
@@ -115,9 +109,7 @@ page 50186 "Category Income FactBox"
         "Income Rec".CalcSums("Income Amount");
         CurrentMonth := "Income Rec"."Income Amount";
 
-        // -------------------
         // Current Half-Year
-        // -------------------
         "Income Rec".Reset();
         "Income Rec".SetRange("Income Category", Rec."Income Category Name");
         if Date2DMY(WORKDATE, 2) <= 6 then begin
@@ -131,9 +123,7 @@ page 50186 "Category Income FactBox"
         "Income Rec".CalcSums("Income Amount");
         CurrentHalfYear := "Income Rec"."Income Amount";
 
-        // -------------------
         // Current Quarter
-        // -------------------
         "Income Rec".Reset();
         "Income Rec".SetRange("Income Category", Rec."Income Category Name");
         StartDate := CALCDATE('<-CQ>', WORKDATE);
@@ -142,9 +132,6 @@ page 50186 "Category Income FactBox"
         "Income Rec".CalcSums("Income Amount");
         CurrentQuarter := "Income Rec"."Income Amount";
     end;
-
-
-
 
     var
         CurrentYear: Decimal;

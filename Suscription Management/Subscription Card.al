@@ -12,7 +12,6 @@ page 50127 "Subscription Card"
             group(General)
             {
                 Caption = 'General';
-
                 field("Subscription ID"; Rec."Subscription ID")
                 {
 
@@ -55,9 +54,5 @@ page 50127 "Subscription Card"
                 }
             }
         }
-
-
     }
-
-
 }

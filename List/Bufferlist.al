@@ -16,17 +16,13 @@ page 50137 "Buffer Table List"
                     ApplicationArea = All;
                 }
                 field("Field Name"; Rec."Field Name")
-
                 {
                     ApplicationArea = All;
-
                 }
                 field("Field Value"; Rec."Record Selection")
                 {
                     ApplicationArea = All;
                 }
-
-
             }
         }
     }

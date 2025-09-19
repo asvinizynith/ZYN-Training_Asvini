@@ -36,7 +36,6 @@ page 50138 "Probelm List Card"
                     ApplicationArea = All;
                 }
                 field(Date; Rec.Date)
-
                 {
                     ApplicationArea = All;
                 }

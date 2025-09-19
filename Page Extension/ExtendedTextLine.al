@@ -19,9 +19,6 @@ pageextension 50149 extendedline extends "Extended Text Lines"
                 Caption = 'Underline';
                 ApplicationArea = All;
             }
-        
         }
-    
     }
-    
 }

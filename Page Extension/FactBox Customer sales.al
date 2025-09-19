@@ -9,7 +9,6 @@ pageextension 50167 "Customersalesfactboxext" extends "Customer Card"
                 SubPageLink = "No." = field("No.");
                 ApplicationArea = All;
             }
-            
         }
     }
 }

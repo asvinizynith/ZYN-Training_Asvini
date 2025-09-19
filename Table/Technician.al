@@ -8,7 +8,6 @@ table 50130 "Technician Table"
         {
             Caption = 'ID';
             DataClassification = ToBeClassified;
-
         }
         field(2; Name; Text[30])
         {
@@ -40,5 +39,4 @@ table 50130 "Technician Table"
             Clustered = true;
         }
     }
-
 }

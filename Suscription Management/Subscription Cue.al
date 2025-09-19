@@ -29,7 +29,6 @@ page 50130 "Subscription Cues"
                 {
                     ApplicationArea = All;
                     DrillDown = true;
-
                     trigger OnDrillDown()
                     var
                         InvoiceRec: Record "Sales Header";
@@ -70,7 +69,6 @@ page 50130 "Subscription Cues"
 
         // Reset revenue
         TotalAmount := 0;
-
         workmonth := Date2DMY(WorkDate(), 2);
         workyear := Date2DMY(WORKDATE(), 3);
 
@@ -80,14 +78,11 @@ page 50130 "Subscription Cues"
         InvoiceRec.reset();
         InvoiceRec.SetRange(Subscription, true);
         InvoiceRec.SetRange("Document Date", StartDate, EndDate);
-
-
         if InvoiceRec.FindSet() then
             repeat
                 InvoiceRec.CalcFields("Amount");
                 TotalAmount += InvoiceRec."Amount";
             until InvoiceRec.Next() = 0;
-
     end;
 
     var

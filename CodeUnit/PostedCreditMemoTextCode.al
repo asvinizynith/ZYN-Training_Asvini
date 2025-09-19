@@ -1,5 +1,4 @@
 codeunit 50158 "Posted CreditMemo Text"
-
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterSalesCrMemoHeaderInsert', '', false, false)]
     local procedure OnAfterSalesCrMemoHeaderInsertbegin(var SalesCrMemoHeader: Record "Sales Cr.Memo Header";
@@ -12,7 +11,6 @@ codeunit 50158 "Posted CreditMemo Text"
         LineNo: Integer;
     begin
         SalesCrMemoHeader."Beginning Code" := SalesHeader."Beginning Text Code";
-
         BeginningTextCode.SetRange(No, SalesHeader."No.");
         BeginningTextCode.SetRange(Selection, BeginningTextCode.Selection::BeginningText);
 
@@ -45,7 +43,6 @@ codeunit 50158 "Posted CreditMemo Text"
         LineNo: Integer;
     begin
         SalesCrMemoHeader."Ending Code" := SalesHeader."Ending Text Code";
-
         BeginningTextCode.SetRange(No, SalesHeader."No.");
         BeginningTextCode.SetRange(Selection, BeginningTextCode.Selection::EndingText);
 
@@ -67,7 +64,4 @@ codeunit 50158 "Posted CreditMemo Text"
         BeginningTextCode.SetRange(Selection, BeginningTextCode.Selection::EndingText);
         BeginningTextCode.DeleteAll();
     end;
-
-
-
 }

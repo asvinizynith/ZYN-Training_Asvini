@@ -14,7 +14,6 @@ page 50120 "Employee Asset List"
             repeater(AssetDetails)
             {
                 Editable = false;
-
                 field("Employee ID"; Rec."Employee ID")
                 {
                     TableRelation = "Employee Table"."Employee Name";
@@ -27,7 +26,6 @@ page 50120 "Employee Asset List"
                 {
 
                 }
-
                 field(Status; Rec.Status)
                 {
 
@@ -44,10 +42,7 @@ page 50120 "Employee Asset List"
                 {
 
                 }
-
             }
-
         }
     }
-
 }

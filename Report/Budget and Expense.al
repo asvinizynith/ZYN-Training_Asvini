@@ -10,7 +10,6 @@ report 50101 "Budget Vs Expense Report"
         dataitem(Dummy; Integer)
         {
             DataItemTableView = sorting(Number) where(Number = const(1));
-
             trigger OnAfterGetRecord()
             var
                 Category: Record "Expense & Budget Category";
@@ -46,14 +45,12 @@ report 50101 "Budget Vs Expense Report"
                         repeat
                             ExpensecatAmt := 0;
                             BudgetAmt := 0;
-
                             // ---- Expense Calculation ----
                             Expense.Reset();
                             Expense.SetRange("Category", Category."Category Name");
                             Expense.SetRange(Date, StartDate, EndDate);
                             Expense.CalcSums(Amount);
                             ExpensecatAmt := Expense.Amount;
-
 
                             // ---- Budget Calculation ----
                             Budget.Reset();
@@ -95,16 +92,10 @@ report 50101 "Budget Vs Expense Report"
                     ExcelBuffer.AddColumn('', FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuffer."Cell Type"::Text);
                     ExcelBuffer.AddColumn(Savings, FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuffer."Cell Type"::Number);
                     ExcelBuffer.NewRow();
-
                 end;
-
-
-
             end;
-
         }
     }
-
     requestpage
     {
         layout
@@ -132,7 +123,6 @@ report 50101 "Budget Vs Expense Report"
     begin
         ExcelBuffer.DeleteAll();
         RecordsFound := false;
-
         // Header
         ExcelBuffer.AddColumn('Month', FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuffer."Cell Type"::Text);
         ExcelBuffer.AddColumn('Category', FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuffer."Cell Type"::Text);

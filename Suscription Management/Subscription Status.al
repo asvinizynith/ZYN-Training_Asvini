@@ -1,12 +1,10 @@
 enum 50108 "Subscription Status"
 {
     Extensible = true;
-
     value(0; Active)
     {
         Caption = 'Active';
     }
-
     value(1; Inactive)
     {
         Caption = 'Inactive';
@@ -15,5 +13,4 @@ enum 50108 "Subscription Status"
     {
         Caption = 'Expired';
     }
-
 }

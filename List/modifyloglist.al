@@ -5,6 +5,7 @@ page 50106 "Modify Log List"
     ApplicationArea = All;
     Editable = false;
     InsertAllowed = false;
+    
     layout
     {
         area(Content)

@@ -51,6 +51,4 @@ table 50166 "Expense Table"
             SumIndexFields = Amount;
         }
     }
-
-
 }

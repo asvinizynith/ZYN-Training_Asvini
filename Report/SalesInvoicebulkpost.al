@@ -18,8 +18,7 @@ report 50162 BulkPosting
             invoicecount :=invoicecount +1;
         end;
         }
-    }
-    
+    }  
     
 var
 SalesPost: Codeunit "Sales-Post";
@@ -28,7 +27,6 @@ trigger OnPostReport()
     begin
         Message('There are %1  sales invoices posted', "invoiceCount");
     end;
-
     }
     
     

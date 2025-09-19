@@ -67,7 +67,8 @@ report 50165 "Sales Report"
                     column(Unit_Price; "Unit Price")
                     {
                         IncludeCaption = true;
-                    }}
+                    }
+                    }
                     dataitem("Customerledger";"Cust. Ledger Entry")
                     {
                         DataItemTableView = sorting("customer No.");
@@ -109,10 +110,8 @@ report 50165 "Sales Report"
                         }
                     }
                 }
-            }
-            
-    }
-               
+            }    
+    }      
             }
     
 

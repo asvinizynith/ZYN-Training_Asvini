@@ -1,4 +1,4 @@
-codeunit 50103 "Purchase Post Check"
+codeunit 50103 "Purchase Approval"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnBeforePostPurchaseDoc', '', false, false)]
     local procedure CheckApprovalStatus(PurchaseHeader: Record "Purchase Header")

@@ -12,24 +12,19 @@ table 50140 "Text Code Table"
         field(2; No; Code[20])
         {
             DataClassification = ToBeClassified;
-
         }
         field(3; "Customer No"; Text[100])
         {
             DataClassification = ToBeClassified;
-
         }
-
         field(4; "Document Type"; Enum "Sales Document Type")
         {
             DataClassification = ToBeClassified;
-
         }
         field(5; Text; Text[100])
         {
             DataClassification = ToBeClassified;
         }
-
         field(8; Selection; Enum "Textcode Selection")
         {
             DataClassification = ToBeClassified;
@@ -37,10 +32,8 @@ table 50140 "Text Code Table"
         field(6; "Language Code"; Code[30])
         {
             DataClassification = ToBeClassified;
-
         }
     }
-
 
     keys
     {
@@ -49,6 +42,5 @@ table 50140 "Text Code Table"
             Clustered = true;
         }
     }
-
 }
 

@@ -22,7 +22,6 @@ page 50145 SalesInvoice
                         sales.SetRecord(Rec);
                         sales.Run();
                     end;
-
                 }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
@@ -44,9 +43,7 @@ page 50145 SalesInvoice
                 {
                     ApplicationArea = All;
                 }
-
             }
         }
-
     }
 }

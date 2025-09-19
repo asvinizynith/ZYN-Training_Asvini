@@ -6,9 +6,7 @@ codeunit 50116 compchangesubscriber
         TargetCustomer: Record Customer;
         CompanyName: Text;
     begin
-
         CompanyName := 'Demo Company';
-
         if TargetCustomer.ChangeCompany(CompanyName) then begin
             if not TargetCustomer.Get("customer rec"."No.") then begin
                 TargetCustomer.Init();

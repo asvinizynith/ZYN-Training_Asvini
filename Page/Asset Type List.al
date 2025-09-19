@@ -17,20 +17,17 @@ page 50116 "Asset type List"
               field(No; Rec.No)
                 {
 
-                }
+                 }
                 field("Asset Category"; Rec."Asset Category")
-                {
+                { 
 
                 }
                 field("Asset Name"; Rec."Asset Name")
                 {
-
-                }
-               
-            }
-           
-        }
-        
+                  
+                 }   
+            }   
+          }
         }
     }
 

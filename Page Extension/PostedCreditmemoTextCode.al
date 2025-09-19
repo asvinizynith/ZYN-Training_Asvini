@@ -19,7 +19,6 @@ pageextension 50158 postedcreditmemotextcodeext extends "Posted Sales Credit Mem
                 ApplicationArea = All;
                 SubPageLink = "No" = field("No."),"Document Type"=const("Posted Credit Memo"), Selection = const(BeginningText);
             }
-
         }
         addlast(content)
         {
@@ -35,8 +34,6 @@ pageextension 50158 postedcreditmemotextcodeext extends "Posted Sales Credit Mem
                 ApplicationArea = All;
                 SubPageLink = "No" = field("No."),"Document Type"=const("Posted Credit Memo"), Selection = const(EndingText);
             }
-
         }
-
     }
 }

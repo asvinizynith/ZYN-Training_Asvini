@@ -15,49 +15,29 @@ page 50118 "Asset List"
             {
                  Editable=false;
              field(No; Rec."Asset No")
-                {
-
-                }
+                {}
                 field("Asset Name"; Rec."Asset Name")
-                {
-
-                }
+                { }
                 field("Serial No"; Rec."Serial No")
-                {
-
-                }
+                {}
                 field("Procured Date"; Rec."Procured Date")
-                {
-
-                }
+                { }
                 field("Vendor Name"; Rec."Vendor Name")
-                {
-
-                }
+                { }
                 field(Available; Rec.Available)
-                {
-
-                }
-
-               
+                { }
             }
-           
         }
-        
          area(FactBoxes)
         {
             part("Assigned Assets"; "Assigned Assets FactBox")
             {
                 ApplicationArea = All;
-                Caption = 'Assigned Assets FactBox';
-               
+                Caption = 'Assigned Assets FactBox'; 
             }
-        
-        }
-        
+        }    
     }
-   trigger OnAfterGetRecord()
-   
+   trigger OnAfterGetRecord()  
    begin
    rec.UpdateAvailable();
    Rec.Modify();

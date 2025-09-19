@@ -1,5 +1,4 @@
 page 50125 Myrolecenter 
-
 {
     PageType = RoleCenter;
     Caption = 'My Role Center Asvini';
@@ -11,15 +10,12 @@ layout
         part(myCue; 50128)
         {
             ApplicationArea = All;
-            Caption = 'My Cue';
-           
-            
+            Caption = 'My Cue'; 
         }
         part("Subscription Cues"; 50130)
         {
             ApplicationArea = All;
-            Caption = 'Subscription Cues';
-            
+            Caption = 'Subscription Cues'; 
         }
     }
 }
@@ -35,7 +31,6 @@ layout
                     Caption = 'Employee Asset List';
                     RunObject = page "Employee Asset List";
                     ApplicationArea = All;
-
                 }
                 action(AssetList)
                 {
@@ -48,7 +43,6 @@ layout
                     Caption = 'Asset Type';
                     RunObject = page "Asset type List";
                     ApplicationArea = All;
-                
                 }
             }
             group(ExpenseVSBudgetManagement)
@@ -59,7 +53,6 @@ layout
                     Caption = 'Expense Category List';
                     RunObject = page "Expense Category List ";
                     ApplicationArea = All;
-
                 }
                 action(ExpenseList)
                 {
@@ -100,7 +93,6 @@ layout
                     Caption = 'Employee List';
                     RunObject = page "Employee Entry List";
                     ApplicationArea = All;
-
                 }
                 action(LeaveCategory)
                 {
@@ -113,8 +105,7 @@ layout
                     Caption = 'Leave Request list';
                     RunObject = page "Leave Request List";
                     ApplicationArea = All;
-                }
-                
+                } 
                 }
         }
         area(Embedding)
@@ -123,8 +114,7 @@ layout
             {
                 Caption = 'Customers';
                 RunObject = page "Customer List";
-           ApplicationArea = All;
-            
+           ApplicationArea = All;    
         }
     }
 }

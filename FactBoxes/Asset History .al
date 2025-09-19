@@ -22,14 +22,10 @@ page 50122 "Assets History FactBox"
                     begin
                         AssetHistory.Reset();
                         AssetHistory.SetRange("Employee ID", Rec."Employee ID");
-
                         PAGE.Run(PAGE::"Employee Asset List", AssetHistory);
                     end;
                 }
-
             }
-
-
         }
     }
     trigger OnAfterGetRecord()
@@ -40,7 +36,6 @@ page 50122 "Assets History FactBox"
         AssetHistory.SetRange("Employee ID", Rec."Employee ID");
         Assetscount := AssetHistory.Count();
     end;
-
 
     var
         Assetscount: Integer;

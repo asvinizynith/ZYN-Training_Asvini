@@ -30,7 +30,6 @@ table 50185 "Income Category"
         fieldgroup(DropDown; "Income Category Name")
         {
             Caption = 'Income Category Name';
-
         }
     }
 }

@@ -6,7 +6,6 @@ page 50148 SalesOrder
     SourceTable = "Sales Header";
     SourceTableView = where("Document Type" = const(Order));
 
-
     layout
     {
         area(Content)
@@ -24,8 +23,6 @@ page 50148 SalesOrder
                         sales.SetRecord(Rec);
                         sales.Run();
                     end;
-
-
                 }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
@@ -39,14 +36,11 @@ page 50148 SalesOrder
                 {
                     ApplicationArea = All;
                 }
-
                 field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }
-
             }
         }
-
     }
 }

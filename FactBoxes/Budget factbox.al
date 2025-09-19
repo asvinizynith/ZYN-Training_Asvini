@@ -20,7 +20,6 @@ page 50200 "Budget FactBox"
                 {
                     ApplicationArea = All;
                 }
-
                 field("Category"; Rec."Category")
                 {
                     ApplicationArea = All;
@@ -30,7 +29,6 @@ page 50200 "Budget FactBox"
                     ApplicationArea = All;
                     Caption = 'Budget Amount';
                 }
-
             }
         }
     }

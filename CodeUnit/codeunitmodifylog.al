@@ -1,4 +1,4 @@
-codeunit 50108 CustomerChangeTracker
+codeunit 50108 modifylog
 {
     [EventSubscriber(ObjectType::Table, Database::Customer, 'OnAfterModifyEvent', '', false, false)]
     local procedure OnCustomerModify(var Rec: Record Customer; var xRec: Record Customer; RunTrigger: Boolean)
@@ -13,7 +13,6 @@ codeunit 50108 CustomerChangeTracker
         FieldName: Text[50];
     begin
         CurrentUser := UserId();
-
         RecRef.GetTable(Rec);
         xRecRef.GetTable(xRec);
 
@@ -47,6 +46,5 @@ codeunit 50108 CustomerChangeTracker
             end;
         end;
     end;
-
 }
 

@@ -37,7 +37,6 @@ table 50169 "Index Table"
     var
         IndexLine: Record "Index Lines";
     begin
-
         GenerateLinesForCode();
     end;
 
@@ -59,7 +58,6 @@ table 50169 "Index Table"
     local procedure GenerateLinesForCode()
     var
         IndexLine: Record "Index Lines";
-
         Year: Integer;
         CurrentValue: Decimal;
         StartYear: Integer;
@@ -71,9 +69,7 @@ table 50169 "Index Table"
             IndexLine.DeleteAll();
         if (Rec."Start Year" = 0) or (Rec."End Year" = 0) or (Rec."Percentage Increase" = 0) then
             exit;
-
         CurrentValue := 100; // Or: IndexTable."Start Value
-
         for Year := "Start Year" to "End Year" do begin
             IndexLine.Init();
             IndexLine."Entry No" := 0;
@@ -85,5 +81,4 @@ table 50169 "Index Table"
             StartYear += 1;
         end;
     end;
-
 }

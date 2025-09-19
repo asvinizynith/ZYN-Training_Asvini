@@ -19,8 +19,7 @@ page 50174 "Expense Category List "
                 {
                     ApplicationArea = All;
                 }
-            }
-           
+            }    
         }
         area(FactBoxes)
         {

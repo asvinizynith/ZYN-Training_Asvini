@@ -34,10 +34,7 @@ page 50126 "Plan List"
                 {
 
                 }
-
-
             }
-
         }
     }
     actions
@@ -49,7 +46,6 @@ page 50126 "Plan List"
                 Caption = 'Inactive';
                 ApplicationArea = All;
                 Image = Stop;
-
                 trigger OnAction()
                 var
                     PlanRec: Record "Plan Table";
@@ -67,8 +63,6 @@ page 50126 "Plan List"
                                     SubRec.Modify(true);
                                 until SubRec.Next() = 0;
                         until PlanRec.Next() = 0;
-
-
                 end;
             }
             action(Delete)
@@ -76,7 +70,6 @@ page 50126 "Plan List"
                 Caption = 'Delete ';
                 ApplicationArea = All;
                 Image = Delete;
-
                 trigger OnAction()
                 var
                     PlanRec: Record "Plan Table";
@@ -93,7 +86,6 @@ page 50126 "Plan List"
                             SubRec.Reset();
                             SubRec.SetRange("Plan ID", PlanRec."Plan ID"); // adjust to your actual field name
                             SubRec.SetRange(Status, SubRec.Status::Inactive); // only inactive
-
                             if SubRec.FindSet() then
                                 repeat
                                     SubRec.Delete(true);

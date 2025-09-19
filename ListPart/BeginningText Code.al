@@ -14,15 +14,11 @@ page 50142 "Text Code"
                 {
                     ApplicationArea = ALl;
                 }
-
                 field(BeginningText; Rec.Text)
                 {
                     ApplicationArea = All;
                 }
-
-
             }
-
         }
     }
 }

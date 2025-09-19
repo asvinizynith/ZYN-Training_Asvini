@@ -1,4 +1,4 @@
-codeunit 50160 "Last Sold Price Updater"
+codeunit 50160 "Last Sold Price Finder"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post",
                      'OnAfterSalesInvLineInsert', '', false, false)]
@@ -21,14 +21,6 @@ codeunit 50160 "Last Sold Price Updater"
         // Only store for Items
         if SalesInvLine.Type <> SalesInvLine.Type::Item then
             exit;
-
-        // // Debug message to confirm trigger
-        // Message('Saving Last Sold Price: Cust=%1, Item=%2, Price=%3, Date=%4',
-        //     SalesInvLine."Sell-to Customer No.",
-        //     SalesInvLine."No.",
-        //     SalesInvLine."Unit Price",
-        //     SalesInvLine."Posting Date");
-
         // Look for existing record
         LastSoldRec.Reset();
         LastSoldRec.SetCurrentKey("Customer No", "Item No", "Posting Date");

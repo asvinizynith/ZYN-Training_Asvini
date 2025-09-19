@@ -5,22 +5,20 @@ page 50141 MyCustomerList
     UsageCategory = Administration;
     SourceTable = Customer;
     Editable = false;
+
     layout
     {
         area(Content)
         {
             repeater(Control1)
             {
-
                 field("No."; Rec."No.")
-
                 {
                     ApplicationArea = All;
                 }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-
                 }
                 field(Address; Rec.Address)
                 {
@@ -29,12 +27,10 @@ page 50141 MyCustomerList
                 field("Post Code"; Rec."Post Code")
                 {
                     ApplicationArea = All;
-
                 }
                 field(City; Rec.City)
                 {
                     ApplicationArea = All;
-
                 }
                 field("Phone No."; Rec."Phone No.")
                 {
@@ -57,10 +53,8 @@ page 50141 MyCustomerList
                     {
                         SubPageLink = "Sell-to Customer Name" = field(Name);
                     }
-
                 }
             }
-
         }
 
     

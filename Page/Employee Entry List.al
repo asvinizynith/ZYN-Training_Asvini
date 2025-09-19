@@ -22,12 +22,14 @@ page 50107 "Employee Entry List"
                     ApplicationArea = All;
                 }
                 field("Employee Role"; Rec."Employee Role")
-                { }
+                {
+                    ApplicationArea = All;
+                }
                 field(Department; Rec.Department)
-                { }
-
+                {
+                    ApplicationArea = All;
+                }
             }
-
         }
         area(FactBoxes)
         {
@@ -37,8 +39,6 @@ page 50107 "Employee Entry List"
                 Caption = 'Assets History FactBox';
                 SubPageLink = "Employee ID" = field("Employee ID");
             }
-
         }
     }
-
 }

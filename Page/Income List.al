@@ -13,13 +13,21 @@ page 50182 "Income List"
         {
             repeater(General)
             {
-                field("Income Description"; Rec."Income Description") { }
-                field("Income Amount"; Rec."Income Amount") { }
-                field("Income Date"; Rec."Income Date") { }
+                field("Income Description"; Rec."Income Description") 
+                { 
+
+                }
+                field("Income Amount"; Rec."Income Amount") 
+                {
+
+                 }
+                field("Income Date"; Rec."Income Date") 
+                { 
+
+                }
                 field("Income Category"; Rec."Income Category")
                 {
                     ApplicationArea = All;
-
                 }
             }
         }
@@ -34,7 +42,6 @@ page 50182 "Income List"
                 Caption = 'Income Category List';
                 Image = List;
                 RunObject = page "Income Category List ";
-
             }
             action(IncomeTracker)
             {
@@ -45,5 +52,4 @@ page 50182 "Income List"
             }
         }
     }
-
 }
