@@ -1,4 +1,4 @@
-table 50171 "Index Lines"
+table 50171 "ZYN_Index Lines"
 {
     Caption = 'Index Lines';
     DataClassification = ToBeClassified;
@@ -13,7 +13,7 @@ table 50171 "Index Lines"
         field(2; "Code"; Code[30])
         {
             Caption = 'Code';
-            TableRelation = "Index Table"."Code";
+            TableRelation = "ZYN_Index Table"."Code";
         }
         field(3; Year; Integer)
         {

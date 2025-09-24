@@ -1,9 +1,9 @@
-page 50175 "Category Expense FactBox"
+page 50175 "ZYN_Category Expense FactBox"
 {
     PageType = CardPart;
-    SourceTable = "Expense & Budget Category";
+    SourceTable = "ZYN_Expense & Budget Category";
     ApplicationArea = All;
-    Caption = 'Category Expense Info';
+    Caption = 'ZYN_Category Expense Info';
 
     layout
     {
@@ -13,44 +13,41 @@ page 50175 "Category Expense FactBox"
             {
                 field("Current Year"; CurrentYear)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Year';
                     trigger OnDrillDown()
                     var
-                        Expense: Record "Expense Table";
+                        Expense: Record "ZYN_Expense Table";
                     begin
                         Expense.SetRange("Category", Rec."Category Name");
                         StartDate := CALCDATE('<-CY>', WORKDATE);
                         EndDate := CALCDATE('<CY>', WORKDATE);
                         Expense.SetRange("Date", StartDate, EndDate);
-                        PAGE.Run(PAGE::"Expense List", Expense);
+                        PAGE.Run(PAGE::"ZYN_Expense List", Expense);
                     end;
                 }
                 field("Current Month"; CurrentMonth)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Month';
                     trigger OnDrillDown()
                     var
-                        Expense: Record "Expense Table";
+                        Expense: Record "ZYN_Expense Table";
                     begin
                         Expense.SetRange("Category", Rec."Category Name");
                         StartDate := CALCDATE('<-CM>', WORKDATE);
                         EndDate := CALCDATE('<CM>', WORKDATE);
                         Expense.SetRange("Date", StartDate, EndDate);          // Till today
-                        PAGE.Run(PAGE::"Expense List", Expense);
+                        PAGE.Run(PAGE::"ZYN_Expense List", Expense);
                     end;
                 }
                 field("Current Half Year"; CurrentHalfYear)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Half Year';
                     trigger OnDrillDown()
                     var
-                        Expense: Record "Expense Table";
+                        Expense: Record "ZYN_Expense Table";
                     begin
                         Expense.SetRange("Category", Rec."Category Name");
                         if Date2DMY(WORKDATE, 2) <= 6 then begin
@@ -61,29 +58,27 @@ page 50175 "Category Expense FactBox"
                             EndDate := CALCDATE('<CY>', WORKDATE);   // Dec 31 of current year
                         end;
                         Expense.SetRange("Date", StartDate, EndDate);
-                        PAGE.Run(PAGE::"Expense List", Expense);
+                        PAGE.Run(PAGE::"ZYN_Expense List", Expense);
                     end;
                 }
                 field("Current Quarter"; CurrentQuarter)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Quarter';
                     trigger OnDrillDown()
                     var
-                        Expense: Record "Expense Table";
+                        Expense: Record "ZYN_Expense Table";
                     begin
                         Expense.SetRange("Category", Rec."Category Name");
                         StartDate := CALCDATE('<-CQ>', WORKDATE);
                         EndDate := CALCDATE('<CQ>', WORKDATE);
                         Expense.SetRange("Date", StartDate, EndDate); // If you want "till WorkDate"
-                        PAGE.Run(PAGE::"Expense List", Expense);
+                        PAGE.Run(PAGE::"ZYN_Expense List", Expense);
                     end;
                 }
             }
             field(RemainingBudget; "RemainingBudget")
             {
-                ApplicationArea = All;
                 Caption = 'Remaining Budget';
                 Editable = false;
             }
@@ -92,11 +87,8 @@ page 50175 "Category Expense FactBox"
 
     trigger OnAfterGetRecord()
     var
-        Expense: Record "Expense Table";
+        Expense: Record "ZYN_Expense Table";
     begin
-        Month := DATE2DMY(WorkDate(), 2);
-        Year := DATE2DMY(WorkDate(), 3);
-
         // Current Year
         Expense.Reset();
         Expense.SetRange("Category", Rec."Category Name");
@@ -151,6 +143,6 @@ page 50175 "Category Expense FactBox"
         EndDate: Date;
         Month: Integer;
         Year: Integer;
-        RemainingBudgetMgt: Codeunit "Remaining Budget Manager";
+        RemainingBudgetMgt: Codeunit "ZYN_Remaining Budget Manager";
         RemainingBudget: Decimal;
 }

@@ -1,4 +1,4 @@
-page 50148 SalesOrder
+page 50148 "ZYN_Sales Order"
 {
     PageType = ListPart;
     ApplicationArea = All;
@@ -14,7 +14,6 @@ page 50148 SalesOrder
             {
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     trigger OnDrillDown()
                     var
@@ -26,19 +25,15 @@ page 50148 SalesOrder
                 }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Document Date"; Rec."Document Date")
                 {
-                    ApplicationArea = All;
                 }
                 field(Status; Rec.Status)
                 {
-                    ApplicationArea = All;
                 }
                 field(Amount; Rec.Amount)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

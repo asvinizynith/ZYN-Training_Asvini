@@ -10,8 +10,9 @@ pageextension 50157 salesqoutetextcodeext extends "Sales Quote"
                 ApplicationArea = All;
                 TableRelation = "Standard Text";
             }
-            part(BeginningLine; "Text Code")
+            part(BeginningLine; "ZYN_Beginning Text Code")
             {
+                 Caption= 'Beginning Line';
                 ApplicationArea = All;
                 SubPageLink = "Customer No" = field("Sell-to Customer No."), Selection = const(BeginningText);
             }
@@ -24,8 +25,9 @@ pageextension 50157 salesqoutetextcodeext extends "Sales Quote"
                 ApplicationArea= All;
                 TableRelation = "Standard Text";
             }
-            part(EndingLine; "Ending Text Code")
+            part(EndingLine; "ZYN_Ending Text Code")
             {
+                 Caption= ' Ending Line';
                 ApplicationArea = All;
                 SubPageLink = "Customer No" = field("Sell-to Customer No."), Selection = const(EndingText);
             }

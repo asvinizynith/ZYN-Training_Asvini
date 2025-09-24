@@ -1,4 +1,4 @@
-enum 50140 "purchase Approval Status"
+enum 50140 "ZYN_purchase Approval Status"
 {
     Extensible = true;
     value(0; "Open")

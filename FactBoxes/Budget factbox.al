@@ -1,8 +1,8 @@
-page 50200 "Budget FactBox"
+page 50200 "ZYN_Budget FactBox"
 {
     PageType = CardPart;
-    SourceTable = "Budget Table";
-    Caption = 'Budget Info';
+    SourceTable = "ZYN_Budget Table";
+    Caption = 'ZYN_Budget Info';
     ApplicationArea = All;
 
     layout
@@ -14,19 +14,15 @@ page 50200 "Budget FactBox"
                 Caption = 'Budget for Current Month';
                 field("From Date"; Rec."From Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("To Date"; Rec."To Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("Category"; Rec."Category")
                 {
-                    ApplicationArea = All;
                 }
                 field("Amount"; Rec."Amount")
                 {
-                    ApplicationArea = All;
                     Caption = 'Budget Amount';
                 }
             }

@@ -1,9 +1,9 @@
-page 50108 "Leave Category Card"
+page 50108 "ZYN_Leave Category Card"
 {
     ApplicationArea = All;
-    Caption = 'Leave Category Card';
+    Caption = 'ZYN_Leave Category Card';
     PageType = Card;
-    SourceTable = "Leave Category Table";
+    SourceTable = "ZYN_Leave Category Table";
 
     layout
     {
@@ -13,11 +13,14 @@ page 50108 "Leave Category Card"
             {
                 Caption = 'General';
                 field(Description; Rec.Description)
-                { }
+                {
+                }
                 field("Leave Category"; Rec."Leave Category")
-                { }
+                {
+                }
                 field("No. Of Days Allowed"; Rec."No. Of Days Allowed")
-                { }
+                {
+                }
             }
         }
     }

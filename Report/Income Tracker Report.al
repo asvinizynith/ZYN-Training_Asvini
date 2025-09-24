@@ -1,4 +1,4 @@
-report 50184 "Income Tracker Report"
+report 50184 "ZYN_Income Tracker Report"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
@@ -6,7 +6,7 @@ report 50184 "Income Tracker Report"
 
     dataset
     {
-        dataitem(Income_Tracker; "Income Table")
+        dataitem(Income_Tracker; "ZYN_Income Table")
         {
             DataItemTableView = sorting("Income Category");
 
@@ -39,19 +39,16 @@ report 50184 "Income Tracker Report"
                 {
                     field(StartDate; StartDate)
                     {
-                        ApplicationArea = All;
                         Caption = 'Start Date';
                     }
                     field(EndDate; EndDate)
                     {
-                        ApplicationArea = All;
                         Caption = 'End Date';
                     }
                     field(IncomeCategoryFilter; IncomeCategoryFilter)
                     {
-                        ApplicationArea = All;
                         Caption = 'Income Category';
-                        TableRelation = "Income Category"."Income Category Name";
+                        TableRelation = "ZYN_Income Category"."Income Category Name";
                     }
                 }
             }

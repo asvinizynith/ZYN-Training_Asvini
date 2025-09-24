@@ -1,11 +1,11 @@
-page 50134 "Expense Claim Category List"
+page 50134 "ZYN_ExpenseClaim Category List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Expense Claim Category List';
-    SourceTable = "Expense Claim Category Table";
+    Caption = 'ZYN_ExpenseClaim Category List';
+    SourceTable = "ZYN_Expense Claim Category";
     UsageCategory=Administration;
-    CardPageId="Expense Claim Category Card";
+    CardPageId="ZYN_ExpenseClaim Category Card";
    
     layout
     {
@@ -16,23 +16,18 @@ page 50134 "Expense Claim Category List"
                  Editable=false;
                field("Category Code"; Rec."Category Code")
                 {
-
                 }
                 field("Category Name"; Rec."Category Name")
                 {
-
                 }
                 field(Subtype; Rec.Subtype)
                 {
-
                 }
                 field(Description; Rec.Description)
                 {
-
                 }
                 field("Amount Limit"; Rec."Amount Limit")
                 {
-
                 }
             }
         }

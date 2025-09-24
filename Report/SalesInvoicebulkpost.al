@@ -1,9 +1,9 @@
-report 50162 BulkPosting
+report 50162 "ZYN_Bulk Posting"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
    ProcessingOnly = true;
-   Caption ='BulkPosting';
+   Caption ='ZYN_BulkPosting';
     
     dataset
     {

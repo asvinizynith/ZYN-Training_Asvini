@@ -14,10 +14,11 @@ pageextension 50158 postedcreditmemotextcodeext extends "Posted Sales Credit Mem
                     Editable = false;
                 }
             }
-            part(BeginningLine; "Text Code")
+            part(BeginningLine; "ZYN_Beginning Text Code")
             {
                 ApplicationArea = All;
-                SubPageLink = "No" = field("No."),"Document Type"=const("Posted Credit Memo"), Selection = const(BeginningText);
+                Caption = 'Beginning Line';
+                SubPageLink = "No" = field("No."), "Document Type" = const("Posted Credit Memo"), Selection = const(BeginningText);
             }
         }
         addlast(content)
@@ -29,10 +30,11 @@ pageextension 50158 postedcreditmemotextcodeext extends "Posted Sales Credit Mem
                 TableRelation = "Standard Text".Code;
                 Editable = false;
             }
-            part(EndingLine; "Text Code")
+            part(EndingLine; "ZYN_Beginning Text Code")
             {
                 ApplicationArea = All;
-                SubPageLink = "No" = field("No."),"Document Type"=const("Posted Credit Memo"), Selection = const(EndingText);
+                Caption = 'Ending Line';
+                SubPageLink = "No" = field("No."), "Document Type" = const("Posted Credit Memo"), Selection = const(EndingText);
             }
         }
     }

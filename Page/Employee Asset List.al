@@ -1,11 +1,11 @@
-page 50120 "Employee Asset List"
+page 50120 "ZYN_Employee Asset List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Employee Asset List';
-    SourceTable = "Employee Asset Table";
+    Caption = 'ZYN_Employee Asset List';
+    SourceTable = "ZYN_Employee Asset Table";
     UsageCategory = Administration;
-    CardPageId = "Employee Asset Card";
+    CardPageId = "ZYN_Employee Asset Card";
 
     layout
     {
@@ -16,31 +16,25 @@ page 50120 "Employee Asset List"
                 Editable = false;
                 field("Employee ID"; Rec."Employee ID")
                 {
-                    TableRelation = "Employee Table"."Employee Name";
+                    TableRelation = "ZYN_Employee Table"."Employee Name";
                 }
                 field("Serial No"; Rec."Serial No")
                 {
-
                 }
                 field("Asset Name"; Rec."Asset Name")
                 {
-
                 }
                 field(Status; Rec.Status)
                 {
-
                 }
                 field("Assigned Date"; Rec."Assigned Date")
                 {
-
                 }
                 field("Returned Date"; Rec."Returned Date")
                 {
-
                 }
                 field("Lost Date"; Rec."Lost Date")
                 {
-
                 }
             }
         }

@@ -1,4 +1,4 @@
-table 50166 "Expense Table"
+table 50166 "ZYN_Expense Table"
 {
     Caption = 'Expense Table';
     DataClassification = ToBeClassified;
@@ -9,7 +9,6 @@ table 50166 "Expense Table"
         {
             Caption = 'Expense ID';
             AutoIncrement = true;
-            DataClassification = ToBeClassified;
         }
         field(2; "Description"; Text[100])
         {
@@ -25,7 +24,7 @@ table 50166 "Expense Table"
         }
         field(5; "Category"; Code[50])
         {
-            TableRelation = "Expense & Budget Category"."Category Name";
+            TableRelation = "ZYN_Expense & Budget Category"."Category Name";
             Caption = 'Category';
         }
         field(7; "Expense Amount"; Decimal)

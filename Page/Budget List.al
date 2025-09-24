@@ -1,13 +1,13 @@
-page 50189 "Budget List"
+page 50189 "ZYN_Budget List"
 {
     ApplicationArea = All;
-    Caption = 'Budget List';
+    Caption = 'ZYN_Budget List';
     PageType = List;
-    SourceTable = "Budget Table";
+    SourceTable = "ZYN_Budget Table";
     UsageCategory = Administration;
-    CardPageId = "Budget Card"; // Ensures standard 'New' works too
+    CardPageId = "ZYN_Budget Card"; // Ensures standard 'New' works too
     Editable = false;
-    
+
     layout
     {
         area(Content)
@@ -15,13 +15,17 @@ page 50189 "Budget List"
             repeater(General)
             {
                 field("From Date"; Rec."From Date")
-                { }
+                {
+                }
                 field("To Date"; Rec."To Date")
-                { }
+                {
+                }
                 field(Category; Rec.Category)
-                { }
+                {
+                }
                 field(Amount; Rec.Amount)
-                { }
+                {
+                }
             }
         }
     }

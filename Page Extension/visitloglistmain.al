@@ -11,7 +11,7 @@ pageextension 50111 CustomerCardExt extends "Customer Card"
                 Image = View; // Optional - you can choose an icon
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Customer Visit Log List");
+                    PAGE.Run(PAGE::"ZYN_Customer Visit Log List");
                 end;
             }
         }

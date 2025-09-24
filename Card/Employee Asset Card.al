@@ -1,9 +1,9 @@
-page 50119 "Employee Asset Card"
+page 50119 "ZYN_Employee Asset Card"
 {
     ApplicationArea = All;
-    Caption = 'Employee Asset Card';
+    Caption = 'ZYN_Employee Asset Card';
     PageType = Card;
-    SourceTable = "Employee Asset Table";
+    SourceTable = "ZYN_Employee Asset Table";
 
     layout
     {
@@ -13,18 +13,16 @@ page 50119 "Employee Asset Card"
             {
                 Caption = 'General';
                 field("Entry No"; Rec."Entry No")
-                { 
-
+                {
                 }
                 field("Employee ID"; Rec."Employee ID")
-                { 
-
+                {
                 }
                 field("Serial No"; Rec."Serial No")
                 {
                     trigger OnValidate()
                     var
-                        EmpAssetRec: Record "Employee Asset Table";
+                        EmpAssetRec: Record "ZYN_Employee Asset Table";
                     begin
                         // If the asset is already assigned, check if it's assigned to this employee
                         EmpAssetRec.Reset();
@@ -38,8 +36,7 @@ page 50119 "Employee Asset Card"
                 }
                 field("Asset Name"; Rec."Asset Name")
                 {
-                    
-                 }
+                }
 
                 field(Status; Rec.Status)
                 {
@@ -51,17 +48,14 @@ page 50119 "Employee Asset Card"
                 }
                 field("Assigned Date"; rec."Assigned Date")
                 {
-                    ApplicationArea = All;
                     Editable = AssignedDateEditable;
                 }
                 field("Returned Date"; rec."Returned Date")
                 {
-                    ApplicationArea = All;
                     Editable = ReturnedDateEditable;
                 }
                 field("Lost Date"; rec."Lost Date")
                 {
-                    ApplicationArea = All;
                     Editable = LostDateEditable;
                 }
             }

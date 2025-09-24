@@ -1,4 +1,4 @@
-table 50115 "Plan Table"
+table 50115 "ZYN_Plan Table"
 {
     DataClassification = ToBeClassified;
     fields
@@ -16,7 +16,7 @@ table 50115 "Plan Table"
         {
             Caption = 'Monthly Fee';
         }
-        field(4; "Status"; Enum "Plan Status")
+        field(4; "Status"; Enum "ZYN_Plan Status")
         {
             Caption = 'Status';
         }

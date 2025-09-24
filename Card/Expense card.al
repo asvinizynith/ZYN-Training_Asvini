@@ -1,9 +1,9 @@
-page 50172 "Expense Card"
+page 50172 "ZYN_Expense Card"
 {
     ApplicationArea = All;
-    Caption = 'Expense Card';
+    Caption = 'ZYN_Expense Card';
     PageType = Card;
-    SourceTable = "Expense Table";
+    SourceTable = "ZYN_Expense Table";
 
     layout
     {
@@ -13,24 +13,19 @@ page 50172 "Expense Card"
             {
                 Caption = 'General';
                 field(Description; Rec.Description)
-                { 
-
+                {
                 }
                 field(Amount; Rec.Amount)
-                { 
-
+                {
                 }
                 field("Date"; Rec."Date")
-                { 
-                    
+                {
                 }
                 field("Category"; Rec."Category")
                 {
-
-                 }
+                }
                 field("Remaining Budget"; Rec."Remaining Budget")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
             }

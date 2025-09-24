@@ -1,9 +1,9 @@
-page 50147 "Expense Approval Request Claim"
+page 50147 "ZYN_Expense Approval Req Claim"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Expense Approval Request Claim';
-    SourceTable = "Expense Claim Table";
+    Caption = 'ZYN_Expense Approval Req Claim';
+    SourceTable = "ZYN_Expense Claim Table";
     SourceTableView = where(status = const("Pending Approval"));
     UsageCategory = Administration;
 
@@ -16,27 +16,21 @@ page 50147 "Expense Approval Request Claim"
                 Editable = false;
                 field("Employee ID"; Rec."Employee ID")
                 {
-
                 }
                 field("Category Code"; Rec."Category Code")
                 {
-
                 }
                 field("Category Name"; Rec."Category Name")
                 {
-
                 }
                 field(Subtype; Rec.Subtype)
                 {
-
                 }
                 field(Amount; Rec.Amount)
                 {
-
                 }
                 field("Claim Date"; Rec."Claim Date")
                 {
-
                 }
                 field(Status; Rec.Status)
                 {
@@ -44,7 +38,6 @@ page 50147 "Expense Approval Request Claim"
                 }
                 field("Bill Date"; Rec."Bill Date")
                 {
-
                 }
                 field("Bill Copy"; Rec."File Name")
                 {
@@ -52,7 +45,6 @@ page 50147 "Expense Approval Request Claim"
                 }
                 field(Remarks; Rec.Remarks)
                 {
-
                 }
             }
         }
@@ -64,7 +56,6 @@ page 50147 "Expense Approval Request Claim"
             action(DownloadBillCopy)
             {
                 Caption = 'Download Bill Copy';
-                ApplicationArea = All;
                 trigger OnAction()
                 var
                     InS: InStream;
@@ -78,7 +69,6 @@ page 50147 "Expense Approval Request Claim"
             }
             action(ApproveClaim)
             {
-                ApplicationArea = All;
                 Caption = 'Approve';
                 Image = Approvals;
                 trigger OnAction()
@@ -92,7 +82,6 @@ page 50147 "Expense Approval Request Claim"
             action(Reject)
             {
                 Caption = 'Reject Claim';
-                ApplicationArea = All;
                 Image = Cancel;
                 trigger OnAction()
                 begin
@@ -121,8 +110,8 @@ page 50147 "Expense Approval Request Claim"
 
     procedure ValidateBeforeApproval()
     var
-        ExpenseClaimRec: Record "Expense Claim table";
-        Expenseclaimcategory: Record "Expense Claim Category Table";
+        ExpenseClaim: Record "ZYN_Expense Claim Table";
+        Expenseclaimcategory: Record "ZYN_Expense Claim Category";
 
     begin
         // 1. Check Amount Limit
@@ -142,13 +131,13 @@ page 50147 "Expense Approval Request Claim"
                 Error('Claim Date (%1) cannot be more than 3 months after Bill Date (%2).', Rec."Claim Date", Rec."Bill Date");
         end;
         // 4. Duplicate Claim Check
-        ExpenseClaimRec.Reset();
-        ExpenseClaimRec.SetRange("Employee ID", Rec."Employee ID");
-        ExpenseClaimRec.SetRange("Category Code", Rec."Category Code");
-        ExpenseClaimRec.SetRange("Bill Date", Rec."Bill Date");
-        ExpenseClaimRec.SetRange("Subtype", Rec."Subtype");
-        ExpenseClaimRec.SetFilter("Entry No.", '<>%1', Rec."Entry No.");
-        if ExpenseClaimRec.FindSet() then
+        ExpenseClaim.Reset();
+        ExpenseClaim.SetRange("Employee ID", Rec."Employee ID");
+        ExpenseClaim.SetRange("Category Code", Rec."Category Code");
+        ExpenseClaim.SetRange("Bill Date", Rec."Bill Date");
+        ExpenseClaim.SetRange("Subtype", Rec."Subtype");
+        ExpenseClaim.SetFilter("Entry No.", '<>%1', Rec."Entry No.");
+        if ExpenseClaim.FindSet() then
             Error(
                 'A claim already exists for Employee %1, Category %2, Bill Date %3, Subtype %4.',
                 Rec."Employee ID", Rec."Category Code", Rec."Bill Date", Rec."Subtype");

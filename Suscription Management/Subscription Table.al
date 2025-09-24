@@ -1,4 +1,4 @@
-table 50116 "Subscription Table"
+table 50116 "ZYN_Subscription Table"
 {
     DataClassification = ToBeClassified;
 
@@ -17,7 +17,7 @@ table 50116 "Subscription Table"
         field(3; "Plan ID"; Integer)
         {
             Caption = 'Plan ID';
-            TableRelation = "Plan Table"."Plan ID";
+            TableRelation = "ZYN_Plan Table"."Plan ID";
         }
         field(4; "Start Date"; Date)
         {
@@ -39,17 +39,13 @@ table 50116 "Subscription Table"
         field(6; "End Date"; Date)
         {
             Caption = 'End Date';
-            Editable = false;
-            // trigger OnValidate()
-            // begin
-            //     calcnextRenewaldate();
-            // end;
+            Editable = false;     
         }
         field(7; "Next Billing Date"; Date)
         {
             Caption = 'Next Billing Date';
         }
-        field(8; status; Enum "Subscription Status")
+        field(8; status; Enum "ZYN_Subscription Status")
         {
             Caption = 'Status';
         }
@@ -95,31 +91,4 @@ table 50116 "Subscription Table"
                 "Next Billing Date" := CalcDate('<1M>', "Next Billing Date");
         end;
     end;
-
-    // procedure CalcNextRenewalDate()
-    // var
-    //     Day: Integer;
-    //     Month: Integer;
-    //     Year: Integer;
-    // begin
-    //     if "End Date" <> 0D then begin
-    //         Day := Date2DMY("End Date", 1);   // Day part
-    //         Month := Date2DMY("End Date", 2); // Month part
-    //         Year := Date2DMY("End Date", 3);  // Year part
-
-    //         if Day = 1 then begin
-    //             // If End Date is 1st of the month → Next Renewal = 1st of next month
-    //             if Month = 12 then begin
-    //                 // If December → go to Jan next year
-    //                 "Next Renewal Date" := DMY2Date(1, 1, Year + 1);
-    //             end else begin
-    //                 "Next Renewal Date" := DMY2Date(1, Month + 1, Year);
-    //             end;
-    //         end else begin
-    //             // Default: add 1 month
-    //             "Next Renewal Date" := CalcDate('<1M>', "End Date");
-    //         end;
-    //     end else
-    //         "Next Renewal Date" := 0D;
-    // end;
 }

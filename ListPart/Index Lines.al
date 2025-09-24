@@ -1,9 +1,9 @@
-page 50171 "Index Lines List Part"
+page 50171 "ZYN_Index Lines List Part"
 {
     PageType = listpart;
     ApplicationArea = All;
-    Caption = 'Index Lines';
-    SourceTable = "Index Lines";
+    Caption = 'ZYN_Index Lines';
+    SourceTable = "ZYN_Index Lines";
     Editable= false;
     layout
     {
@@ -13,11 +13,9 @@ page 50171 "Index Lines List Part"
             {
                  field(Year; Rec.Year)
                 {
-                    ApplicationArea = All;
                 }
                 field("Value"; Rec."Value")
                 {
-                    ApplicationArea = All;
                 }
             }
         }

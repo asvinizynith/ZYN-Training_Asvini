@@ -1,4 +1,4 @@
-table 50105 "Leave Category Table"
+table 50105 "ZYN_Leave Category Table"
 {
     Caption = 'Leave Category Table';
     DataClassification = ToBeClassified;
@@ -8,7 +8,6 @@ table 50105 "Leave Category Table"
         field(1; "Description"; Text[30])
         {
             Caption = 'Description';
-            DataClassification = ToBeClassified;
         }
         field(2; "Leave Category"; Code[50])
         {
@@ -30,8 +29,8 @@ table 50105 "Leave Category Table"
 
     trigger OnInsert()
     var
-        PopulateLeaveCU: Codeunit "Populate Employee Leave Table";
+        EmployeeLeaveCU: Codeunit "ZYN_Employee Leave Management";
     begin
-        PopulateLeaveCU.Run();
+        EmployeeLeaveCU.Run();
     end;
 }

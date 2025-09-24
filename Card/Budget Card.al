@@ -1,9 +1,9 @@
-page 50188 "Budget Card"
+page 50188 "ZYN_Budget Card"
 {
     ApplicationArea = All;
-    Caption = 'Budget Card';
+    Caption = 'ZYN_Budget Card';
     PageType = Card;
-    SourceTable = "Budget Table";
+    SourceTable = "ZYN_Budget Table";
 
     layout
     {
@@ -13,20 +13,16 @@ page 50188 "Budget Card"
             {
                 Caption = 'General';
                 field("From Date"; Rec."From Date")
-                { 
-
+                {
                 }
                 field("To Date"; Rec."To Date")
-                { 
-
+                {
                 }
                 field(Category; Rec.Category)
-                { 
-
+                {
                 }
                 field(Amount; Rec.Amount)
-                { 
-                    
+                {
                 }
             }
         }

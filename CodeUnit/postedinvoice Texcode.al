@@ -1,4 +1,4 @@
-codeunit 50125 "Posted Invoice Text Code"
+codeunit 50125 "ZYN_Posted Invoice Text Mgt"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterSalesInvHeaderInsert', '', false, false)]
     local procedure OnAfterSalesInvbegin(
@@ -11,16 +11,15 @@ codeunit 50125 "Posted Invoice Text Code"
     var TempWhseRcptHeader: Record "Warehouse Receipt Header";
     PreviewMode: Boolean)
     var
-        BeginningTextCode: Record "Text Code Table";
-        PostedText: Record "Text Code Table";
-
+        BeginningTextCode: Record "ZYN_Text Code Table";
+        PostedText: Record "ZYN_Text Code Table";
     begin
  if SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice then begin
     PostedText.SetRange("No", SalesInvHeader."No.");
             PostedText.SetRange("Document Type", PostedText."Document Type"::"Posted Invoice");
             PostedText.SetRange(Selection, PostedText.Selection::BeginningText);
             PostedText.DeleteAll();
-
+            
         SalesInvHeader."Beginning Code" := SalesHeader."Beginning Text Code";
         SalesInvHeader.Modify();
         BeginningTextCode.SetRange(No, SalesINVHeader."Beginning Code");
@@ -52,8 +51,8 @@ local procedure OnAfterSalesInvend(
     var TempWhseRcptHeader: Record "Warehouse Receipt Header";
     PreviewMode: Boolean)
     var
-        EndingTextCode: Record "Text Code Table";
-        PostedText: Record "Text Code Table";
+        EndingTextCode: Record "ZYN_Text Code Table";
+        PostedText: Record "ZYN_Text Code Table";
 
     begin
  if SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice then begin

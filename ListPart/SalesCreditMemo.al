@@ -1,4 +1,4 @@
-page 50146 SalesCreditMemo
+page 50146 "ZYN_Sales Credit Memo"
 {
     PageType = ListPart;
     ApplicationArea = All;
@@ -14,7 +14,6 @@ page 50146 SalesCreditMemo
             {
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
                     trigger OnDrillDown()
                     var
                         sales: Page "Sales Credit Memo";
@@ -25,23 +24,18 @@ page 50146 SalesCreditMemo
                 }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Sell-to Contact"; Rec."Sell-to Contact")
                 {
-                    ApplicationArea = All;
                 }
                 field("Posting Date"; Rec."Posting Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("Due Date"; Rec."Due Date")
                 {
-                    ApplicationArea = All;
                 }
                 field(Amount; Rec.Amount)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

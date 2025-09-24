@@ -1,4 +1,4 @@
-table 50112 "Asset Table"
+table 50112 "ZYN_Asset Table"
 {
     DataClassification = ToBeClassified;
 
@@ -12,7 +12,7 @@ table 50112 "Asset Table"
         field(2; "Asset Name"; Text[50])
         {
             Caption = 'Asset Name';
-            TableRelation = "Asset Type"."Asset Name";
+            TableRelation = "ZYN_Asset Type Table"."Asset Name";
         }
         field(3; "Serial No"; Code[30])
         {
@@ -51,7 +51,7 @@ table 50112 "Asset Table"
 
     procedure UpdateAvailable()
     var
-        EmpAsset: Record "Employee Asset Table";
+        EmployeeAsset: Record "ZYN_Employee Asset Table";
         ExpiryDate: Date;
     begin
         if "Procured Date" <> 0D then
@@ -61,20 +61,20 @@ table 50112 "Asset Table"
         "Available" := false;
 
         // Find the latest Employee Asset entry for this Asset
-        EmpAsset.Reset();
-        EmpAsset.SetRange("Serial No", "Serial No");
-        if EmpAsset.FindLast() then begin
-            case EmpAsset.Status of
-                EmpAsset.Status::Returned:
+        EmployeeAsset.Reset();
+        EmployeeAsset.SetRange("Serial No", "Serial No");
+        if EmployeeAsset.FindLast() then begin
+            case EmployeeAsset.Status of
+                EmployeeAsset.Status::Returned:
                     if (WorkDate() <= ExpiryDate) then
                         "Available" := true
                     else
                         "Available" := false;
 
-                EmpAsset.Status::Lost:
+                EmployeeAsset.Status::Lost:
                     "Available" := false;
 
-                EmpAsset.Status::Assigned:
+                EmployeeAsset.Status::Assigned:
                     if (WorkDate() <= ExpiryDate) then
                         "Available" := true;
                 else

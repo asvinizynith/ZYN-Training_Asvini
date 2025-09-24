@@ -2,6 +2,7 @@ pageextension 50120 CopyCustomerToOtherCompany extends "Customer Card"
 {
     var
         IsNewCustomer: Boolean;
+
     trigger OnOpenPage()
     begin
         if Rec."No." = '' then
@@ -19,7 +20,7 @@ pageextension 50120 CopyCustomerToOtherCompany extends "Customer Card"
 
     trigger OnClosePage()
     var
-        Publisher: Codeunit compchangepublisher;
+        Publisher: Codeunit "ZYN_Company Change Publisher";
     begin
         if IsNewCustomer and (Rec.Name <> '') then
             Publisher.OnaddCustomerCreated(Rec);

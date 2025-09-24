@@ -1,4 +1,4 @@
-table 50178 "Income Table"
+table 50178 "ZYN_Income Table"
 {
     Caption = 'Income Table';
     DataClassification = ToBeClassified;
@@ -24,7 +24,7 @@ table 50178 "Income Table"
         }
         field(5; "Income Category"; code[50])
         {
-            TableRelation = "Income Category"."Income Category Name";
+            TableRelation = "ZYN_Income Category"."Income Category Name";
             Caption = 'Income Category';
         }
     }

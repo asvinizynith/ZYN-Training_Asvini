@@ -1,11 +1,11 @@
-page 50118 "Asset List"
+page 50118 "ZYN_Asset List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Assets List';
-    SourceTable = "Asset Table";
+    Caption = 'ZYN_Asset List';
+    SourceTable = "ZYN_Asset Table";
     UsageCategory=Administration;
-    CardPageId="Asset Card";
+    CardPageId="ZYN_Asset Card";
    
     layout
     {
@@ -15,24 +15,29 @@ page 50118 "Asset List"
             {
                  Editable=false;
              field(No; Rec."Asset No")
-                {}
+                {
+                }
                 field("Asset Name"; Rec."Asset Name")
-                { }
+                {
+                }
                 field("Serial No"; Rec."Serial No")
-                {}
+                {
+                }
                 field("Procured Date"; Rec."Procured Date")
-                { }
+                {
+                }
                 field("Vendor Name"; Rec."Vendor Name")
-                { }
+                { 
+                }
                 field(Available; Rec.Available)
-                { }
+                {
+                }
             }
         }
          area(FactBoxes)
         {
-            part("Assigned Assets"; "Assigned Assets FactBox")
+            part("Assigned Assets"; "ZYN_Assigned Assets FactBox")
             {
-                ApplicationArea = All;
                 Caption = 'Assigned Assets FactBox'; 
             }
         }    

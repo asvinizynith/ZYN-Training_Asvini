@@ -1,9 +1,9 @@
-page 50122 "Assets History FactBox"
+page 50122 "ZYN_Assets History FactBox"
 {
     PageType = CardPart;
-    SourceTable = "Employee Asset Table";
+    SourceTable = "ZYN_Employee Asset Table";
     ApplicationArea = All;
-    Caption = 'Assets History FactBox';
+    Caption = 'ZYN_Assets History FactBox';
 
     layout
     {
@@ -13,16 +13,15 @@ page 50122 "Assets History FactBox"
             {
                 field("Assets count"; Assetscount)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Assets count';
                     trigger OnDrillDown()
                     var
-                        AssetHistory: Record "Employee Asset Table";
+                        AssetHistory: Record "ZYN_Employee Asset Table";
                     begin
                         AssetHistory.Reset();
                         AssetHistory.SetRange("Employee ID", Rec."Employee ID");
-                        PAGE.Run(PAGE::"Employee Asset List", AssetHistory);
+                        PAGE.Run(PAGE::"ZYN_Employee Asset List", AssetHistory);
                     end;
                 }
             }
@@ -30,7 +29,7 @@ page 50122 "Assets History FactBox"
     }
     trigger OnAfterGetRecord()
     var
-        AssetHistory: Record "Employee Asset Table";
+        AssetHistory: Record "ZYN_Employee Asset Table";
     begin
         AssetHistory.Reset();
         AssetHistory.SetRange("Employee ID", Rec."Employee ID");

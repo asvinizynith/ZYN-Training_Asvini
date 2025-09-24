@@ -1,7 +1,7 @@
-table 50103 "Expense & Budget Category"
+table 50103 "ZYN_Expense & Budget Category"
 {
     Caption = 'Expense & Budget Category';
-    DataClassification = CustomerContent;
+    DataClassification = ToBeClassified;
 
     fields
     {

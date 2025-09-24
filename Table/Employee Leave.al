@@ -1,4 +1,4 @@
-table 50107 "Employee Leave Table"
+table 50107 "ZYN_Employee Leave Table"
 {
     Caption = 'Employee Leave Table';
     DataClassification = ToBeClassified;
@@ -8,12 +8,12 @@ table 50107 "Employee Leave Table"
         field(1; "Employee ID"; Code[30])
         {
             Caption = 'Employee ID';
-            TableRelation = "Employee Table"."Employee ID";
+            TableRelation = "ZYN_Employee Table"."Employee ID";
         }
         field(2; "Leave Category"; Text[100])
         {
             Caption = 'Leave Category';
-            TableRelation = "Leave Category Table"."Leave Category";
+            TableRelation = "ZYN_Leave Category Table"."Leave Category";
         }
         field(3; "Remaining leave"; Integer)
         {

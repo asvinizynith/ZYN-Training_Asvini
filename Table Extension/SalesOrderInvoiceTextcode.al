@@ -8,7 +8,7 @@ tableextension 50159 salesorderinvoiceext extends "Sales Header"
             trigger OnValidate()
             var
                 extended: Record "Extended Text Line";
-                Beginning: Record "Text Code Table";
+                Beginning: Record "ZYN_Text Code Table";
                 customer: Record "Customer";
                 LineNo: Integer;
             begin
@@ -47,7 +47,7 @@ tableextension 50159 salesorderinvoiceext extends "Sales Header"
             trigger OnValidate()
             var
                 extended: Record "Extended Text Line";
-                Beginning: Record "Text Code Table";
+                Beginning: Record "ZYN_Text Code Table";
                 customer: Record "Customer";
                 LineNo: Integer;
             begin
@@ -80,17 +80,17 @@ tableextension 50159 salesorderinvoiceext extends "Sales Header"
                 end;
             end;
         }
-    } 
+    }
     trigger OnDelete()
     var
-        CodeTable: Record "Text Code Table";
+        CodeTable: Record "ZYN_Text Code Table";
     begin
         CodeTable.SetRange(No, SalesHeader."No.");
-        CodeTable.SetRange(Selection, "Textcode Selection"::BeginningText);//("Document Type", "Sales Document Type"::Order)
+        CodeTable.SetRange(Selection, "ZYN_TextCode Selection"::BeginningText);//("Document Type", "Sales Document Type"::Order)
         CodeTable.DeleteAll();
 
         CodeTable.SetRange(No, SalesHeader."No.");
-        CodeTable.SetRange(Selection, "Textcode Selection"::EndingText);//("Document Type", "Sales Document Type"::Order)
+        CodeTable.SetRange(Selection, "ZYN_TextCode Selection"::EndingText);//("Document Type", "Sales Document Type"::Order)
         CodeTable.DeleteAll();
     end;
 }

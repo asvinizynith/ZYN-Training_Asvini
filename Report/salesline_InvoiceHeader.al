@@ -1,4 +1,4 @@
-report 50165 "Sales Report"
+report 50165 "ZYN_Sales Report"
 {
     UsageCategory = Administration;
     ApplicationArea = All;
@@ -87,10 +87,10 @@ report 50165 "Sales Report"
                         }  
             
                     }
-                dataitem("Begintextcode;"; "Text Code Table")
+                dataitem("Begintextcode;"; "ZYN_Text Code Table")
                 {
                     DataItemLinkReference = "Sales Invoice Header";
-                    DataItemTableView =sorting(No,"Line No") WHERE(Selection = CONST("Textcode Selection"::BeginningText));
+                    DataItemTableView =sorting(No,"Line No") WHERE(Selection = CONST("ZYN_TextCode Selection"::BeginningText));
 
                     DataItemLink = No = field("No.");
                     column(BeginingText; text)
@@ -98,10 +98,10 @@ report 50165 "Sales Report"
                         IncludeCaption = true;
                     }
                 }
-                    dataitem("Endtextcode;"; "Text Code Table")
+                    dataitem("Endtextcode;"; "ZYN_Text Code Table")
                     {
                         DataItemLinkReference = "Sales Invoice Header";
-                        DataItemTableView =sorting(No,"Line No") WHERE(Selection = CONST("Textcode Selection"::EndingText));
+                        DataItemTableView =sorting(No,"Line No") WHERE(Selection = CONST("ZYN_TextCode Selection"::EndingText));
 
                         DataItemLink = No = field("No.");
                         column(EndingText; text)

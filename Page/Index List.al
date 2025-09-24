@@ -1,11 +1,11 @@
-page 50170 "Index List"
+page 50170 "ZYN_Index List"
 {
     ApplicationArea = All;
-    Caption = 'Index List';
+    Caption = 'ZYN_Index List';
     PageType = List;
-    SourceTable = "Index Table";
+    SourceTable = "ZYN_Index Table";
     UsageCategory = Administration;
-    CardPageId = "Index Card"; // Ensures standard 'New' works too
+    CardPageId = "ZYN_Index Card"; // Ensures standard 'New' works too
     Editable = false;
 
     layout
@@ -16,15 +16,12 @@ page 50170 "Index List"
             {
                 field("Code"; Rec."Code")
                 {
-
                 }
                 field(Description; Rec.Description)
                 {
-
                 }
                 field("Percentage Increase"; Rec."Percentage Increase")
                 {
-
                 }
             }
         }
@@ -35,16 +32,15 @@ page 50170 "Index List"
         {
             action(New)
             {
-                ApplicationArea = All;
                 Caption = 'New';
                 Image = New;
                 trigger OnAction()
                 var
-                    NewIndex: Record "Index Table";
+                    NewIndex: Record "ZYN_Index Table";
                 begin
                     Clear(NewIndex);
                     NewIndex.Init();
-                    PAGE.RunModal(PAGE::"Index Card", NewIndex);
+                    PAGE.RunModal(PAGE::"ZYN_Index Card", NewIndex);
                 end;
             }
         }

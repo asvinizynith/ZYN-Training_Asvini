@@ -1,4 +1,4 @@
-enum 50110 "Expense Claim Status"
+enum 50110 "ZYN_Expense Claim Status"
 {
     Extensible = true;
     value(0; "Pending Approval")

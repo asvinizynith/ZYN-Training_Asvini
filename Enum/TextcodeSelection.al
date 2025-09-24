@@ -1,4 +1,4 @@
-enum 50111 "Textcode Selection"
+enum 50111 "ZYN_TextCode Selection"
 {
     value(0; BeginningText)
     {
@@ -7,5 +7,5 @@ enum 50111 "Textcode Selection"
     value(2; EndingText)
     {
         Caption = 'EndingText';
-    }    
+    }
 }

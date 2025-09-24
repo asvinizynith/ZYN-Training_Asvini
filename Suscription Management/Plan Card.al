@@ -1,9 +1,9 @@
-page 50124 "Plan Card"
+page 50124 "ZYN_Plan Card"
 {
     ApplicationArea = All;
-    Caption = 'Plan Card';
+    Caption = 'ZYN_Plan Card';
     PageType = Card;
-    SourceTable = "Plan Table";
+    SourceTable = "ZYN_Plan Table";
 
     layout
     {
@@ -14,23 +14,18 @@ page 50124 "Plan Card"
                 Caption = 'General';
                 field("Plan ID"; Rec."Plan ID")
                 {
-
                 }
                 field("Plan Name"; Rec."Plan Name")
                 {
-
                 }
                 field("Monthly Fee"; Rec."Monthly Fee")
                 {
-
                 }
                 field(Status; Rec.Status)
                 {
-
                 }
                 field(Description; Rec.Description)
                 {
-
                 }
             }
         }

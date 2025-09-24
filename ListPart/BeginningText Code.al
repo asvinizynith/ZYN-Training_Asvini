@@ -1,8 +1,9 @@
-page 50142 "Text Code"
+page 50142 "ZYN_Beginning Text Code"
 {
     PageType = ListPart;
     ApplicationArea = All;
-    SourceTable = "Text Code Table";
+    SourceTable = "ZYN_Text Code Table";
+    Caption = 'ZYN_Beginning Text Code';
 
     layout
     {
@@ -12,11 +13,9 @@ page 50142 "Text Code"
             {
                 field("Line No"; Rec."Line No")
                 {
-                    ApplicationArea = ALl;
                 }
                 field(BeginningText; Rec.Text)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

@@ -1,11 +1,11 @@
-page 50107 "Employee Entry List"
+page 50107 "ZYN_Employee Entry List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Employee Entry List';
-    SourceTable = "Employee Table";
+    Caption = 'ZYN_Employee Entry List';
+    SourceTable = "ZYN_Employee Table";
     UsageCategory = Administration;
-    CardPageId = "Employee Entry Card";
+    CardPageId = "ZYN_Employee Entry Card";
     Editable = false;
     layout
     {
@@ -15,27 +15,22 @@ page 50107 "Employee Entry List"
             {
                 field("Employee ID"; Rec."Employee ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Employee Name"; Rec."Employee Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Employee Role"; Rec."Employee Role")
-                {
-                    ApplicationArea = All;
+                {               
                 }
                 field(Department; Rec.Department)
                 {
-                    ApplicationArea = All;
                 }
             }
         }
         area(FactBoxes)
         {
-            part("Asset History"; "Assets History FactBox")
+            part("Asset History"; "ZYN_Assets History FactBox")
             {
-                ApplicationArea = All;
                 Caption = 'Assets History FactBox';
                 SubPageLink = "Employee ID" = field("Employee ID");
             }

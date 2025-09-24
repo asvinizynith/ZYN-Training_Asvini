@@ -5,8 +5,7 @@ tableextension 50116 "Customerloyality" extends "Customer"
         field(50109; "Loyality Points"; Integer)
         {
             Caption = 'Loyality Points';
-
-            DataClassification = CustomerContent;
+            DataClassification = ToBeClassified;
         }
     }
 }

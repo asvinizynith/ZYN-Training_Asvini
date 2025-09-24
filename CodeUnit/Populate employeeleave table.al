@@ -1,11 +1,11 @@
-codeunit 50105 "Populate Employee Leave Table"
+codeunit 50105 "ZYN_Employee Leave Management"
 {
     trigger OnRun()
     var
-        Employee: Record "Employee Table";
-        LeaveCategory: Record "Leave Category Table";
-        EmpLeave: Record "Employee Leave Table";
-        RemainingLeaveCU: Codeunit "Remaining Leave Calculator";
+        Employee: Record "ZYN_Employee Table";
+        LeaveCategory: Record "ZYN_Leave Category Table";
+        EmpolyeeLeave: Record "ZYN_Employee Leave Table";
+        RemainingLeaveCU: Codeunit "ZYN_Remaining Leave Calculator";
     begin
         Employee.Reset();
         if Employee.FindSet() then
@@ -14,24 +14,24 @@ codeunit 50105 "Populate Employee Leave Table"
                 if LeaveCategory.FindSet() then
                     repeat
                         // Check if Employee-LeaveCategory combo already exists
-                        if not EmpLeave.Get(Employee."Employee ID", LeaveCategory."Leave Category") then begin
-                            EmpLeave.Init();
-                            EmpLeave."Employee ID" := Employee."Employee ID";
-                            EmpLeave."Leave Category" := LeaveCategory."Leave Category";
+                        if not EmpolyeeLeave.Get(Employee."Employee ID", LeaveCategory."Leave Category") then begin
+                            EmpolyeeLeave.Init();
+                            EmpolyeeLeave."Employee ID" := Employee."Employee ID";
+                            EmpolyeeLeave."Leave Category" := LeaveCategory."Leave Category";
 
                             // Call Remaining Leave Codeunit
-                            EmpLeave."Remaining leave" :=
+                            EmpolyeeLeave."Remaining leave" :=
                                 RemainingLeaveCU.CalculateRemainingLeave(
                                     Employee."Employee ID",
                                     LeaveCategory."Leave Category");
-                            EmpLeave.Insert();
+                            EmpolyeeLeave.Insert();
                         end else begin
                             // Update existing record
-                            EmpLeave."Remaining leave" :=
+                            EmpolyeeLeave."Remaining leave" :=
                                 RemainingLeaveCU.CalculateRemainingLeave(
                                     Employee."Employee ID",
                                     LeaveCategory."Leave Category");
-                            EmpLeave.Modify();
+                            EmpolyeeLeave.Modify();
                         end;
                     until LeaveCategory.Next() = 0;
             until Employee.Next() = 0;

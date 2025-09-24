@@ -1,9 +1,10 @@
-page 50132 "Technician List"
+page 50132 "ZYN_Technician List"
 {
     PageType = List;
     ApplicationArea = All;
-    SourceTable = "Technician Table";
-    CardPageId = "Technician Card";
+    SourceTable = "ZYN_Technician Table";
+    CardPageId = "ZYN_Technician Card";
+    Caption = 'ZYN_Technician List';
 
     layout
     {
@@ -13,28 +14,23 @@ page 50132 "Technician List"
             {
                 field(ID; Rec.ID)
                 {
-                    ApplicationArea = All;
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                 }
                 field("Ph.No"; Rec."Ph.No")
                 {
-                    ApplicationArea = All;
                 }
                 field(Department; Rec.Department)
                 {
-                    ApplicationArea = All;
                 }
                 field("No Of Problems"; Rec."No Of Problems")
                 {
-                    ApplicationArea = All;
                 }
             }
-            part("Problem List"; "Problem List Part")
+            part("Problem List"; "ZYN_Problem List Part")
             {
-                ApplicationArea = All;
+                Caption = 'ZYN_Problem List Part';
                 SubPageLink = "Technician Name" = field(Name);
             }
         }

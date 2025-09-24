@@ -1,4 +1,4 @@
-enum 50100 "Expense Cycle"
+enum 50100 "ZYN_Expense Cycle"
 {
     Extensible = true;
     value(0; "Weekly")

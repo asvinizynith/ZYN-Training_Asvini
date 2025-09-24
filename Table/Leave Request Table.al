@@ -1,4 +1,4 @@
-table 50106 "Leave Request Table"
+table 50106 "ZYN_Leave Request Table"
 {
     Caption = 'Leave Request Table';
     DataClassification = ToBeClassified;
@@ -9,17 +9,16 @@ table 50106 "Leave Request Table"
         {
             Caption = 'Request ID';
             AutoIncrement = true;
-            DataClassification = ToBeClassified;
         }
         field(2; "Employee ID"; Code[30])
         {
             Caption = 'Employee ID';
-            TableRelation = "Employee Table"."Employee ID";
+            TableRelation = "ZYN_Employee Table"."Employee ID";
         }
         field(3; "Leave Category"; Code[50])
         {
             Caption = 'Leave Category';
-            TableRelation = "Leave Category Table"."Leave Category";
+            TableRelation = "ZYN_Leave Category Table"."Leave Category";
         }
         field(4; "Reason"; Text[100])
         {
@@ -43,7 +42,7 @@ table 50106 "Leave Request Table"
             Caption = 'No. of leave days';
             Editable = false;
         }
-        field(9; Status; Enum "Status type")
+        field(9; Status; Enum "ZYN_Status Type")
         {
             Caption = 'Status';
         }

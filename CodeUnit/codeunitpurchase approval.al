@@ -1,4 +1,4 @@
-codeunit 50103 "Purchase Approval"
+codeunit 50103 "ZYN_Purchase Apprl Management"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnBeforePostPurchaseDoc', '', false, false)]
     local procedure CheckApprovalStatus(PurchaseHeader: Record "Purchase Header")

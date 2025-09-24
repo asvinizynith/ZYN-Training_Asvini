@@ -1,29 +1,29 @@
-table 50101 "Customer Visit Log"
+table 50101 "ZYN_Customer Visit Log"
 {
     DataClassification = ToBeClassified;
     fields
     {
         field(1; "Entry Number"; Integer)
         {
-            DataClassification = SystemMetadata;
+            Caption='Entry Number';
             AutoIncrement = true;
         }
         field(2; "Customer Number"; Code[30])
         {
-            DataClassification = CustomerContent;
+           Caption='Customer Number';
             TableRelation = Customer."No.";
         }
         field(3; "Date"; Date)
         {
-            DataClassification = CustomerContent;
+            Caption='Date';
         }
         field(4; "Purpose"; Text[50])
         {
-            DataClassification = CustomerContent;
+           Caption='Purpose';
         }
         field(5; "Notes"; Text[50])
         {
-            DataClassification = CustomerContent;
+           Caption='Notes';
         }
     }
     keys

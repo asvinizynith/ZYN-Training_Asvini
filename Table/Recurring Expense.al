@@ -1,4 +1,4 @@
-table 50102 "Recurring Expense Table"
+table 50102 "ZYN_Recurring Expense Table"
 {
     DataClassification = ToBeClassified;
 
@@ -6,19 +6,18 @@ table 50102 "Recurring Expense Table"
     {
         field(1; "ID"; Integer)
         {
-            DataClassification = SystemMetadata;
             AutoIncrement = true;
         }
         field(2; Category; Code[50])
         {
             Caption = 'Category';
-            TableRelation = "Expense & Budget Category"."Category Name";
+            TableRelation = "ZYN_Expense & Budget Category"."Category Name";
         }
         field(3; "Amount"; Decimal)
         {
             Caption = 'Amount';
         }
-        field(4; "Cycle Type"; Enum "Expense Cycle")
+        field(4; "Cycle Type"; Enum "ZYN_Expense Cycle")
         {
             Caption = 'Cycle';
         }

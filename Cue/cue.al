@@ -1,10 +1,10 @@
-page 50128 MyCue
+page 50128 ZYN_MyCue
 {
     PageType = Cardpart;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'My Cue';
-    SourceTable = "Customer Visit Log";
+    Caption = 'ZYN_MyCue';
+    SourceTable = "ZYN_Customer Visit Log";
     layout
     {
         area(Content)
@@ -14,13 +14,12 @@ page 50128 MyCue
                 Caption = 'Visit Log';
                 field("CustomerCue"; Count)
                 {
-                    ApplicationArea = All;
                     Style = Ambiguous;
                     Caption = 'Visit Log';
                     trigger OnDrillDown()
                     var
                         CustomerList: Page "Customer List";
-                        Visit: Record "Customer Visit Log";
+                        Visit: Record "ZYN_Customer Visit Log";
                         Customer: Record Customer;
                         TempCustomer: Record Customer temporary;
                     begin
@@ -52,7 +51,7 @@ page 50128 MyCue
 
     local procedure GetCustomerCount(): Integer
     var
-        Visit: Record "Customer Visit Log";
+        Visit: Record "ZYN_Customer Visit Log";
         Today: Date;
         Count: Integer;
     begin

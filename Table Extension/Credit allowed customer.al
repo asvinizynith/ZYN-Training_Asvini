@@ -5,7 +5,7 @@ tableextension 50123 "Customer Card Extension" extends "Customer"
         field(50100; "Credit Allowed"; Decimal)
         {
             Caption = 'Credit Allowed';
-            DataClassification = CustomerContent;
+            DataClassification = ToBeClassified;
         }
         field(50101; "Credit Used"; Decimal)
         {

@@ -1,11 +1,11 @@
-page 50140 "Expense Claim List"
+page 50140 "ZYN_Expense Claim List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Expense Claim List';
-    SourceTable = "Expense Claim Table";
+    Caption = 'ZYN_Expense Claim List';
+    SourceTable = "ZYN_Expense Claim Table";
     UsageCategory = Administration;
-    CardPageId = "Expense Claim Card";
+    CardPageId = "ZYN_Expense Claim Card";
 
     layout
     {
@@ -16,27 +16,21 @@ page 50140 "Expense Claim List"
                 Editable = false;
                 field("Employee ID"; Rec."Employee ID")
                 {
-
                 }
                 field("Category Code"; Rec."Category Code")
                 {
-
                 }
                 field("Category Name"; Rec."Category Name")
                 {
-
                 }
                 field(Subtype; Rec.Subtype)
                 {
-
                 }
                 field(Amount; Rec.Amount)
                 {
-
                 }
                 field("Claim Date"; Rec."Claim Date")
                 {
-
                 }
                 field(Status; Rec.Status)
                 {
@@ -44,15 +38,13 @@ page 50140 "Expense Claim List"
                 }
                 field("Bill Date"; Rec."Bill Date")
                 {
-
                 }
                 field("Bill Copy"; Rec."File Name")
                 {
-                    Caption = 'Bill Copy';
+                   Caption = 'Bill Copy';
                 }
                 field(Remarks; Rec.Remarks)
                 {
-
                 }
             }
         }
@@ -64,7 +56,6 @@ page 50140 "Expense Claim List"
             action(Cancel)
             {
                 Caption = 'Cancel';
-                ApplicationArea = All;
                 Image = Cancel;
                 trigger OnAction()
                 begin

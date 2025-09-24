@@ -1,4 +1,4 @@
-table 50118 "Expense Claim Table"
+table 50118 "ZYN_Expense Claim Table"
 {
     Caption = 'Expense Claim Table';
     DataClassification = ToBeClassified;
@@ -13,7 +13,7 @@ table 50118 "Expense Claim Table"
         field(2; "Employee ID"; Code[20])
         {
             Caption = 'Employee ID';
-            TableRelation = "Employee Table"."Employee ID";
+            TableRelation = "ZYN_Employee Table"."Employee ID";
         }
         field(3; "Category Code"; Code[30])
         {
@@ -34,7 +34,7 @@ table 50118 "Expense Claim Table"
             Caption = 'Amount';
             trigger OnValidate()
             var
-                Expenseclaimcategory: Record "Expense Claim Category Table";
+                Expenseclaimcategory: Record "ZYN_Expense Claim Category";
             begin
                 if Expenseclaimcategory.Get("Category Code", Subtype, "Category Name") then begin
                     if Amount > Expenseclaimcategory."Amount Limit" then
@@ -57,7 +57,7 @@ table 50118 "Expense Claim Table"
                 end;
             end;
         }
-        field(8; Status; Enum "Expense Claim Status")
+        field(8; Status; Enum "ZYN_Expense Claim Status")
         {
             Caption = 'Status';
         }
@@ -68,7 +68,6 @@ table 50118 "Expense Claim Table"
         }
         field(12; "File Name"; Text[30])
         {
-
         }
         field(11; Remarks; Text[100])
         {

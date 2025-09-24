@@ -1,27 +1,29 @@
-page 50135 UpdateField
+page 50135 "ZYN_Update Field"
 {
     PageType = Card;
     UsageCategory = Administration;
     ApplicationArea = All;
+    Caption = 'ZYN_Update Field';
+
     layout
     {
         area(Content)
         {
             field(TableName; TableName)
             {
-                ApplicationArea = All;
                 Editable = true;
+                Caption = 'TableName';
                 TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const(Table));
             }
             field(FieldName; FieldName)
             {
-                ApplicationArea = All;
                 Editable = true;
+                Caption = 'FieldName';
                 trigger OnDrillDown()
                 var
                     RecRef: RecordRef;
                     FieldRef: FieldRef;
-                    TempBuffer: Record "Buffer Table" temporary;
+                    TempBuffer: Record "ZYN_Buffer Table" temporary;
                     i: Integer;
                     FN: text;
                 begin
@@ -40,7 +42,7 @@ page 50135 UpdateField
                     end;
                     RecRef.Close();
 
-                    if Page.RunModal(Page::"Buffer Table List", TempBuffer, selectedfield) = Action::LookupOK then begin
+                    if Page.RunModal(Page::"ZYN_Buffer Table List", TempBuffer, selectedfield) = Action::LookupOK then begin
 
                         FieldID := TempBuffer."Field ID";
                         FieldName := TempBuffer."Field Name";
@@ -49,14 +51,14 @@ page 50135 UpdateField
             }
             field(RecordSelection; RecordSelection)
             {
-                ApplicationArea = All;
                 Editable = true;
+                Caption = 'RecordSelection';
                 trigger OnDrillDown()
                 var
                     RecRef: RecordRef;
                     FieldRef: FieldRef;
                     Linecounter: Integer;
-                    FieldDataBuffer: Record "Buffer Table" temporary;
+                    FieldDataBuffer: Record "ZYN_Buffer Table" temporary;
                 begin
                     if (TableName = 0) OR (FieldID = 0) then
                         Error('Please select a table first.');
@@ -75,7 +77,7 @@ page 50135 UpdateField
                         until RecRef.Next() = 0;
                     end;
                     RecRef.Close();
-                    if Page.RunModal(Page::"Buffer Table List", FieldDataBuffer, selectedfield) = Action::LookupOK then begin
+                    if Page.RunModal(Page::"ZYN_Buffer Table List", FieldDataBuffer, selectedfield) = Action::LookupOK then begin
                         RecordSelection := FieldDataBuffer."Record SElection";
                         valueID := FieldDataBuffer."Record ID";
                     end;
@@ -84,12 +86,10 @@ page 50135 UpdateField
             field(ValueEnter; ValueEnter)
             {
                 Caption = 'Value';
-                ApplicationArea = All;
                 trigger OnValidate()
                 var
                     RecRef: RecordRef;
                     FieldRef: FieldRef;
-
                 begin
 
                     RecRef.Open(TableName);

@@ -1,9 +1,9 @@
-page 50181 "income Card"
+page 50181 "ZYN_Income Card"
 {
     ApplicationArea = All;
-    Caption = 'Income Card';
+    Caption = 'ZYN_Income Card';
     PageType = Card;
-    SourceTable = "Income Table";
+    SourceTable = "ZYN_Income Table";
 
     layout
     {
@@ -13,13 +13,17 @@ page 50181 "income Card"
             {
                 Caption = 'General';
                 field("Income Description"; Rec."Income Description")
-                { }
+                {
+                }
                 field("Income Amount"; Rec."Income Amount")
-                { }
+                {
+                }
                 field("Income Date"; Rec."Income Date")
-                { }
+                {
+                }
                 field("Income Category"; Rec."Income Category")
-                { }
+                {
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-table 50140 "Text Code Table"
+table 50140 "ZYN_Text Code Table"
 {
     DataClassification = ToBeClassified;
 
@@ -6,32 +6,32 @@ table 50140 "Text Code Table"
     {
         field(1; "Line No"; Integer)
         {
-            DataClassification = ToBeClassified;
             AutoIncrement = true;
+            Caption='Line No';
         }
         field(2; No; Code[20])
         {
-            DataClassification = ToBeClassified;
+            Caption='No';
         }
         field(3; "Customer No"; Text[100])
         {
-            DataClassification = ToBeClassified;
+            Caption='Customer No';
         }
         field(4; "Document Type"; Enum "Sales Document Type")
         {
-            DataClassification = ToBeClassified;
+            Caption='Document Type';
         }
         field(5; Text; Text[100])
         {
-            DataClassification = ToBeClassified;
+            Caption='Text';
         }
-        field(8; Selection; Enum "Textcode Selection")
+        field(8; Selection; Enum "ZYN_TextCode Selection")
         {
-            DataClassification = ToBeClassified;
+            Caption='Selection';
         }
         field(6; "Language Code"; Code[30])
         {
-            DataClassification = ToBeClassified;
+            Caption='Language Code';
         }
     }
 

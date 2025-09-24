@@ -1,4 +1,4 @@
-report 50100 "Orders By Post Date"
+report 50100 "ZYN_Orders By Post Date"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
@@ -29,7 +29,6 @@ report 50100 "Orders By Post Date"
                 {
                     field("Selected Date"; "Selected Date")
                     {
-                        ApplicationArea = All;
                         Caption = 'New Posting Date';
                     }
                 }

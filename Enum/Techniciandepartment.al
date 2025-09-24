@@ -1,4 +1,4 @@
-enum 50131 "Technician Department"
+enum 50131 "ZYN_Technician Department"
 {
     Extensible = true;
     value(0; "IT")

@@ -8,7 +8,7 @@ pageextension 50136 upadteFieldext extends Companies
             {
                 ApplicationArea = All;
                 Caption = 'Update Field';
-                RunObject = page "UpdateField";
+                RunObject = page "ZYN_Update Field";
             }
         }
     }

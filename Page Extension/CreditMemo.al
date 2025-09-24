@@ -10,8 +10,9 @@ pageextension 50153 Creditmemoexttextcode extends "Sales Credit Memo"
                 ApplicationArea = All;
                 TableRelation = "Standard Text";
             }
-            part(BeginningLine; "Text Code")
+            part(BeginningLine; "ZYN_Beginning Text Code")
             {
+                Caption= 'Beginning Text';
                 ApplicationArea = All;
                 SubPageLink = "Customer No" = field("Sell-to Customer No."), Selection = const(BeginningText);
             }
@@ -24,9 +25,10 @@ pageextension 50153 Creditmemoexttextcode extends "Sales Credit Memo"
                 ApplicationArea= All;
                 TableRelation = "Standard Text";
             }
-            part(EndingLine; "Ending Text Code")
+            part(EndingLine; "ZYN_Ending Text Code")
             {
                 ApplicationArea = All;
+                Caption= ' Ending Text';
                 SubPageLink = "Customer No" = field("Sell-to Customer No."), Selection = const(EndingText);
             }
         }

@@ -1,9 +1,9 @@
-page 50112 "Leave Request Card"
+page 50112 "ZYN_Leave Request Card"
 {
     PageType = Card;
     ApplicationArea = All;
-    Caption = 'Leave Request Card';
-    SourceTable = "Leave Request Table";
+    Caption = 'ZYN_Leave Request Card';
+    SourceTable = "ZYN_Leave Request Table";
 
     layout
     {
@@ -13,68 +13,54 @@ page 50112 "Leave Request Card"
             {
                 field("Employee ID"; Rec."Employee ID")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         UpdateRemainingLeave();
                     end;
                 }
-
                 field("Leave Category"; Rec."Leave Category")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         UpdateRemainingLeave();
                     end;
                 }
-
                 field("Remaining leave"; Rec."Remaining leave")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
-
                 field("Start Date"; Rec."Start Date")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         CalcLeaveDays();
                     end;
                 }
-
                 field("End Date"; Rec."End Date")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         CalcLeaveDays();
                     end;
                 }
-
                 field("No. of Leave days"; Rec."No. of Leave days")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
-
                 field(Status; Rec.Status)
-                {
-                    ApplicationArea = All;
+                {                   
                     Editable = false;
                 }
             }
         }
     }
-
     trigger OnAfterGetRecord()
     begin
         UpdateRemainingLeave();
     end;
 
     var
-        RemainingLeaveCU: Codeunit "Remaining Leave Calculator";
+        RemainingLeaveCU: Codeunit "ZYN_Remaining Leave Calculator";
 
     local procedure UpdateRemainingLeave()
     begin

@@ -1,4 +1,4 @@
-page 50125 Myrolecenter 
+page 50125 ZYN_MyRoleCenter 
 {
     PageType = RoleCenter;
     Caption = 'My Role Center Asvini';
@@ -7,14 +7,12 @@ layout
 {
     area(RoleCenter)
     {
-        part(myCue; 50128)
+        part(myCue; ZYN_MyCue)
         {
-            ApplicationArea = All;
             Caption = 'My Cue'; 
         }
-        part("Subscription Cues"; 50130)
+        part("Subscription Cues"; "ZYN_Subscription Cues")
         {
-            ApplicationArea = All;
             Caption = 'Subscription Cues'; 
         }
     }
@@ -29,20 +27,17 @@ layout
                 action(EmployeeAssetList)
                 {
                     Caption = 'Employee Asset List';
-                    RunObject = page "Employee Asset List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Employee Asset List";
                 }
                 action(AssetList)
                 {
                     Caption = 'Asset List';
-                    RunObject = page "Asset List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Asset List";
                 }
                 action(AssetType)
                 {
                     Caption = 'Asset Type';
-                    RunObject = page "Asset type List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Asset type List";
                 }
             }
             group(ExpenseVSBudgetManagement)
@@ -51,38 +46,32 @@ layout
                 action(ExpenseCategory)
                 {
                     Caption = 'Expense Category List';
-                    RunObject = page "Expense Category List ";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Expense Category List";
                 }
                 action(ExpenseList)
                 {
                     Caption = 'Expense List';
-                    RunObject = page "Expense List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Expense List";
                 }
                 action(RecurringExpense)
                 {
                     Caption = 'Recurring Expense list';
-                    RunObject = page "Recurring Expense List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Recurring Expense List";
                 }
                 action(Budget)
                 {
                     Caption = 'Budget list';
-                    RunObject = page "Budget List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Budget List";
                 }
                  action(IncomeCategory)
                 {
                     Caption = 'Income Category list';
-                    RunObject = page "Income Category List ";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Income Category List";
                 }
                 action(Income)
                 {
                     Caption = 'Income list';
-                    RunObject = page "Income List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Income List";
                 }
             }
             group(LeaveManagement)
@@ -91,20 +80,17 @@ layout
                 action(Employee)
                 {
                     Caption = 'Employee List';
-                    RunObject = page "Employee Entry List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Employee Entry List";
                 }
                 action(LeaveCategory)
                 {
                     Caption = 'Leave Category List';
-                    RunObject = page "Leave Category List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Leave Category List";
                 }
                 action(LeaveRequest)
                 {
                     Caption = 'Leave Request list';
-                    RunObject = page "Leave Request List";
-                    ApplicationArea = All;
+                    RunObject = page "ZYN_Leave Request List";
                 } 
                 }
         }
@@ -113,8 +99,7 @@ layout
             action(Customers)
             {
                 Caption = 'Customers';
-                RunObject = page "Customer List";
-           ApplicationArea = All;    
+                RunObject = page "Customer List";   
         }
     }
 }
@@ -123,7 +108,7 @@ layout
 profile Zynith
 {
     ProfileDescription = 'Zynith';
-    RoleCenter = Myrolecenter;
+    RoleCenter = ZYN_MyRoleCenter;
     Caption = 'Zynith';
 }
    

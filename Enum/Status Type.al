@@ -1,4 +1,4 @@
-enum 50103 "Status Type"
+enum 50103 "ZYN_Status Type"
 {
     Extensible = true;
     value(0; "Pending")

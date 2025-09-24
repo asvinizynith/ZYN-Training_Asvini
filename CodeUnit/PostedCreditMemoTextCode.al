@@ -1,4 +1,4 @@
-codeunit 50158 "Posted CreditMemo Text"
+codeunit 50158 "ZYN_Posted CreditMemo Text Mgt"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterSalesCrMemoHeaderInsert', '', false, false)]
     local procedure OnAfterSalesCrMemoHeaderInsertbegin(var SalesCrMemoHeader: Record "Sales Cr.Memo Header";
@@ -6,8 +6,8 @@ codeunit 50158 "Posted CreditMemo Text"
      WhseReceive: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header";
      var TempWhseRcptHeader: Record "Warehouse Receipt Header")
     var
-        BeginningTextCode: Record "Text Code Table";
-        PostedText: Record "Text Code Table";
+        BeginningTextCode: Record "ZYN_Text Code Table";
+        PostedText: Record "ZYN_Text Code Table";
         LineNo: Integer;
     begin
         SalesCrMemoHeader."Beginning Code" := SalesHeader."Beginning Text Code";
@@ -38,8 +38,8 @@ codeunit 50158 "Posted CreditMemo Text"
      WhseReceive: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header";
      var TempWhseRcptHeader: Record "Warehouse Receipt Header")
     var
-        BeginningTextCode: Record "Text Code Table";
-        PostedText: Record "Text Code Table";
+        BeginningTextCode: Record "ZYN_Text Code Table";
+        PostedText: Record "ZYN_Text Code Table";
         LineNo: Integer;
     begin
         SalesCrMemoHeader."Ending Code" := SalesHeader."Ending Text Code";

@@ -1,11 +1,11 @@
-page 50182 "Income List"
+page 50182 "ZYN_Income List"
 {
     ApplicationArea = All;
-    Caption = 'Income Tracker';
+    Caption = 'ZYN_Income Tracker';
     PageType = List;
-    SourceTable = "Income Table";
+    SourceTable = "ZYN_Income Table";
     UsageCategory = Administration;
-    CardPageId = "Income Card"; // Ensures standard 'New' works too
+    CardPageId = "ZYN_Income Card"; // Ensures standard 'New' works too
     Editable = false;
     layout
     {
@@ -13,21 +13,17 @@ page 50182 "Income List"
         {
             repeater(General)
             {
-                field("Income Description"; Rec."Income Description") 
-                { 
-
-                }
-                field("Income Amount"; Rec."Income Amount") 
+                field("Income Description"; Rec."Income Description")
                 {
-
-                 }
-                field("Income Date"; Rec."Income Date") 
-                { 
-
+                }
+                field("Income Amount"; Rec."Income Amount")
+                {
+                }
+                field("Income Date"; Rec."Income Date")
+                {
                 }
                 field("Income Category"; Rec."Income Category")
                 {
-                    ApplicationArea = All;
                 }
             }
         }
@@ -38,17 +34,15 @@ page 50182 "Income List"
         {
             action(Action)
             {
-                ApplicationArea = All;
                 Caption = 'Income Category List';
                 Image = List;
-                RunObject = page "Income Category List ";
+                RunObject = page "ZYN_Income Category List";
             }
             action(IncomeTracker)
             {
-                ApplicationArea = All;
                 Caption = 'Income Tracker Report';
                 Image = Report;
-                RunObject = report "Income Tracker Report";
+                RunObject = report "ZYN_Income Tracker Report";
             }
         }
     }

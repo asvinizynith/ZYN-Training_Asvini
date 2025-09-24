@@ -1,4 +1,4 @@
-report 50101 "Budget Vs Expense Report"
+report 50101 "ZYN_Budget Vs Expense Report"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
@@ -12,10 +12,10 @@ report 50101 "Budget Vs Expense Report"
             DataItemTableView = sorting(Number) where(Number = const(1));
             trigger OnAfterGetRecord()
             var
-                Category: Record "Expense & Budget Category";
-                Expense: Record "Expense Table";
-                Budget: Record "Budget Table";
-                Income: Record "Income Table";
+                Category: Record "ZYN_Expense & Budget Category";
+                Expense: Record "ZYN_Expense Table";
+                Budget: Record "ZYN_Budget Table";
+                Income: Record "ZYN_Income Table";
                 StartDate: Date;
                 EndDate: Date;
                 ExpensecatAmt: Decimal;
@@ -106,7 +106,6 @@ report 50101 "Budget Vs Expense Report"
                 {
                     field(Year; Year)
                     {
-                        ApplicationArea = All;
                         Caption = 'Year';
                     }
                 }

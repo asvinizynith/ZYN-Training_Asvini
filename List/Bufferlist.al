@@ -1,9 +1,10 @@
-page 50137 "Buffer Table List"
+page 50137 "ZYN_Buffer Table List"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = "Buffer Table";
+    SourceTable = "ZYN_Buffer Table";
+    Caption = 'ZYN_Buffer Table List';
 
     layout
     {
@@ -13,15 +14,12 @@ page 50137 "Buffer Table List"
             {
                 field("Field ID"; Rec."Field ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Field Name"; Rec."Field Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Field Value"; Rec."Record Selection")
                 {
-                    ApplicationArea = All;
                 }
             }
         }

@@ -1,4 +1,4 @@
-enum 50102 "Department Type"
+enum 50102 "ZYN_Department Type"
 {
     Extensible = true;
     value(0; "HR Department")
@@ -16,5 +16,5 @@ enum 50102 "Department Type"
     value(3; "Testing")
     {
         Caption = 'Testing';
-    }   
+    }
 }

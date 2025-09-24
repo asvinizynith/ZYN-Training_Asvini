@@ -1,4 +1,4 @@
-report 50103 "Expense Tracker Report"
+report 50103 "ZYN_Expense Tracker Report"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
@@ -6,7 +6,7 @@ report 50103 "Expense Tracker Report"
 
     dataset
     {
-        dataitem(Expense_Tracker; "Expense Table")
+        dataitem(Expense_Tracker; "ZYN_Expense Table")
         {
             DataItemTableView = sorting("Category");
             trigger OnAfterGetRecord()
@@ -38,19 +38,16 @@ report 50103 "Expense Tracker Report"
                 {
                     field(StartDate; StartDate)
                     {
-                        ApplicationArea = All;
                         Caption = 'Start Date';
                     }
                     field(EndDate; EndDate)
                     {
-                        ApplicationArea = All;
                         Caption = 'End Date';
                     }
                     field(CategoryFilter; CategoryFilter)
                     {
-                        ApplicationArea = All;
                         Caption = 'Category';
-                        TableRelation = "Expense & Budget Category"."Category Name";
+                        TableRelation = "ZYN_Expense & Budget Category"."Category Name";
                     }
                 }
             }

@@ -1,9 +1,9 @@
-codeunit 50189 "Remaining Budget Manager"
+codeunit 50189 "ZYN_Remaining Budget Manager"
 {
     procedure GetRemainingBudget(Category: Code[50]): Decimal
     var
-        BudgetRec: Record "Budget Table";
-        ExpenseRec: Record "Expense Table";
+        Budget: Record "ZYN_Budget Table";
+        Expense: Record "ZYN_Expense Table";
         StartDate: Date;
         EndDate: Date;
         ExpenseAmount: Decimal;
@@ -13,19 +13,19 @@ codeunit 50189 "Remaining Budget Manager"
         StartDate := CalcDate('<-CM>', WorkDate()); // first day of current month
         EndDate := CalcDate('<CM>', WorkDate());    // last day of current month
         // Find budget for this category in this month
-        BudgetRec.Reset();
-        BudgetRec.SetRange("Category", Category);
-        BudgetRec.SetRange("From Date", StartDate);
-        BudgetRec.SetRange("To Date", EndDate);
+        Budget.Reset();
+        Budget.SetRange("Category", Category);
+        Budget.SetRange("From Date", StartDate);
+        Budget.SetRange("To Date", EndDate);
 
-        if BudgetRec.FindFirst() then begin
+        if Budget.FindFirst() then begin
             // Calculate all expenses for this category in this month
-            ExpenseRec.Reset();
-            ExpenseRec.SetRange("Category", Category);
-            ExpenseRec.SetRange("Date", StartDate, EndDate);
-            ExpenseRec.CalcSums(Amount);
-            ExpenseAmount := ExpenseRec.Amount;
-            RemainingBudget := BudgetRec.Amount - ExpenseAmount;
+            Expense.Reset();
+            Expense.SetRange("Category", Category);
+            Expense.SetRange("Date", StartDate, EndDate);
+            Expense.CalcSums(Amount);
+            ExpenseAmount := Expense.Amount;
+            RemainingBudget := Budget.Amount - ExpenseAmount;
         end else begin
             ExpenseAmount := 0;
             RemainingBudget := 0;

@@ -1,4 +1,4 @@
-table 50117 "Expense Claim Category Table"
+table 50117 "ZYN_Expense Claim Category"
 {
     Caption = 'Expense Claim Category Table';
     DataClassification = ToBeClassified;

@@ -7,7 +7,7 @@ pageextension 50133 ExtendNavigationBar extends "Business Manager Role Center"
             action("Technician List")
             {
                 ApplicationArea = All;
-                RunObject = page "Technician List";
+                RunObject = page "ZYN_Technician List";
                 Caption = 'Technician List';
             }
         }

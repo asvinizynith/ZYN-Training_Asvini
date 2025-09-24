@@ -5,11 +5,11 @@ tableextension 50114 salesheadertextcode extends "Sales Header"
         field(50146; "Beginning Text Code"; Text[30])
         {
             Caption = 'Beginning Text Code';
-            DataClassification = CustomerContent;
+            DataClassification = ToBeClassified;
             trigger OnValidate()
             var
                 extended: Record "Extended Text Line";
-                Beginning: Record "Text Code Table";
+                Beginning: Record "ZYN_Text Code Table";
                 customer: Record "Customer";
                 LineNo: Integer;
             begin
@@ -49,7 +49,7 @@ tableextension 50114 salesheadertextcode extends "Sales Header"
             trigger OnValidate()
             var
                 extended: Record "Extended Text Line";
-                Beginning: Record "Text Code Table";
+                Beginning: Record "ZYN_Text Code Table";
                 customer: Record "Customer";
                 LineNo: Integer;
             begin

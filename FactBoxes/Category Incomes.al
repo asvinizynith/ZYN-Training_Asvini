@@ -1,9 +1,9 @@
-page 50186 "Category Income FactBox"
+page 50186 "ZYN_Category Income FactBox"
 {
     PageType = CardPart;
-    SourceTable = "Income Category";
+    SourceTable = "ZYN_Income Category";
     ApplicationArea = All;
-    Caption = 'Category Income Info';
+    Caption = 'ZYN_Category Income Info';
 
     layout
     {
@@ -13,44 +13,41 @@ page 50186 "Category Income FactBox"
             {
                 field("Current Year"; CurrentYear)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Year';
                     trigger OnDrillDown()
                     var
-                        Income: Record "Income Table";
+                        Income: Record "ZYN_Income Table";
                     begin
                         Income.SetRange("Income Category", Rec."Income Category Name");
                         StartDate := CALCDATE('<-CY>', WORKDATE);
                         EndDate := CALCDATE('<CY>', WORKDATE);
                         Income.SetRange("Income Date", StartDate, EndDate);
-                        PAGE.Run(PAGE::"Income List", Income);
+                        PAGE.Run(PAGE::"ZYN_Income List", Income);
                     end;
                 }
                 field("Current Month"; CurrentMonth)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Month';
                     trigger OnDrillDown()
                     var
-                        Income: Record "Income Table";
+                        Income: Record "ZYN_Income Table";
                     begin
                         Income.SetRange("Income Category", Rec."Income Category Name");
                         StartDate := CALCDATE('<-CM>', WORKDATE);
                         EndDate := CALCDATE('<CM>', WORKDATE);
                         Income.SetRange("Income Date", StartDate, EndDate);                    // Till today
-                        PAGE.Run(PAGE::"Income List", Income);
+                        PAGE.Run(PAGE::"ZYN_Income List", Income);
                     end;
                 }
                 field("Current Half Year"; CurrentHalfYear)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Half Year';
                     trigger OnDrillDown()
                     var
-                        Income: Record "Income Table";
+                        Income: Record "ZYN_Income Table";
                     begin
                         Income.SetRange("Income Category", Rec."Income Category Name");
                         if Date2DMY(WORKDATE, 2) <= 6 then begin
@@ -61,23 +58,22 @@ page 50186 "Category Income FactBox"
                             EndDate := CALCDATE('<CY>', WORKDATE);   // Dec 31 of current year
                         end;
                         Income.SetRange("Income Date", StartDate, EndDate);
-                        PAGE.Run(PAGE::"Income List", Income);
+                        PAGE.Run(PAGE::"ZYN_Income List", Income);
                     end;
                 }
                 field("Current Quarter"; CurrentQuarter)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Quarter';
                     trigger OnDrillDown()
                     var
-                        Income: Record "Income Table";
+                        Income: Record "ZYN_Income Table";
                     begin
                         Income.SetRange("Income Category", Rec."Income Category Name");
                         StartDate := CALCDATE('<-CQ>', WORKDATE);
                         EndDate := CALCDATE('<CQ>', WORKDATE);
                         Income.SetRange("Income Date", StartDate, EndDate); // If you want "till WorkDate"
-                        PAGE.Run(PAGE::"Income List", Income);
+                        PAGE.Run(PAGE::"ZYN_Income List", Income);
                     end;
                 }
             }
@@ -86,11 +82,8 @@ page 50186 "Category Income FactBox"
 
     trigger OnAfterGetRecord()
     var
-        "Income Rec": Record "Income Table";
+        "Income Rec": Record "ZYN_Income Table";
     begin
-        Month := DATE2DMY(WorkDate(), 2);
-        Year := DATE2DMY(WorkDate(), 3);
-
         // Current Year
         "Income Rec".Reset();
         "Income Rec".SetRange("Income Category", Rec."Income Category Name");
@@ -100,7 +93,7 @@ page 50186 "Category Income FactBox"
         "Income Rec".CalcSums("Income Amount");
         CurrentYear := "Income Rec"."Income Amount";
 
-     // Current Month
+        // Current Month
         "Income Rec".Reset();
         "Income Rec".SetRange("Income Category", Rec."Income Category Name");
         StartDate := CALCDATE('<-CM>', WORKDATE);

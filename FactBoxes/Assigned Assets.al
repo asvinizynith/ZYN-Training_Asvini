@@ -1,9 +1,9 @@
-page 50121 "Assigned Assets FactBox"
+page 50121 "ZYN_Assigned Assets FactBox"
 {
     PageType = CardPart;
-    SourceTable = "Employee Asset Table";
+    SourceTable = "ZYN_Employee Asset Table";
     ApplicationArea = All;
-    Caption = 'Assigned Assets FactBox';
+    Caption = 'ZYN_Assigned Assets FactBox';
 
     layout
     {
@@ -13,16 +13,15 @@ page 50121 "Assigned Assets FactBox"
             {
                 field("Assigned Assets count"; AssignedAssets)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Assigned Assets count';
                     trigger OnDrillDown()
                     var
-                        EmployeeAsset: Record "Employee Asset Table";
+                        EmployeeAsset: Record "ZYN_Employee Asset Table";
                     begin
                         EmployeeAsset.Reset();
                         EmployeeAsset.SetRange(Status, Rec.Status::Assigned);
-                        PAGE.Run(PAGE::"Employee Asset List", EmployeeAsset);
+                        PAGE.Run(PAGE::"ZYN_Employee Asset List", EmployeeAsset);
                     end;
                 }
             }
@@ -30,7 +29,7 @@ page 50121 "Assigned Assets FactBox"
     }
     trigger OnAfterGetRecord()
     var
-        EmployeeAsset: Record "Employee Asset Table";
+        EmployeeAsset: Record "ZYN_Employee Asset Table";
     begin
         EmployeeAsset.Reset();
         EmployeeAsset.SetRange(Status, Rec.Status::Assigned);

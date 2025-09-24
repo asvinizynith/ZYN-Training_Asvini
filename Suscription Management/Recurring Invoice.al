@@ -1,4 +1,4 @@
-codeunit 50122 "Subscription Billing Invoices"
+codeunit 50122 "ZYN_Subscription Recur Inv Mgt"
 {
     Subtype = Normal;
     trigger OnRun()
@@ -8,31 +8,31 @@ codeunit 50122 "Subscription Billing Invoices"
 
     local procedure ProcessRecurringInvoices()
     var
-        SubscriptionRec: Record "Subscription Table";
+        Subscription: Record "ZYN_Subscription Table";
     begin
-        SubscriptionRec.Reset();
+        Subscription.Reset();
         // SubscriptionRec.SetRange("Recurring Billing", true);
-        SubscriptionRec.SetFilter("Next Billing Date", '<=%1', WorkDate()); // Due today
-        if SubscriptionRec.FindSet() then
+        Subscription.SetFilter("Next Billing Date", '<=%1', WorkDate()); // Due today
+        if Subscription.FindSet() then
             repeat
-                CreateSalesInvoice(SubscriptionRec);
+                CreateSalesInvoice(Subscription);
                 // Update next billing date
-                SubscriptionRec.CalcNextBillingDate();
-                SubscriptionRec.Modify(true);
-            until SubscriptionRec.Next() = 0;
+                Subscription.CalcNextBillingDate();
+                Subscription.Modify(true);
+            until Subscription.Next() = 0;
     end;
 
-    local procedure CreateSalesInvoice(SubscriptionRec: Record "Subscription Table")
+    local procedure CreateSalesInvoice(SubscriptionRec: Record "ZYN_Subscription Table")
     var
         SalesHeader: Record "Sales Header";
-        PlanRec: Record "Plan Table";
+        Plan: Record "ZYN_Plan Table";
         Salesline: Record "Sales Line";
         InvoiceNo: Code[20];
     begin
         if SubscriptionRec."Customer ID" = '' then
             Error('Customer No. must be defined for Subscription %1', SubscriptionRec."Subscription ID");
 
-        if not PlanRec.Get(SubscriptionRec."Plan ID") then
+        if not Plan.Get(SubscriptionRec."Plan ID") then
             Error('Plan %1 not found for Subscription %2', SubscriptionRec."Plan ID", SubscriptionRec."Subscription ID");
         InvoiceNo := 'SUB-' + Format(SubscriptionRec."Subscription ID") + '-' + Format(WorkDate(), 0, '<year4><month,2>');
 
@@ -47,7 +47,7 @@ codeunit 50122 "Subscription Billing Invoices"
         SalesLine.Init();
         SalesLine."Document Type" := SalesLine."Document Type"::Invoice;
         SalesLine."Document No." := SalesHeader."No.";
-        SalesLine.Validate(Amount, PlanRec."Monthly Fee");
+        SalesLine.Validate(Amount, Plan."Monthly Fee");
         SalesLine.Insert();
         SalesLine.Modify();
         SalesHeader.Insert(true);

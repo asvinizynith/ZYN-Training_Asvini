@@ -1,9 +1,9 @@
-page 50190 "Budget Cue FactBox"
+page 50190 "ZYN_Budget Cue FactBox"
 {
     PageType = CardPart;
-    SourceTable = "Expense & Budget Category";
+    SourceTable = "ZYN_Expense & Budget Category";
     ApplicationArea = All;
-    Caption = 'Budget Allaction Info';
+    Caption = 'ZYN_Budget Allaction Info';
 
     layout
     {
@@ -13,44 +13,41 @@ page 50190 "Budget Cue FactBox"
             {
                 field("Current Year"; CurrentYear)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Year';
                     trigger OnDrillDown()
                     var
-                        Budget: Record "Budget Table";
+                        Budget: Record "ZYN_Budget Table";
                     begin
                         Budget.SetRange(Category, Rec."Category Name");
                         StartDate := CALCDATE('<-CY>', WORKDATE);
                         EndDate := CALCDATE('<CY>', WORKDATE);
                         Budget.SetRange("From Date", StartDate, EndDate);
-                        PAGE.Run(PAGE::"Budget List", Budget);
+                        PAGE.Run(PAGE::"ZYN_Budget List", Budget);
                     end;
                 }
                 field("Current Month"; CurrentMonth)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Month';
                     trigger OnDrillDown()
                     var
-                        Budget: Record "Budget Table";
+                        Budget: Record "ZYN_Budget Table";
                     begin
                         Budget.SetRange("Category", Rec."Category Name");
                         StartDate := CALCDATE('<-CM>', WORKDATE);
                         EndDate := CALCDATE('<CM>', WORKDATE);
                         Budget.SetRange("From Date", StartDate, EndDate);          // Till today
-                        PAGE.Run(PAGE::"Budget List", Budget);
+                        PAGE.Run(PAGE::"ZYN_Budget List", Budget);
                     end;
                 }
                 field("Current Half Year"; CurrentHalfYear)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Half Year';
                     trigger OnDrillDown()
                     var
-                        Budget: Record "Budget Table";
+                        Budget: Record "ZYN_Budget Table";
                     begin
                         Budget.SetRange("Category", Rec."Category Name");
                         if Date2DMY(WORKDATE, 2) <= 6 then begin
@@ -61,23 +58,22 @@ page 50190 "Budget Cue FactBox"
                             EndDate := CALCDATE('<CY>', WORKDATE);   // Dec 31 of current year
                         end;
                         Budget.SetRange("From Date", StartDate, EndDate);
-                        PAGE.Run(PAGE::"Budget List", Budget);
+                        PAGE.Run(PAGE::"ZYN_Budget List", Budget);
                     end;
                 }
                 field("Current Quarter"; CurrentQuarter)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Current Quarter';
                     trigger OnDrillDown()
                     var
-                        Budget: Record "Budget Table";
+                        Budget: Record "ZYN_Budget Table";
                     begin
                         Budget.SetRange("Category", Rec."Category Name");
                         StartDate := CALCDATE('<-CQ>', WORKDATE);
                         EndDate := CALCDATE('<CQ>', WORKDATE);
                         Budget.SetRange("From Date", StartDate, EndDate); // If you want "till WorkDate"
-                        PAGE.Run(PAGE::"Budget List", Budget);
+                        PAGE.Run(PAGE::"ZYN_Budget List", Budget);
                     end;
                 }
             }
@@ -86,11 +82,8 @@ page 50190 "Budget Cue FactBox"
 
     trigger OnAfterGetRecord()
     var
-        Budget: Record "budget Table";
+        Budget: Record "ZYN_Budget Table";
     begin
-        Month := DATE2DMY(WorkDate(), 2);
-        Year := DATE2DMY(WorkDate(), 3);
-
         // Current Year
         Budget.Reset();
         Budget.SetRange("Category", Rec."Category Name");

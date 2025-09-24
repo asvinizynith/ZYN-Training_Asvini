@@ -1,8 +1,10 @@
-page 50103 "Customer Visit Log Card"
+page 50103 "ZYN_Customer Visit Log Card"
 {
     PageType = Card;
-    SourceTable = "Customer Visit Log";
+    SourceTable = "ZYN_Customer Visit Log";
     ApplicationArea = All;
+    Caption = 'ZYN_Customer Visit Log Card';
+
     layout
     {
         area(Content)
@@ -11,19 +13,15 @@ page 50103 "Customer Visit Log Card"
             {
                 field("Customer Number"; Rec."Customer Number")
                 {
-                    ApplicationArea = All;
                 }
                 field("Date"; Rec.Date)
                 {
-                    ApplicationArea = All;
                 }
                 field("Purpose"; Rec."Purpose")
                 {
-                    ApplicationArea = All;
                 }
                 field("Notes"; Rec."Notes")
                 {
-                    ApplicationArea = All;
                 }
             }
         }

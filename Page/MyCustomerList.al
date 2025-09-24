@@ -1,10 +1,11 @@
-page 50141 MyCustomerList
+page 50141 "ZYN_My Customer List"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = Customer;
     Editable = false;
+    Caption='ZYN_My Customer List';
 
     layout
     {
@@ -14,42 +15,35 @@ page 50141 MyCustomerList
             {
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                 }
                 field(Address; Rec.Address)
                 {
-                    ApplicationArea = All;
                 }
                 field("Post Code"; Rec."Post Code")
                 {
-                    ApplicationArea = All;
                 }
                 field(City; Rec.City)
                 {
-                    ApplicationArea = All;
                 }
                 field("Phone No."; Rec."Phone No.")
                 {
-                    ApplicationArea = All;
                 }
                 field("State"; Rec."County")
                 {
-                    ApplicationArea = All;
                 }
             }
-                    part("Saleorder"; "salesorder")
+                    part("Saleorder"; "ZYN_Sales Order")
                     {
                         SubPageLink = "Sell-to Customer Name" = field(Name);
                     }
-                    part("SalesInvoice"; "SalesInvoice")
+                    part("SalesInvoice"; "ZYN_Sales Invoice")
                     {
                         SubPageLink = "Sell-to Customer Name" = field(Name);
                     }
-                    part("SalesCreditMemo"; "SalesCreditMemo")
+                    part("SalesCreditMemo"; "ZYN_Sales Credit Memo")
                     {
                         SubPageLink = "Sell-to Customer Name" = field(Name);
                     }

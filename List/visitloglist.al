@@ -1,11 +1,13 @@
-page 50102 "Customer Visit Log List"
+page 50102 "ZYN_Customer Visit Log List"
 {
     PageType = List;
-    SourceTable = "Customer Visit Log";
-    CardPageId = "Customer Visit Log Card";
+    SourceTable = "ZYN_Customer Visit Log";
+    CardPageId = "ZYN_Customer Visit Log Card";
     ApplicationArea = All;
     Editable = false;
     InsertAllowed = false;
+    Caption = 'ZYN_Customer Visit Log List';
+
     layout
     {
         area(Content)
@@ -14,19 +16,15 @@ page 50102 "Customer Visit Log List"
             {
                 field("Customer Number"; Rec."Customer Number")
                 {
-                    ApplicationArea = All;
                 }
                 field("Date"; Rec."Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("Purpose"; Rec."Purpose")
                 {
-                    ApplicationArea = All;
                 }
                 field("Notes"; Rec."Notes")
                 {
-                    ApplicationArea = All;
                 }
             }
         }

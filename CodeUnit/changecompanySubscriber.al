@@ -1,6 +1,6 @@
-codeunit 50116 compchangesubscriber
+codeunit 50116 "ZYN_Company Change Subscriber"
 {
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::compchangepublisher, 'onaddcustomercreated', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"ZYN_Company Change Publisher", 'onaddcustomercreated', '', false, false)]
     local procedure OnCustomerCreated("customer rec": Record Customer)
     var
         TargetCustomer: Record Customer;

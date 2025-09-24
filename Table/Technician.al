@@ -1,4 +1,4 @@
-table 50130 "Technician Table"
+table 50130 "ZYN_Technician Table"
 {
     DataClassification = ToBeClassified;
     Caption = 'Technician Table';
@@ -7,28 +7,24 @@ table 50130 "Technician Table"
         field(1; ID; Code[20])
         {
             Caption = 'ID';
-            DataClassification = ToBeClassified;
         }
         field(2; Name; Text[30])
         {
             Caption = 'Name';
-            DataClassification = ToBeClassified;
         }
         field(3; "Ph.No"; Integer)
         {
             Caption = 'Ph.No';
-            DataClassification = ToBeClassified;
         }
-        field(50131; Department; Enum "Technician Department")
+        field(50131; Department; Enum "ZYN_Technician Department")
         {
-            Caption = 'Department';
-            DataClassification = ToBeClassified;
+            Caption = 'Department';        
         }
         field(4; "No Of Problems"; Integer)
         {
             Caption = 'No Of Problems';
             FieldClass = FlowField;
-            CalcFormula = count("Problem List" where("Technician Name" = field(Name)));
+            CalcFormula = count("ZYN_Problem List" where("Technician Name" = field(Name)));
         }
     }
 

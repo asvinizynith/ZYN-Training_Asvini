@@ -1,9 +1,9 @@
-page 50100 "Customer Sales FactBox"
+page 50100 "ZYN_Customer Sales FactBox"
 {
     PageType = CardPart;
     SourceTable = Customer;
     ApplicationArea = All;
-    Caption = 'Customer Sales Info';
+    Caption = 'ZYN_Customer Sales Info';
 
     layout
     {
@@ -13,15 +13,14 @@ page 50100 "Customer Sales FactBox"
             {
                 field("Active Subscriptions"; ActiveSubscriptions)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     trigger OnDrillDown()
                     var
-                        SubscriptionRec: Record "Subscription Table";
-                        SubscriptionList: Page "Subscription List";
+                        Subscription: Record "ZYN_Subscription Table";
+                        SubscriptionList: Page "ZYN_Subscription List";
                     begin
-                        SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
-                        SubscriptionList.SetTableView(SubscriptionRec);
+                        Subscription.SetRange(Status, Subscription.Status::Active);
+                        SubscriptionList.SetTableView(Subscription);
                         SubscriptionList.Run();
                     end;
                 }
@@ -31,30 +30,28 @@ page 50100 "Customer Sales FactBox"
                 Visible = ContentVisible;
                 field("Contact ID"; ContactNo)
                 {
-                    ApplicationArea = All;
                     Caption = 'ID';
                     DrillDown = true;
                     trigger OnDrillDown()
                     var
-                        ContactRec: Record Contact;
+                        Contact: Record Contact;
                     begin
                         if ContactNo <> '' then
-                            if ContactRec.Get(ContactNo) then
-                                PAGE.Run(PAGE::"Contact Card", ContactRec);
+                            if Contact.Get(ContactNo) then
+                                PAGE.Run(PAGE::"Contact Card", Contact);
                     end;
                 }
                 field("Contact Name"; ContactName)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Name';
                     trigger OnDrillDown()
                     var
-                        ContactRec: Record Contact;
+                        Contact: Record Contact;
                     begin
                         if ContactNo <> '' then
-                            if ContactRec.Get(ContactNo) then
-                                PAGE.Run(PAGE::"Contact Card", ContactRec);
+                            if Contact.Get(ContactNo) then
+                                PAGE.Run(PAGE::"Contact Card", Contact);
                     end;
                 }
             }
@@ -62,7 +59,6 @@ page 50100 "Customer Sales FactBox"
             {
                 field("Open Sales Orders"; OpenSalesOrdersCount)
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Open Orders';
                     trigger OnDrillDown()
@@ -77,7 +73,6 @@ page 50100 "Customer Sales FactBox"
                 }
                 field("Open Sales Invoices"; "OpenSalesInvoicesCount")
                 {
-                    ApplicationArea = All;
                     DrillDown = true;
                     Caption = 'Open Invoices';
                     trigger OnDrillDown()
@@ -106,20 +101,20 @@ page 50100 "Customer Sales FactBox"
     var
         SalesHeader: Record "Sales Header";
         SalesInvHeader: Record "Sales Invoice Header";
-        ContactRec: Record Contact;
-        SubscriptionRec: Record "Subscription Table";
+        Contact: Record Contact;
+        Subscription: Record "ZYN_Subscription Table";
     begin
         // Count active subscriptions dynamically
-        SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
-        ActiveSubscriptions := SubscriptionRec.Count;
+        Subscription.SetRange(Status, Subscription.Status::Active);
+        ActiveSubscriptions := Subscription.Count;
         // Find Contact linked to Customer
         Clear(ContactNo);
         Clear(ContactName);
         ContentVisible := false;
         if Rec."Primary Contact No." <> '' then begin
             ContactNo := Rec."Primary Contact No.";
-            if ContactRec.Get(ContactNo) then
-                ContactName := ContactRec.Name;
+            if Contact.Get(ContactNo) then
+                ContactName := Contact.Name;
             ContentVisible := true;
         end;
         // Count open sales orders

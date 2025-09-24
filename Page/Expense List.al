@@ -1,11 +1,11 @@
-page 50173 "Expense List"
+page 50173 "ZYN_Expense List"
 {
     ApplicationArea = All;
-    Caption = 'Expenses Tracker';
+    Caption = 'ZYN_Expenses Tracker';
     PageType = List;
-    SourceTable = "Expense Table";
+    SourceTable = "ZYN_Expense Table";
     UsageCategory = Administration;
-    CardPageId = "Expense Card"; // Ensures standard 'New' works too
+    CardPageId = "ZYN_Expense Card"; // Ensures standard 'New' works too
     Editable = false;
     layout
     {
@@ -15,27 +15,23 @@ page 50173 "Expense List"
             {
                 field(Description; Rec.Description) 
                 { 
-
                 }
                 field(Amount; Rec.Amount) 
                 { 
-
                 }
                 field("Date"; Rec."Date") 
                 {
-
-                 }
+                }
                 field("Category"; Rec."Category")
                 {
-                    ApplicationArea = All;
                 }
             }
         }
           area(FactBoxes)
         {
-                part(BudgetFactbox; "Budget FactBox")
+                part(BudgetFactbox; "ZYN_Budget FactBox")
                 {
-                    ApplicationArea = All;
+                    Caption='ZYN_Budget FactBox';
                 }    
     }
     }   
@@ -45,24 +41,21 @@ page 50173 "Expense List"
         {
             action(Action)
             {
-                ApplicationArea = All;
                 Caption = 'Category List';
                 Image = List;
-                RunObject = page "Expense Category List ";
+                RunObject = page "ZYN_Expense Category List";
             }
             action(ExpenseTracker)
             {
-                ApplicationArea = All;
                 Caption = 'Expense Tracker Report';
                 Image = Report;
-                RunObject = report "Expense Tracker Report";
+                RunObject = report "ZYN_Expense Tracker Report";
             }
             action(BudgetVsExpense )
             {
-                ApplicationArea = All;
                 Caption = 'Budget Vs Expense Report';
                 Image = Report;
-                RunObject = report "Budget Vs Expense Report";
+                RunObject = report "ZYN_Budget Vs Expense Report";
             }
         }    
         }

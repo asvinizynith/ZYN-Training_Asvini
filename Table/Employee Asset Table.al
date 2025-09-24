@@ -1,4 +1,4 @@
-table 50114 "Employee Asset Table"
+table 50114 "ZYN_Employee Asset Table"
 {
     DataClassification = ToBeClassified;
 
@@ -12,36 +12,36 @@ table 50114 "Employee Asset Table"
         field(2; "Employee ID"; Code[30])
         {
             Caption = 'Employee ID';
-            TableRelation = "Employee Table"."Employee ID";
+            TableRelation = "ZYN_Employee Table"."Employee ID";
         }
         field(3; "Serial No"; Code[30])
         {
             Caption = 'Serial No';
-            TableRelation = "Asset Table"."Serial No" WHERE(Available = CONST(true));
+            TableRelation = "ZYN_Asset Table"."Serial No" WHERE(Available = CONST(true));
         }
         field(4; "Asset Name"; Text[50])
         {
             Caption = 'Asset Name';
             FieldClass = FlowField;
-            CalcFormula = lookup("Asset Table"."Asset Name" where("Serial No" = field("Serial No")));
+            CalcFormula = lookup("ZYN_Asset Table"."Asset Name" where("Serial No" = field("Serial No")));
         }
 
-        field(5; Status; Enum "Asset Status")
+        field(5; Status; Enum "ZYN_Asset Status")
         {
             Caption = 'Status';
             trigger OnValidate()
             var
-                AssetRec: Record "Employee Asset Table";
+                EmployeeAsset: Record "ZYN_Employee Asset Table";
             begin
                 // If asset is being Returned or Lost
                 if (Status = Status::Returned) or (Status = Status::Lost) then begin
                     // Find the original assigned record for the same asset
-                    AssetRec.Reset();
-                    AssetRec.SetRange("Serial No", Rec."Serial No");
-                    AssetRec.SetRange(Status, AssetRec.Status::Assigned);
+                    EmployeeAsset.Reset();
+                    EmployeeAsset.SetRange("Serial No", Rec."Serial No");
+                    EmployeeAsset.SetRange(Status, EmployeeAsset.Status::Assigned);
 
-                    if AssetRec.FindFirst() then begin
-                        Rec."Assigned Date" := AssetRec."Assigned Date";
+                    if EmployeeAsset.FindFirst() then begin
+                        Rec."Assigned Date" := EmployeeAsset."Assigned Date";
                     end;
                 end;
             end;

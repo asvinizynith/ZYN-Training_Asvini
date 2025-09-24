@@ -1,4 +1,4 @@
-enum 50107 "Plan Status"
+enum 50107 "ZYN_Plan Status"
 {
     Extensible = true;
     value(0; Active)

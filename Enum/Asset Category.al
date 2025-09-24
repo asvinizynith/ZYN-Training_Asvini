@@ -1,4 +1,4 @@
-enum 50105 "Asset Category"
+enum 50105 "ZYN_Asset Category"
 {
     Extensible = true;
     value(0; Infrastructure)

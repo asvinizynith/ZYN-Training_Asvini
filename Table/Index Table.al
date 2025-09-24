@@ -1,4 +1,4 @@
-table 50169 "Index Table"
+table 50169 "ZYN_Index Table"
 {
     Caption = 'Index Table';
     DataClassification = ToBeClassified;
@@ -35,7 +35,7 @@ table 50169 "Index Table"
     }
     trigger OnInsert()
     var
-        IndexLine: Record "Index Lines";
+        IndexLine: Record "ZYN_Index Lines";
     begin
         GenerateLinesForCode();
     end;
@@ -48,7 +48,7 @@ table 50169 "Index Table"
 
     trigger OnDelete()
     var
-        IndexLine: Record "Index Lines";
+        IndexLine: Record "ZYN_Index Lines";
     begin
         IndexLine.SetRange("Code", Rec."Code");
         if IndexLine.FindSet() then
@@ -57,7 +57,7 @@ table 50169 "Index Table"
 
     local procedure GenerateLinesForCode()
     var
-        IndexLine: Record "Index Lines";
+        IndexLine: Record "ZYN_Index Lines";
         Year: Integer;
         CurrentValue: Decimal;
         StartYear: Integer;

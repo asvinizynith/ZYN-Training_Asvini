@@ -1,4 +1,4 @@
-enum 50135 "Issue List"
+enum 50135 "ZYN_Issue List"
 {
     Extensible = true;
     value(0; "Wireless Router")

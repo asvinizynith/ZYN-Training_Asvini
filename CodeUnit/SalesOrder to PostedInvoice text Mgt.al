@@ -1,4 +1,4 @@
-codeunit 50170 "Posted Invoice/Order Text Code"
+codeunit 50170 "ZYN_Posted Inv/Order Text Mgt"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterSalesInvHeaderInsert', '', false, false)]
     local procedure OnAfterSalesInvHeaderInsertCombined(
@@ -11,9 +11,9 @@ codeunit 50170 "Posted Invoice/Order Text Code"
         var TempWhseRcptHeader: Record "Warehouse Receipt Header";
         PreviewMode: Boolean)
     var
-        BeginningText: Record "Text Code Table";
-        EndingText: Record "Text Code Table";
-        PostedText: Record "Text Code Table";
+        BeginningText: Record "ZYN_Text Code Table";
+        EndingText: Record "ZYN_Text Code Table";
+        PostedText: Record "ZYN_Text Code Table";
         Extended: Record "Extended Text Line";
     begin
         // --- Handle Invoices ---

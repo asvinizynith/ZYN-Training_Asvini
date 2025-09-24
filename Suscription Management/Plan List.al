@@ -1,11 +1,11 @@
-page 50126 "Plan List"
+page 50126 "ZYN_Plan List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Plan List';
-    SourceTable = "Plan Table";
+    Caption = 'ZYN_Plan List';
+    SourceTable = "ZYN_Plan Table";
     UsageCategory = Administration;
-    CardPageId = "Plan Card";
+    CardPageId = "ZYN_Plan Card";
 
     layout
     {
@@ -16,23 +16,18 @@ page 50126 "Plan List"
                 Editable = false;
                 field("Plan ID"; Rec."Plan ID")
                 {
-
                 }
                 field("Plan Name"; Rec."Plan Name")
                 {
-
                 }
                 field("Monthly Fee"; Rec."Monthly Fee")
                 {
-
                 }
                 field(Status; Rec.Status)
                 {
-
                 }
                 field(Description; Rec.Description)
                 {
-
                 }
             }
         }
@@ -44,53 +39,51 @@ page 50126 "Plan List"
             action(Inactive)
             {
                 Caption = 'Inactive';
-                ApplicationArea = All;
                 Image = Stop;
                 trigger OnAction()
                 var
-                    PlanRec: Record "Plan Table";
-                    SubRec: Record "Subscription Table";
+                    Plan: Record "ZYN_Plan Table";
+                    Subscription: Record "ZYN_Subscription Table";
                 begin
-                    CurrPage.SetSelectionFilter(PlanRec);
-                    if PlanRec.FindSet() then
+                    CurrPage.SetSelectionFilter(Plan);
+                    if Plan.FindSet() then
                         repeat
                             // Update subscriptions linked to this plan
-                            SubRec.Reset();
-                            SubRec.SetRange("Plan ID", PlanRec."Plan ID"); // adjust to your field name
-                            if SubRec.FindSet() then
+                            Subscription.Reset();
+                            Subscription.SetRange("Plan ID", Plan."Plan ID"); // adjust to your field name
+                            if Subscription.FindSet() then
                                 repeat
-                                    SubRec.Status := SubRec.Status::Inactive;
-                                    SubRec.Modify(true);
-                                until SubRec.Next() = 0;
-                        until PlanRec.Next() = 0;
+                                    Subscription.Status := Subscription.Status::Inactive;
+                                    Subscription.Modify(true);
+                                until Subscription.Next() = 0;
+                        until Plan.Next() = 0;
                 end;
             }
             action(Delete)
             {
                 Caption = 'Delete ';
-                ApplicationArea = All;
                 Image = Delete;
                 trigger OnAction()
                 var
-                    PlanRec: Record "Plan Table";
-                    SubRec: Record "Subscription Table";
+                    Plan: Record "ZYN_Plan Table";
+                    Subscription: Record "ZYN_Subscription Table";
                     Confirmed: Boolean;
                 begin
-                    CurrPage.SetSelectionFilter(PlanRec);
+                    CurrPage.SetSelectionFilter(Plan);
 
                     if not Confirm('Do you want to delete all inactive subscriptions for the selected plan(s)?', false) then
                         exit;
 
-                    if PlanRec.FindSet() then
+                    if Plan.FindSet() then
                         repeat
-                            SubRec.Reset();
-                            SubRec.SetRange("Plan ID", PlanRec."Plan ID"); // adjust to your actual field name
-                            SubRec.SetRange(Status, SubRec.Status::Inactive); // only inactive
-                            if SubRec.FindSet() then
+                            Subscription.Reset();
+                            Subscription.SetRange("Plan ID", Plan."Plan ID"); // adjust to your actual field name
+                            Subscription.SetRange(Status, Subscription.Status::Inactive); // only inactive
+                            if Subscription.FindSet() then
                                 repeat
-                                    SubRec.Delete(true);
-                                until SubRec.Next() = 0;
-                        until PlanRec.Next() = 0;
+                                    Subscription.Delete(true);
+                                until Subscription.Next() = 0;
+                        until Plan.Next() = 0;
 
                     Message('All inactive subscriptions for the selected plan(s) have been deleted.');
                 end;

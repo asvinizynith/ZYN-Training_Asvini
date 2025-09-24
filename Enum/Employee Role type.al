@@ -1,4 +1,4 @@
-enum 50101 "Emplyee Role Type"
+enum 50101 "ZYN_Emplyee Role Type"
 {
     Extensible = true;
     value(0; "HR")

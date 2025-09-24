@@ -1,8 +1,9 @@
-page 50144 "Ending Text Code"
+page 50144 "ZYN_Ending Text Code"
 {
     PageType = ListPart;
     ApplicationArea = All;
-    SourceTable = "Text Code Table";
+    SourceTable = "ZYN_Text Code Table";
+    Caption = 'ZYN_Ending Text Code';
 
     layout
     {
@@ -12,11 +13,9 @@ page 50144 "Ending Text Code"
             {
                 field("Line No"; Rec."Line No")
                 {
-                    ApplicationArea = ALl;
                 }
                 field(EndingText; Rec.Text)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

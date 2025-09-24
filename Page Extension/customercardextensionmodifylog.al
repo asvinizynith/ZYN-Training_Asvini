@@ -11,7 +11,7 @@ pageextension 50121 Modifylogext extends "Customer Card"
                 Image = View; // Optional - you can choose an icon
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Modify Log List");
+                    PAGE.Run(PAGE::"ZYN_Modify Log List");
                 end;
             }
         }

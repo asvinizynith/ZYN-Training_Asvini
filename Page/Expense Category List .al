@@ -1,9 +1,9 @@
-page 50174 "Expense Category List "
+page 50174 "ZYN_Expense Category List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Expense Category List';
-    SourceTable = "Expense & Budget Category";
+    Caption = 'ZYN_Expense Category List';
+    SourceTable = "ZYN_Expense & Budget Category";
 
     layout
     {
@@ -12,26 +12,22 @@ page 50174 "Expense Category List "
             repeater(CategoryDetails)
             {
              field("Category Name"; Rec."Category Name")
-                {
-                    ApplicationArea = All;
+                {                  
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
                 }
             }    
         }
         area(FactBoxes)
         {
-            part(CategoryExpenseFB; "Category Expense FactBox")
+            part(CategoryExpenseFB; "ZYN_Category Expense FactBox")
             {
-                ApplicationArea = All;
                 Caption = 'Category Expense FactBox';
                 SubPageLink = "Category Name" = field("Category Name");
             }
-            part(BudgetCueFB; "Budget Cue FactBox")
+            part(BudgetCueFB; "ZYN_Budget Cue FactBox")
             {
-                ApplicationArea = All;
                 Caption = 'Budget Cue FactBox';
                 SubPageLink = "Category Name" = field("Category Name");
             }

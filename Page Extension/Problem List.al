@@ -10,15 +10,15 @@ pageextension 50135 customercardproblemlistext extends "Customer Card"
                 ApplicationArea = All;
                 trigger OnAction()
                 var
-                    cusRec: Record customer;
-                    problemRec: Record "Problem List";
+                    Customer: Record customer;
+                    problem: Record "ZYN_Problem List";
                 begin
-                    cusRec.get(Rec."No.");
-                    problemRec.Init();
-                    problemRec."Customer ID" := cusRec."No.";
-                    problemRec."Customer Name" := cusRec.Name;
-                    problemRec.Insert(true);
-                    PAGE.Run(Page::"Probelm List Card", problemRec)
+                    Customer.get(Rec."No.");
+                    problem.Init();
+                    problem."Customer ID" := Customer."No.";
+                    problem."Customer Name" := Customer.Name;
+                    problem.Insert(true);
+                    PAGE.Run(Page::"ZYN_Probelm List Card", problem)
                 end;
             }
         }

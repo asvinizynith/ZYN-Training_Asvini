@@ -1,10 +1,10 @@
-codeunit 50100 "Recurring Expense Manager"
+codeunit 50100 "ZYN_Recurring Expense Manager"
 {
     Subtype = Normal;   // This makes it available for Job Queue
     trigger OnRun()
     var
-        RecurringExpense: Record "Recurring Expense Table";
-        ExpenseList: Record "Expense table";
+        RecurringExpense: Record "ZYN_Recurring Expense Table";
+        ExpenseList: Record "ZYN_Expense Table";
     begin
         // Loop through Recurring Expense table
         RecurringExpense.Reset();
@@ -24,7 +24,7 @@ codeunit 50100 "Recurring Expense Manager"
             until RecurringExpense.Next() = 0;
     end;
 
-    local procedure UpdateNextDate(var RecurringExpense: Record "Recurring Expense Table")
+    local procedure UpdateNextDate(var RecurringExpense: Record "ZYN_Recurring Expense Table")
     begin
         case RecurringExpense."Cycle Type" of
             RecurringExpense."Cycle Type"::Weekly:

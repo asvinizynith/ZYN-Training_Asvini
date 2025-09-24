@@ -1,9 +1,9 @@
-page 50130 "Subscription Cues"
+page 50130 "ZYN_Subscription Cues"
 {
     PageType = CardPart;
-    SourceTable = "Subscription Table";
+    SourceTable = "ZYN_Subscription Table";
     ApplicationArea = All;
-    Caption = 'Subscription Cues';
+    Caption = 'ZYN_Subscription Cues';
 
     layout
     {
@@ -13,25 +13,25 @@ page 50130 "Subscription Cues"
             {
                 field("Active Subscriptions"; ActiveSubscriptions)
                 {
-                    ApplicationArea = All;
+                   caption='Active Subscriptions';
                     DrillDown = true;
                     trigger OnDrillDown()
                     var
-                        SubscriptionRec: Record "Subscription Table";
-                        SubscriptionList: Page "Subscription List";
+                        Subscription: Record "ZYN_Subscription Table";
+                        SubscriptionList: Page "ZYN_Subscription List";
                     begin
-                        SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
-                        SubscriptionList.SetTableView(SubscriptionRec);
-                        PAGE.Run(PAGE::"Subscription List", SubscriptionRec);
+                        Subscription.SetRange(Status, Subscription.Status::Active);
+                        SubscriptionList.SetTableView(Subscription);
+                        PAGE.Run(PAGE::"ZYN_Subscription List", Subscription);
                     end;
                 }
                 field("Revenue Generated"; TotalAmount)
                 {
-                    ApplicationArea = All;
+                    Caption='Revenue Generated';
                     DrillDown = true;
                     trigger OnDrillDown()
                     var
-                        InvoiceRec: Record "Sales Header";
+                        SalesHeader: Record "Sales Header";
                         StartDate: Date;
                         EndDate: Date;
 
@@ -39,10 +39,10 @@ page 50130 "Subscription Cues"
                         // Calculate first and last day of the current month
                         StartDate := CALCDATE('<-CM>', WORKDATE);
                         EndDate := CALCDATE('<CM>', WORKDATE);
-                        InvoiceRec.SetRange(Subscription, true);
-                        InvoiceRec.SetFilter("No.", '*SUB*');
-                        InvoiceRec.SetRange("Document Date", StartDate, EndDate);
-                        PAGE.Run(PAGE::"Sales Invoice List", InvoiceRec);
+                        SalesHeader.SetRange(Subscription, true);
+                        SalesHeader.SetFilter("No.", '*SUB*');
+                        SalesHeader.SetRange("Document Date", StartDate, EndDate);
+                        PAGE.Run(PAGE::"Sales Invoice List", SalesHeader);
                     end;
                 }
             }
@@ -57,36 +57,33 @@ page 50130 "Subscription Cues"
 
     trigger OnAfterGetRecord()
     var
-        SubscriptionRec: Record "Subscription Table";
-        InvoiceRec: Record "Sales Header";
+        Subscription: Record "ZYN_Subscription Table";
+        SalesHeader: Record "Sales Header";
         workmonth: Integer;
         workyear: Integer;
 
     begin
         // Count active subscriptions dynamically
-        SubscriptionRec.SetRange(Status, SubscriptionRec.Status::Active);
-        ActiveSubscriptions := SubscriptionRec.Count;
+        Subscription.SetRange(Status, Subscription.Status::Active);
+        ActiveSubscriptions := Subscription.Count;
 
         // Reset revenue
         TotalAmount := 0;
-        workmonth := Date2DMY(WorkDate(), 2);
-        workyear := Date2DMY(WORKDATE(), 3);
-
         StartDate := CALCDATE('<-CM>', WORKDATE);
         EndDate := CALCDATE('<CM>', WORKDATE);
         // Sum revenue for subscription invoices for current month
-        InvoiceRec.reset();
-        InvoiceRec.SetRange(Subscription, true);
-        InvoiceRec.SetRange("Document Date", StartDate, EndDate);
-        if InvoiceRec.FindSet() then
+        SalesHeader.reset();
+        SalesHeader.SetRange(Subscription, true);
+        SalesHeader.SetRange("Document Date", StartDate, EndDate);
+        if SalesHeader.FindSet() then
             repeat
-                InvoiceRec.CalcFields("Amount");
-                TotalAmount += InvoiceRec."Amount";
-            until InvoiceRec.Next() = 0;
+                SalesHeader.CalcFields("Amount");
+                TotalAmount += SalesHeader."Amount";
+            until SalesHeader.Next() = 0;
     end;
 
     var
-        RenewalNotification: Codeunit "Subscript Renewal Notification";
+        RenewalNotification: Codeunit "ZYN_Subscript Renew Notify Mgt";
 
     trigger OnOpenPage()
     begin

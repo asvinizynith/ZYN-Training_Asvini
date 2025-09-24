@@ -1,11 +1,11 @@
-page 50111 "Leave Request List"
+page 50111 "ZYN_Leave Request List"
 {
     PageType = List;
     ApplicationArea = All;
-    Caption = 'Leave Request List';
-    SourceTable = "Leave Request Table";
+    Caption = 'ZYN_Leave Request List';
+    SourceTable = "ZYN_Leave Request Table";
     UsageCategory = Administration;
-    CardPageId = "Leave Request Card";
+    CardPageId = "ZYN_Leave Request Card";
 
     layout
     {
@@ -16,35 +16,27 @@ page 50111 "Leave Request List"
                 Editable = false;
                 field("Request ID"; Rec."Request ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Employee ID"; Rec."Employee ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Leave Category"; Rec."Leave Category")
                 {
-                    ApplicationArea = All;
                 }
                 field(Reason; Rec.Reason)
                 {
-                    ApplicationArea = All;
                 }
                 field("Remaining leave"; Rec."Remaining leave")
                 {
-                    ApplicationArea = All;
                 }
                 field("Start Date"; Rec."Start Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("End Date"; Rec."End Date")
                 {
-                    ApplicationArea = All;
                 }
                 field(Status; Rec.Status)
                 {
-                    ApplicationArea = All;
                 }
             }
         }
@@ -59,7 +51,7 @@ page 50111 "Leave Request List"
                 Image = Approve;
                 trigger OnAction()
                 var
-                    PopulateLeaveCU: Codeunit "Populate Employee Leave Table";
+                    EmployeeLeave: Codeunit "ZYN_Employee Leave Management";
                 begin
                     // 1. Ensure only Pending requests can be approved
                     Rec.TestField(Status, Rec.Status::Pending);
@@ -73,7 +65,7 @@ page 50111 "Leave Request List"
                     Rec.Modify(true);
 
                     // 4. Update Employee Leave Table using CU (recalc all balances)
-                    PopulateLeaveCU.Run();
+                    EmployeeLeave.Run();
 
                     // 5. Refresh Remaining leave in the request
                     Rec."Remaining leave" :=
@@ -94,5 +86,5 @@ page 50111 "Leave Request List"
     end;
 
     var
-        RemainingLeaveCU: Codeunit "Remaining Leave Calculator"; // ✅ Global Declaration
+        RemainingLeaveCU: Codeunit "ZYN_Remaining Leave Calculator"; // ✅ Global Declaration
 }

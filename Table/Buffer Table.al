@@ -1,4 +1,4 @@
-table 50113 "Buffer Table"
+table 50113 "ZYN_Buffer Table"
 {
     DataClassification = ToBeClassified;
 
@@ -10,19 +10,15 @@ table 50113 "Buffer Table"
         }
         field(2; "Field Name"; Text[100])
         {
-
         }
         field(3; "Record Selection"; Text[100])
         {
-
         }
         field(4; "Line No"; Integer)
         {
-
         }
-      field(5; "Record ID"; RecordId)
+        field(5; "Record ID"; RecordId)
         {
-
         }
     }
 

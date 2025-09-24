@@ -1,9 +1,9 @@
-page 50169 "Index Card"
+page 50169 "ZYN_Index Card"
 {
     ApplicationArea = All;
-    Caption = 'Index Card';
+    Caption = 'ZYN_Index Card';
     PageType = Card;
-    SourceTable = "Index Table";
+    SourceTable = "ZYN_Index Table";
 
     layout
     {
@@ -13,7 +13,9 @@ page 50169 "Index Card"
             {
                 Caption = 'General';
                 field("Code"; Rec."Code")
-                { }
+                {
+
+                 }
                 field(Description; Rec.Description)
                 { }
                 field("Percentage Increase"; Rec."Percentage Increase")
@@ -23,7 +25,7 @@ page 50169 "Index Card"
                 field("End Year"; Rec."End Year")
                 { }
             }
-            part(IndexLines; "Index Lines list Part")
+            part(IndexLines; "ZYN_Index Lines List Part")
             {
                 ApplicationArea = All;
                 Caption = 'Index Lines';

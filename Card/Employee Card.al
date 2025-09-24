@@ -1,9 +1,9 @@
-page 50105 "Employee Entry Card"
+page 50105 "ZYN_Employee Entry Card"
 {
     ApplicationArea = All;
-    Caption = ' Employee Entry Card';
+    Caption = 'ZYN_Employee Entry Card';
     PageType = Card;
-    SourceTable = "Employee Table";
+    SourceTable = "ZYN_Employee Table";
 
     layout
     {
@@ -13,21 +13,17 @@ page 50105 "Employee Entry Card"
             {
                 Caption = 'General';
                 field("Employee ID"; Rec."Employee ID")
-                { 
-
+                {
                 }
                 field("Employee Name"; Rec."Employee Name")
-                { 
-
+                {
                 }
                 field("Employee Role"; Rec."Employee Role")
-                { 
-                    
+                {
                 }
                 field(Department; Rec.Department)
                 {
-
-                 }
+                }
             }
         }
     }

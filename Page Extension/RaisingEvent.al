@@ -2,6 +2,7 @@ pageextension 50103 "Customer Card Validate Ext" extends "Customer Card"
 {
     var
         IsNewCustomer: Boolean;
+
     trigger OnOpenPage()
     begin
         if Rec."No." = '' then
@@ -19,7 +20,7 @@ pageextension 50103 "Customer Card Validate Ext" extends "Customer Card"
 
     trigger OnClosePage()
     var
-        Publisher: Codeunit MyPublishers;
+        Publisher: Codeunit "ZYN_My Publishers";
     begin
         if IsNewCustomer and (Rec.Name <> '') then
             Publisher.OnAfterNewCustomerCreated(Rec.Name);

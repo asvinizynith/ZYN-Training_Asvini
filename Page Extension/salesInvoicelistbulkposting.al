@@ -10,9 +10,9 @@ pageextension 50161 salesinvoicebulkposting extends "Sales Invoice List"
                 Caption = 'BulkPosting';
                 trigger OnAction()
                 var
-                    ReportSelection: Report "BulkPosting";
+                    ReportSelection: Report "ZYN_Bulk Posting";
                 begin
-                    Report.Run(Report::BulkPosting);
+                    Report.Run(Report::"ZYN_Bulk Posting");
                 end;
             }
         }

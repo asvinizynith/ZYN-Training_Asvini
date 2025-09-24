@@ -1,11 +1,11 @@
-page 50104 "Recurring Expense List"
+page 50104 "ZYN_Recurring Expense List"
 {
     ApplicationArea = All;
-    Caption = 'Recurring Expense List';
+    Caption = 'ZYN_Recurring Expense List';
     PageType = List;
-    SourceTable = "Recurring Expense Table";
+    SourceTable = "ZYN_Recurring Expense Table";
     UsageCategory = Administration;
-    CardPageId = "Recurring Expense Card"; // Ensures standard 'New' works too
+    CardPageId = "ZYN_Recurring Expense Card"; // Ensures standard 'New' works too
     Editable = false;
 
     layout
@@ -14,29 +14,23 @@ page 50104 "Recurring Expense List"
         {
             repeater(General)
             {
-                field(Category; Rec.Category) 
+                field(Category; Rec.Category)
                 {
-
-                 }
-                field(Amount; Rec.Amount) 
-                { 
-
                 }
-                field(Cycle; Rec."Cycle Type") 
-                { 
-
+                field(Amount; Rec.Amount)
+                {
+                }
+                field(Cycle; Rec."Cycle Type")
+                {
                 }
                 field("Start Date"; Rec."Start Date")
                 {
-
                 }
                 field("Next Cycle Date"; Rec."Next Cycle Date")
                 {
-
                 }
                 field(Description; Rec.Description)
                 {
-                    Caption = 'Description';
                 }
             }
         }

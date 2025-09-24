@@ -1,9 +1,9 @@
-codeunit 50123 "Subscript Renewal Notification"
+codeunit 50123 "ZYN_Subscript Renew Notify Mgt"
 {
     procedure SubscriptionRenewalNotification()
     var
         Notification: Notification;
-        SubRenewal: Record "Subscription Table";
+        SubRenewal: Record "ZYN_Subscription Table";
 
     begin
         SubRenewal.Reset();

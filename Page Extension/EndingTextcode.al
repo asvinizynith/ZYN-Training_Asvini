@@ -10,8 +10,9 @@ pageextension 50122 endingtextcodeext extends "Sales Invoice"
                 ApplicationArea = All;
                 TableRelation = "Standard Text";
             }
-            part(EndingLine; "Ending Text Code")
+            part(EndingLine; "ZYN_Ending Text Code")
             {
+                 Caption = 'Ending Text';
                 ApplicationArea = All;
                 SubPageLink = "Customer No" = field("Sell-to Customer No."), Selection = const(EndingText);
             }

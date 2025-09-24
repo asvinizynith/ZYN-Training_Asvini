@@ -1,4 +1,4 @@
-table 50111 "Asset Type"
+table 50111 "ZYN_Asset Type Table"
 {
     DataClassification = ToBeClassified;
     fields
@@ -8,7 +8,7 @@ table 50111 "Asset Type"
             AutoIncrement = true;
             Caption = 'No';
         }
-        field(2; "Asset Category"; Enum "Asset Category")
+        field(2; "Asset Category"; Enum "ZYN_Asset Category")
         {
             Caption = 'Asset Category';
         }

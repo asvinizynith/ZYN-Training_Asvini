@@ -1,9 +1,9 @@
-page 50139 "Expense Claim Card"
+page 50139 "ZYN_Expense Claim Card"
 {
     ApplicationArea = All;
-    Caption = 'Expense Claim Card';
+    Caption = 'ZYN_Expense Claim Card';
     PageType = Card;
-    SourceTable = "expense claim table";
+    SourceTable = "ZYN_Expense Claim Table";
 
     layout
     {
@@ -15,19 +15,17 @@ page 50139 "Expense Claim Card"
 
                 field("Entry No."; Rec."Entry No.")
                 {
-
                 }
                 field("Employee ID"; Rec."Employee ID")
                 {
-
                 }
                 field("Category code"; Rec."Category Code")
                 {
                     trigger OnDrillDown()
                     var
-                        ExpenseClaimCategory: Record "Expense Claim Category Table";
+                        ExpenseClaimCategory: Record "ZYN_Expense Claim Category";
                     begin
-                        if Page.RunModal(Page::"Expense Claim Category List", ExpenseClaimCategory) = Action::LookupOK then begin
+                        if Page.RunModal(Page::"ZYN_ExpenseClaim Category List", ExpenseClaimCategory) = Action::LookupOK then begin
                             Rec."Category Code" := ExpenseClaimCategory."Category Code";
                             Rec."Subtype" := ExpenseClaimCategory."Subtype";    // auto-fill subtype after selection
                             Rec."Category Name" := ExpenseClaimCategory."Category Name";
@@ -42,39 +40,31 @@ page 50139 "Expense Claim Card"
                 }
                 field("Category Name"; Rec."Category Name")
                 {
-
                 }
                 field(Subtype; Rec.Subtype)
                 {
-
                 }
                 field("Available Amount Limit"; "AvailableAmountLimit")
                 {
-                    ApplicationArea = All;
                     Caption = 'Available Amount Limit';
                     Editable = false;
                 }
                 field(Amount; Rec.Amount)
                 {
-
                 }
                 field("Bill Date"; Rec."Bill Date")
                 {
-
                 }
                 field("Claim Date"; Rec."Claim Date")
                 {
-
                 }
                 field(Status; Rec.Status)
                 {
                     Editable = false;
                 }
-
                 field("Bill Copy"; Rec."File Name")
                 {
                     Caption = 'Bill Copy';
-                    ApplicationArea = all;
                     trigger OnAssistEdit()
                     var
                         InS: InStream;
@@ -99,7 +89,6 @@ page 50139 "Expense Claim Card"
                 }
                 field(Remarks; Rec.Remarks)
                 {
-
                 }
             }
         }
@@ -109,8 +98,8 @@ page 50139 "Expense Claim Card"
 
     procedure CalcAvailableLimit()
     var
-        ExpenseClaimRec: Record "Expense Claim table";
-        ClaimCategoryRec: Record "Expense Claim Category Table";
+        ExpenseClaimRec: Record "ZYN_Expense Claim Table";
+        ClaimCategoryRec: Record "ZYN_Expense Claim Category";
         TotalApproved: Decimal;
         StartDate: Date;
         EndDate: Date;

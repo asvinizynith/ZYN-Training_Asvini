@@ -11,11 +11,12 @@ pageextension 50129 postedinvoiceext extends "Posted Sales Invoice"
                     Caption = 'Biginning Code';
                     ApplicationArea = All;
                     Editable = false;
-                }    
+                }
             }
-            part(BeginningLine; "Text Code")
+            part(BeginningLine; "ZYN_Beginning Text Code")
             {
                 ApplicationArea = All;
+                 Caption = 'Biginning Line';
                 SubPageLink = "No" = field("No."), "Document Type" = const("Posted Invoice"), Selection = const("BeginningText");
             }
         }
@@ -24,12 +25,13 @@ pageextension 50129 postedinvoiceext extends "Posted Sales Invoice"
             field("Ending Code"; Rec."Ending Code")
             {
                 ApplicationArea = All;
-                Caption = 'Ending Code'; 
+                Caption = 'Ending Code';
                 Editable = false;
             }
-            part(EndingLine; "Text Code")
+            part(EndingLine; "ZYN_Beginning Text Code")
             {
                 ApplicationArea = All;
+                Caption = 'Ending Line';
                 SubPageLink = "No" = field("No."), "Document Type" = const("Posted Invoice"), Selection = const("EndingText");
             }
         }
