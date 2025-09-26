@@ -20,6 +20,15 @@ page 50150 "ZYN_Companies List"
                 field("Display Name"; Rec."Display Name")
                 {
                 }
+                field(IsMaster; Rec.IsMaster)
+                {
+                }
+                field("Master Company Name"; Rec."Master Company Name")
+                {
+                }
+                field("Master Company ID"; Rec."Master Company ID")
+                {
+                }
                 field("Company Id"; Rec.Id)
                 {
                 }
@@ -29,5 +38,4 @@ page 50150 "ZYN_Companies List"
             }
         }
     }
-
 }
