@@ -64,6 +64,7 @@ codeunit 50128 "ZYN_Contact Synchronize Mgt"
         SlaveCompany: Record "ZYN_Companies Table";
         MyCompany: Record "ZYN_Companies Table";
         Contact: Record Contact;
+        SingleInstanceMgt: Codeunit "ZYN_Single Instance Management";
         MasterRef: RecordRef;
         SlaveRef: RecordRef;
         FieldMaster: FieldRef;
@@ -76,6 +77,11 @@ codeunit 50128 "ZYN_Contact Synchronize Mgt"
             exit;
         if not IsMasterCompany() then
             exit;
+
+        if SingleInstanceMgt.GetFromCreateAs() then begin
+            SingleInstanceMgt.ClearCreateAs();
+            exit;
+        end;
 
         // 3. Prevent recursion
         if IsSyncing then
@@ -109,8 +115,7 @@ codeunit 50128 "ZYN_Contact Synchronize Mgt"
                                 end;
                             end;
                             if IsDifferent then begin
-
-                                Contact.TransferFields(Rec, false);
+                                Contact.TransferFields(Rec, true);
                                 Contact."No." := Rec."No.";
                                 Contact.Modify(true);
                             end;

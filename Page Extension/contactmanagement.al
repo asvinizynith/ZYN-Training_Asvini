@@ -2,6 +2,25 @@ pageextension 50105 "ContactListext" extends "Contact List"
 {
     actions
     {
+        modify(Customer)
+        {
+            trigger OnBeforeAction()
+            var
+                SingleInstanceMgt: Codeunit "ZYN_Single Instance Management";
+            begin
+                SingleInstanceMgt.SetFromCreateAs();
+            end;
+        }
+
+        modify(Vendor)
+        {
+            trigger OnBeforeAction()
+            var
+                SingleInstanceMgt: Codeunit "ZYN_Single Instance Management";
+            begin
+                SingleInstanceMgt.SetFromCreateAs();
+            end;
+        }
         addfirst(processing)
         {
             action(CustomerContact)
